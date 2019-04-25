@@ -42,8 +42,8 @@ const PageTwo = props => (
 		<label htmlFor="gender" name="gender">Gender</label>
 		<Field htmlFor="gender" placholder="Gender" component="select" name="gender">
 		  <option value="">Select</option>
-		  <option value="Male" name="gender">Male</option>
-		  <option value="Female" name="gender">Female</option>
+		  <option value="M" name="gender">Male</option>
+		  <option value="F" name="gender">Female</option>
 		</Field>
 		<ErrorMessage
 		  name="gender"
@@ -53,8 +53,8 @@ const PageTwo = props => (
 		<label htmlFor="tobacco" name="tobacco">Tobacco user?</label>
 		<Field htmlFor="tobacco" placholder="Tobacco user?" component="select" name="tobacco">
 			<option value="">Select</option>
-		  <option value="Yes" name="tobacco">Yes</option>
-		  <option value="No" name="tobacco">No</option>
+		  <option value="1" name="tobacco">Yes</option>
+		  <option value="0" name="tobacco">No</option>
 		</Field>
 		<ErrorMessage
 		  name="tobacco"

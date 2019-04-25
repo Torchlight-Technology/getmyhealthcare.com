@@ -22,10 +22,10 @@ const SignUpSchema = Yup.object().shape({
   dateOfBirth: Yup.string()
     .required('Required'),
   gender: Yup.mixed()
-    .oneOf(['Male', 'Female'])
+    .oneOf(['M', 'F'])
     .required('Gender is required'),
   tobacco: Yup.mixed()
-    .oneOf(['Yes', 'No'])
+    .oneOf(['1', '0'])
     .required('Your tobacco usage is required.'),
   income: Yup.number()
     .required('Your income must be included'),
@@ -44,15 +44,15 @@ const SignUpSchema = Yup.object().shape({
     .required('Required'),
   // Apply mask
   phone_home: Yup.string()
-    .required('Phone number is required'),
+    .required('Phone number is required')
 });
 
 const initialValues = {
     numberOnPolicy: '1',
     home_zip: '90210',
     dateOfBirth: '12/12/1980',
-    gender: 'Male',
-    tobacco: 'No',
+    gender: 'M',
+    tobacco: '0',
     income: '33000',
     coverageType: 'Silver',
     name_first: 'John',
@@ -102,8 +102,8 @@ class Wizard extends Component {
         },
         body: data
       })
-      .then(function(res){ return res.json(); })
-      .then(function(data){ console.log( JSON.stringify( data ) ) })
+      .then((res) => res.json())
+      .then((data) => console.log(JSON.stringify(data)));
     }
 
     render() {

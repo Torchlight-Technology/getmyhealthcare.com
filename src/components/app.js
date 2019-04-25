@@ -11,7 +11,7 @@ import Privacy from '../routes/privacy';
 import Terms from '../routes/terms';
 
 export default class App extends Component {
-	
+
 	/** Gets fired when the route changes.
 	 *	@param {Object} event		"change" event from [preact-router](http://git.io/preact-router)
 	 *	@param {string} event.url	The newly routed URL
@@ -20,17 +20,30 @@ export default class App extends Component {
 		this.currentUrl = e.url;
 	};
 
+	searchToObject = (search) => {
+		return search.substring(1).split('&').reduce((result, value) => {
+			const parts = value.split('=');
+			if (parts[0]) result[decodeURIComponent(parts[0])] = decodeURIComponent(parts[1]);
+			return result;
+		}, {});
+	};
+
+	constructor(props) {
+		super(props);
+		this.params = this.searchToObject(location.search);
+	}
+
 	//Fix Footer styling
 	render() {
 		return (
 			<div id="app">
 				<Header />
-				<Router onChange={this.handleRoute}>
+				<Router onChange={this.handleRoute} params={this.params}>
 					<Form path="/" />
-					<Exit path="/thank-you/"/>
-					<About path="/about/"/>
-					<Privacy path="/privacy/"/>
-					<Terms path="/terms/"/>
+					<Exit path="/thank-you/" />
+					<About path="/about/" />
+					<Privacy path="/privacy/" />
+					<Terms path="/terms/" />
 				</Router>
 				<Footer />
 			</div>

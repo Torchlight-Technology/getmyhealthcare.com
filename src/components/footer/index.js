@@ -4,14 +4,14 @@ import { Link } from 'preact-router/match';
 //TODO: Actual footer, Google Tag Manager, Dynamic Year
 const Footer = () => (
 	<div class="footer">
-	   <p>© GetMyHealthcare 2019. All rights reserved.</p>
+	   <p>&copy; GetMyHealthcare 2019. All rights reserved.</p>
 	   <nav>
 	     <ul>
-	       <li>Privacy Policy</li>
-	       <li>Terms of Use</li>
-	       <li>About Us</li>
+	       <li><Link href="/privacy/">Privacy Policy</Link></li>
+	       <li><Link href="/terms/">Terms of Use</Link></li>
+	       <li><Link href="/about/">About Us</Link></li>
 	     </ul>
-	   </nav> 
+	   </nav>
 	 </div>
 );
 

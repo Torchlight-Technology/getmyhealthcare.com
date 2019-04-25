@@ -11,6 +11,7 @@ const PageThree = props => (
 		</div>
 		<label htmlFor="coverageType" name="coverageType">Coverage type</label>
 		<Field htmlFor="coverageType" placholder="Coverage type" component="select" name="coverageType">
+			<option value="">Select</option>
 		  <option value="Bronze" name="coverageType">Bronze</option>
 		  <option value="Silver" name="coverageType">Silver</option>
 		  <option value="Gold" name="coverageType">Gold</option>

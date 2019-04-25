@@ -30,7 +30,7 @@ div.input-group {
 		border-bottom-left-radius: $base-border-radius;
 	}
 
-	input[name="zip"] {
+	input[name="home_zip"] {
 		border-radius: 0;
 		border-left: none;
 	}
@@ -45,7 +45,7 @@ div.input-group {
 
 	@media (min-width: 500px) {
 		grid-template-rows: 30px 1fr;
-		grid-template-columns: 1fr 1fr 1.5fr;	
+		grid-template-columns: 1fr 1fr 1.5fr;
 
 		input[type="number"] {
 			border-radius: 0;

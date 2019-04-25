@@ -4,13 +4,7 @@ import * as Yup from 'yup';
 import MaskedInput from 'react-text-mask';
 //import zipSubmit from '../../components/zip-submit';
 
-const zipMask = [
-  /[1-9]/,
-  /\d/,
-  /\d/,
-  /\d/,
-  /\d/,
-];
+const zipMask = [ /[1-9]/, /\d/, /\d/, /\d/, /\d/ ];
 
 // TODO Make ZipSubmit component (onClick send to top of page)
 const PageOne = props => (
@@ -23,14 +17,15 @@ const PageOne = props => (
 		    <div class="input-group">
 	            <label htmlFor="numberOnPolicy" name="numberOnPolicy" >Number on Policy</label>
 	            <Field htmlFor="numberOnPolicy" name="numberOnPolicy" component="select" placeholder="1">
-	              <option value="1" selected>1</option>
-	              <option value="2" >2</option>
-	              <option value="3" >3</option>
-	              <option value="4+" >4+</option>
+	              <option value="">Select</option>
+	              <option value="1">1</option>
+	              <option value="2">2</option>
+	              <option value="3">3</option>
+	              <option value="4+">4+</option>
 	            </Field>
-	            <label htmlFor="zip" name="zip">Zip Code</label>
+	            <label htmlFor="home_zip" name="home_zip">Zip Code</label>
 	          <Field
-	                    name="zip"
+	                    name="home_zip"
 	                    render={({ field }) => (
 	                      <MaskedInput
 	                        {...field}
@@ -43,7 +38,7 @@ const PageOne = props => (
 	            <button
 	              type="button"
 	              onClick={props.navigateNext}
-	              disabled={!(props.values.numberOnPolicy && props.values.zip)}
+	              disabled={!(props.values.numberOnPolicy && props.values.home_zip)}
 	            >
 	              Next
 	            </button>
@@ -53,33 +48,33 @@ const PageOne = props => (
 	              className="field-error"
 	            />
 	            <ErrorMessage
-	              name="zip"
+	              name="home_zip"
 	              component="div"
 	              className="field-error"
 	            />
-		    </div>   
+		    </div>
 		  </div>
 		  <div class="plans">
 		    <nav>
 		      <ul>
 		        <li>
-		          <img src="/assets/pill-icon.svg" alt="Obamacare Plans"/>
-		          <p>Obamacare Plans</p> 
+		          <img src="/assets/pill-icon.svg" alt="Obamacare Plans" />
+		          <p>Obamacare Plans</p>
 		        </li>
 		        <li>
-		          <img src="/assets/life-case.svg" alt="Medicare Plans"/>
+		          <img src="/assets/life-case.svg" alt="Medicare Plans" />
 		          <p>Short-term Plans</p>
 		        </li>
 		        <li>
-		          <img src="/assets/heart-beat.svg" alt="Medicare Plans"/>
+		          <img src="/assets/heart-beat.svg" alt="Medicare Plans" />
 		          <p>Medicare Plans</p>
 		        </li>
 		        <li>
-		          <img src="/assets/Laptop Icon.svg" alt="Health Plans"/>
+		          <img src="/assets/Laptop Icon.svg" alt="Health Plans" />
 		          <p>Health Plans</p>
 		        </li>
 		      </ul>
-		    </nav> 
+		    </nav>
 		  </div>
 		  <div class="about">
 		   <h3>Everything you need for your health insurance choices in one place!</h3>
@@ -94,14 +89,15 @@ const PageOne = props => (
      	   <div class="input-group">
 	            <label htmlFor="numberOnPolicy" name="numberOnPolicy" >Number on Policy</label>
 	            <Field htmlFor="numberOnPolicy" name="numberOnPolicy" component="select" placeholder="1">
-	              <option value="1" selected>1</option>
-	              <option value="2" >2</option>
-	              <option value="3" >3</option>
-	              <option value="4+" >4+</option>
+								<option value="">Select</option>
+	              <option value="1">1</option>
+	              <option value="2">2</option>
+	              <option value="3">3</option>
+	              <option value="4+">4+</option>
 	            </Field>
-	            <label htmlFor="zip" name="zip">Zip Code</label>
+	            <label htmlFor="home_zip" name="home_zip">Zip Code</label>
 	          <Field
-	                    name="zip"
+	                    name="home_zip"
 	                    render={({ field }) => (
 	                      <MaskedInput
 	                        {...field}
@@ -114,7 +110,7 @@ const PageOne = props => (
 	            <button
 	              type="button"
 	              onClick={props.navigateNext}
-	              disabled={!(props.values.numberOnPolicy && props.values.zip)}
+	              disabled={!(props.values.numberOnPolicy && props.values.home_zip)}
 	            >
 	              Next
 	            </button>
@@ -124,11 +120,11 @@ const PageOne = props => (
 	              className="field-error"
 	            />
 	            <ErrorMessage
-	              name="zip"
+	              name="home_zip"
 	              component="div"
 	              className="field-error"
 	            />
-		    </div>   
+		    </div>
 			   </div>
 			  </div>
 			  <div class="stats">
@@ -140,18 +136,19 @@ const PageOne = props => (
 			    <h3>We’ve helped XXXXX of Americans shop for Helathcare</h3>
 			    <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed justo neque, feugiat sit amet lacus in, dapibus convallis ligula. Vivamus ornare sed ligula sed porta.”<br/><br/>- Some Person</p>
 			    <p>“In hac habitasse platea dictumst. Mauris laoreet massa et nibh dapibus bibendum. Nunc mauris nulla, tincidunt in tristique.”<br/><br/>- Some Person</p>
-		    	   
+
 		    	    <div class="input-group">
 	            <label htmlFor="numberOnPolicy" name="numberOnPolicy" >Number on Policy</label>
 	            <Field htmlFor="numberOnPolicy" name="numberOnPolicy" component="select" placeholder="1">
-	              <option value="1" selected>1</option>
-	              <option value="2" >2</option>
-	              <option value="3" >3</option>
-	              <option value="4+" >4+</option>
+	              <option value="">Select</option>
+	              <option value="1">1</option>
+	              <option value="2">2</option>
+	              <option value="3">3</option>
+	              <option value="4+">4+</option>
 	            </Field>
-	            <label htmlFor="zip" name="zip">Zip Code</label>
+	            <label htmlFor="home_zip" name="home_zip">Zip Code</label>
 	          <Field
-	                    name="zip"
+	                    name="home_zip"
 	                    render={({ field }) => (
 	                      <MaskedInput
 	                        {...field}
@@ -164,7 +161,7 @@ const PageOne = props => (
 	            <button
 	              type="button"
 	              onClick={props.navigateNext}
-	              disabled={!(props.values.numberOnPolicy && props.values.zip)}
+	              disabled={!(props.values.numberOnPolicy && props.values.home_zip)}
 	            >
 	              Next
 	            </button>
@@ -174,12 +171,12 @@ const PageOne = props => (
 	              className="field-error"
 	            />
 	            <ErrorMessage
-	              name="zip"
+	              name="home_zip"
 	              component="div"
 	              className="field-error"
 	            />
-		    </div>   
-			  </div> 
+		    </div>
+			  </div>
 			</main>
 	</div>
 );

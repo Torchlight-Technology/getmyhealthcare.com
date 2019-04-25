@@ -5,7 +5,10 @@ const Exit = () => (
 		<div class="exit-title">
 		  <h2>Congratulations!<br />Here are your results</h2>
 		</div>
-		
+		<div class="iframe">
+		{/* this url will need to get arguments to it */}
+		<iframe src="http://oceanic/cpcman/fetch/renderPage?site=5&zip=19701" frameBorder="0"></iframe>
+		</div>
 		<div class="ad">
 		  <div class="top-bar">
 		    <p>Featured</p>

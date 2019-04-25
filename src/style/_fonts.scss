@@ -1,0 +1,69 @@
+html {
+	font-size: 16px;
+	color: $base-font-color;
+	font-family: $base-font-family;
+	line-height: $base-line-height;
+}
+
+p, a, li, label, button, input {
+	@include base-font;
+	color: $gray-darker;
+}
+
+a {
+	@include heading-link; 
+}
+
+h1 { @include heading-1; }
+h2 { @include heading-2; }
+h3 { @include heading-3; }
+h4 { @include heading-4; }
+h5 { @include heading-5; }
+h6 { @include heading-6; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $heading-font-family;
+  line-height: $heading-line-height;
+  margin: 0 0 $small-spacing;
+}
+
+p {
+  margin: 0 0 $small-spacing;
+}
+
+a {
+  color: $action-color;
+  text-decoration-skip: ink;
+  transition: color $base-duration $base-timing;
+
+  &:hover {
+    color: shade($action-color, 25%);
+  }
+
+  &:focus {
+    outline: $focus-outline;
+    outline-offset: $focus-outline-offset;
+  }
+}
+
+hr {
+  border-bottom: $base-border;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  margin: $base-spacing 0;
+}
+
+div.field-error {
+  margin-top: -.5rem;
+  font-size: .8rem;
+  color: $red;
+  background-color: lighten($red, 40%);
+  padding: .3rem 1rem;
+  margin-bottom: .3rem;
+}

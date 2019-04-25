@@ -1,0 +1,204 @@
+.form {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	margin: 3rem 1rem 0;
+	max-width: 400px;
+	
+	label {
+		font-size: .9rem;
+		color: $gray;
+	}
+
+	main {
+		display: flex;
+  		flex: 1;
+  		justify-content: center;
+  		flex-direction: column;
+		max-width: 400px;
+	}
+
+	div.form-title {
+		padding: 1rem;
+		text-align: center;
+
+		h2 {
+			font-size: 1.5rem;
+			margin-bottom: 0;
+		}
+
+		h2, p {
+			color: $gray;
+		}
+	}
+
+	.check-box-tile {
+		border: 1px solid $gray;
+		margin-bottom: .5rem;
+		padding: 1rem;
+		display: grid;
+		grid-template-rows: 30px 1fr;
+		grid-template-columns: 45px 1fr 1fr;
+		border-radius: $base-border-radius*2;
+
+		&.bronze {
+			h4.plan-level, p.price {
+				color: $orange-darker;
+			}
+		}
+
+		&.silver {
+			h4.plan-level, p.price {
+				color: $gray-light;
+			}
+		}
+
+		&.gold {
+			h4.plan-level, p.price {
+				color: $orange;
+			}
+		}
+
+		&.platinum {
+			h4.plan-level, p.price {
+				color: $blue-darker;
+			}
+		}
+
+		div.checkbox-container {
+			grid-column: 1 / 2;
+			grid-row: 1 / 3;
+			display: grid;
+			align-items: center;
+		}
+
+		p {
+			padding: 0;
+			margin: 0;
+		}
+
+		h4.plan-level {
+			font-size: 1.2rem;
+			margin: 0;
+			font-weight: bold;
+			grid-column: 2 / 3;
+			grid-row: 1 / 2;
+		}
+
+		p.price {
+			text-align: right;
+			font-size: .8rem;
+			grid-column: 3 / 4;
+			grid-row: 1 / 2;
+		}
+
+		p.details {
+			grid-column: 2 / 4;
+			grid-row: 2 / 3;
+		}
+
+		input[type="checkbox"] {
+			height: 16px;
+			width: 16px;
+			padding: .5rem;
+		}
+	}
+
+	.expando {
+		display: flex;
+		justify-content: center;
+		align-content: center;
+
+		img {
+			margin-right: 1rem;
+		}
+
+		p {
+			color: $gray;
+			margin-bottom: 0;
+		}
+	}
+
+	.saving-card {
+		border: 5px solid $blue-dark;
+		border-radius: $base-border-radius*2;
+		text-align: center;
+		padding: .5rem;
+		margin-bottom: 1rem;
+
+		h3, p {
+			color: $blue-dark;
+			margin: 0;
+			padding: 0;
+		}
+
+		p {
+			font-weight: bold;
+			font-size: 3rem;
+			line-height: 1.1;
+
+			.smol {
+				font-size: 1.5rem;
+			}
+		}
+	}
+
+	.income {
+		position: relative;
+
+		&:before {
+		position: absolute;
+		top: 28px;
+		content: '$';
+		height: 52px;
+		width: 50px;
+		background: $gray;
+		border-top-left-radius: $base-border-radius;
+		border-bottom-left-radius: $base-border-radius;
+		color: white;
+		font-weight: bold;
+		font-size: 2rem;
+		text-align: center;
+		}
+
+		input[name="income"] {
+			padding-left: 4.2rem;
+		}
+	}
+
+	div.insured-card {
+		border: 1px solid $gray-lighter;
+		padding: 1rem;
+
+		.member {
+			text-transform: uppercase;
+			font-weight: bold;
+		}
+	}
+
+	small {
+	  line-height: .6 !important;
+	  font-size: .8rem;
+	}
+
+
+	form {
+		padding: 0 1rem 1rem;
+	}
+
+	div.radio-row p {
+		margin-bottom: .3rem;
+	}
+
+	div.radio-row {
+		margin-bottom: 1rem;
+	}
+
+	input[type="submit"], button {
+		margin-top: 1.5rem;
+		font-size: 1.5rem;
+		border: 2px solid $orange-dark;
+		text-shadow: 1px 1px 4px $orange-darker;
+		text-transform: uppercase;
+	}
+}

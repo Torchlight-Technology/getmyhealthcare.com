@@ -1,0 +1,12 @@
+div.progress {
+	height: 5px;
+	background-color: $gray-lightest;
+	width: 100%;
+	display: flex;
+
+	div.bar {
+		width: 20%;
+		height: 5px;
+		background-color: $blue-bright;
+	}
+}

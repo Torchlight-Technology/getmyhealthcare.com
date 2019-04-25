@@ -1,0 +1,108 @@
+.exit {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	padding: .5rem;
+
+	div.exit-title {
+		padding: 1rem;
+		text-align: center;
+
+		h2 {
+			font-size: 1.5rem;
+			margin-bottom: 0;
+		}
+
+		h2, p {
+			color: $gray;
+		}
+	}
+
+	main {
+		display: flex;
+  		flex: 1;
+  		justify-content: center;
+  		flex-direction: column;
+		max-width: 400px;
+	}
+
+	.ad {
+		text-align: center;
+		border: 1px solid $gray;
+		padding-bottom: 1rem;
+		margin-bottom: 1rem;
+		border-radius: $base-border-radius*2;
+
+		.bronze {
+			color: $orange-darker;
+			font-weight: bold;
+		}
+
+		.description {
+			color: $gray-light;
+		}
+
+		h4 {
+			color: $blue-dark;
+			font-size: 2.5rem;
+			margin: 0;
+		}
+
+		h5 {
+			margin-bottom: .5rem;
+			font-size: 1.2rem;
+		}
+	}
+
+	.cost-row {
+		display: flex;
+		justify-content: space-between;
+		padding: 0 2rem;	
+
+		p {
+			color: $gray;
+		}
+	}
+
+	button.select-button {
+		font-size: 1.2rem;
+		width: 84%;
+		margin-bottom: 1rem;
+	}
+
+	.button-row {
+		display: flex;
+		justify-content: space-between;
+		padding: 0 2rem;
+
+		button {
+			background: $white;
+			color: $gray;
+			font-size: 1rem;
+			border: 1px solid $gray;
+			border-radius: $base-border-radius;
+		}
+	}
+
+	.top-bar {
+		display: flex;
+		justify-content: space-between;
+
+		p {
+			font-size: .8rem;
+			color: $white;
+			padding: .5rem;
+			font-weight: bold;
+		}
+
+		p:first-of-type {
+			background-color: $blue-darkest;
+			border-top-left-radius: $base-border-radius*2;
+		}
+
+		p:last-of-type {
+			background-color: $gray;
+			border-top-right-radius: $base-border-radius*2;
+		}
+	}
+}

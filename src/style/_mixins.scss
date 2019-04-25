@@ -1,0 +1,58 @@
+@mixin base-font {
+  font-family: 'Open Sans', sans-serif;
+}
+
+@mixin max-width {
+  width: 100%;
+  max-width: 1250px;
+  max-width: 1250px;
+}
+
+@mixin title-face {
+  font-family: 'Inconsolata', monospace;
+}
+
+@mixin heading-link {
+  color: $blue-bright;
+  text-decoration: none;
+}
+
+@mixin heading {
+  @include title-face;
+  margin: .5rem 0;
+  line-height: 1;
+  color: $gray-darker;
+  a {
+    @include heading-link;
+  }
+}
+
+@mixin heading-1 {
+  @include heading;
+  font-size: 3.375rem;
+}
+
+@mixin heading-2 {
+  @include heading;
+  font-size: 3rem;
+}
+
+@mixin heading-3 {
+  @include heading;
+  font-size: 2.25rem;
+}
+
+@mixin heading-4 {
+  @include heading;
+  font-size: 1.75rem;
+}
+
+@mixin heading-5 {
+  @include heading;
+  font-size: 1rem;
+}
+
+@mixin heading-6 {
+  @include heading;
+  font-size: 0.875rem;
+}

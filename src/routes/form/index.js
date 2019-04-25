@@ -7,9 +7,9 @@ import * as Yup from 'yup';
 
 import Wizard from './Wizard';
 
-const App = () => (
+const App = (props) => (
 	<div className="app">
-		<Wizard />
+		<Wizard {...props} />
 	</div>
 );
 

@@ -9,7 +9,7 @@ const PageThree = props => (
 		  <p>You may qualify for savings on your monthly based on your estimated household income.</p>
 		</div>
 		<label htmlFor="income" name="income">Annual Income</label>
-		<Field htmlFor="income" placholder="Annual Income" name="income"/>
+		<Field htmlFor="income" placholder="Annual Income" name="income" />
 		<ErrorMessage
 		  name="income"
 		  component="div"

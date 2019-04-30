@@ -31,10 +31,13 @@
     "sass-loader": "^7.1.0"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "formik": "^1.5.1",
     "linkstate": "^1.1.1",
     "preact": "^8.2.6",
     "preact-compat": "^3.18.4",
+    "preact-helmet": "^4.0.0-alpha-3",
+    "preact-progress": "^1.0.0",
     "preact-router": "^2.5.7",
     "react-text-mask": "^5.4.3",
     "string-mask": "^0.3.0",

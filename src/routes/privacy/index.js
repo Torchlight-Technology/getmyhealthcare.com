@@ -1,7 +1,7 @@
 import { h } from 'preact';
 
 const Privacy = () => (
-	<div>
+	<div class="content-page">
 	    <h1>Privacy Policy</h1>
 	    <h3>Effective Date: September 7, 2017</h3>
 	    <h4>Introduction</h4>

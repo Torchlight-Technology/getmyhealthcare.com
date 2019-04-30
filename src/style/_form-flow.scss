@@ -32,7 +32,7 @@
 		}
 	}
 
-	.check-box-tile {
+	.radio-tile {
 		border: 1px solid $gray;
 		margin-bottom: .5rem;
 		padding: 1rem;
@@ -40,6 +40,10 @@
 		grid-template-rows: 30px 1fr;
 		grid-template-columns: 45px 1fr 1fr;
 		border-radius: $base-border-radius*2;
+
+		label {
+			display: none;
+		}
 
 		&.bronze {
 			h4.plan-level, p.price {
@@ -65,7 +69,7 @@
 			}
 		}
 
-		div.checkbox-container {
+		div.radio-container {
 			grid-column: 1 / 2;
 			grid-row: 1 / 3;
 			display: grid;
@@ -97,10 +101,11 @@
 			grid-row: 2 / 3;
 		}
 
-		input[type="checkbox"] {
-			height: 16px;
-			width: 16px;
-			padding: .5rem;
+		input[type="radio"] {
+			display: block;
+			appearance: radio;
+			outline: none; 
+			box-shadow: none;
 		}
 	}
 

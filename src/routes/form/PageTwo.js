@@ -2,9 +2,11 @@ import { h } from 'preact';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import MaskedInput from 'react-text-mask';
+import { Router, route } from 'preact-router';
+import Progress from 'preact-progress';
 
 const dobMask = [
-  /[1-9]/,
+  /[0-9]/,
   /\d/,
   "/",
   /\d/,
@@ -16,8 +18,16 @@ const dobMask = [
   /\d/
 ];
 
+const onChange = (ctx, val) => console.log(`${val}% complete`);
+
 const PageTwo = props => (
 	<div className="page form">
+		<Progress 
+		  id="loader" class="loader"
+		  value={40} height="3px" color="#6cc644"
+		  onChange={ onChange }
+
+		/ >
 		<div class="form-title">
 		  <h2>Who is being insured?</h2>
 		  <p>Please include details so we can match you with your best plan</p>

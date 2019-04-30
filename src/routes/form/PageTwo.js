@@ -24,13 +24,14 @@ const PageTwo = props => (
 		</div>
 		<label htmlFor="dateOfBirth" name="dateOfBirth">Date of Birth</label>
 		<Field
-          name="dateOfBirth"
+					name="dateOfBirth"
           render={({ field }) => (
             <MaskedInput
               {...field}
               mask={dobMask}
               placeholder="MM/DD/YYYY"
-              type="dateofBirth"
+							type="dateofBirth"
+							onInput={(e) => { props.handleLocalStorage(e) }}
             />
           )}
         />
@@ -40,22 +41,22 @@ const PageTwo = props => (
 		  className="field-error"
 		/>
 		<label htmlFor="gender" name="gender">Gender</label>
-		<Field htmlFor="gender" placholder="Gender" component="select" name="gender">
+		<select htmlFor="gender" placholder="Gender" value={props.values.gender} name="gender" onChange={(e) => { props.handleLocalStorage(e); props.handleChange(e) } }>
 		  <option value="">Select</option>
 		  <option value="M" name="gender">Male</option>
 		  <option value="F" name="gender">Female</option>
-		</Field>
+		</select>
 		<ErrorMessage
 		  name="gender"
 		  component="div"
 		  className="field-error"
 		/>
 		<label htmlFor="tobacco" name="tobacco">Tobacco user?</label>
-		<Field htmlFor="tobacco" placholder="Tobacco user?" component="select" name="tobacco">
+		<select htmlFor="tobacco" placholder="Tobacco user?" value={props.values.tobacco} name="tobacco" onChange={(e) => { props.handleLocalStorage(e); props.handleChange(e) } }>
 			<option value="">Select</option>
 		  <option value="1" name="tobacco">Yes</option>
 		  <option value="0" name="tobacco">No</option>
-		</Field>
+		</select>
 		<ErrorMessage
 		  name="tobacco"
 		  component="div"

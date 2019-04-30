@@ -1,4 +1,5 @@
-import { h } from 'preact';
+import { h, Component } from 'preact';
+const storage = JSON.parse(localStorage.getItem('getmyhealth'))
 
 const Exit = () => (
 	<div class="exit">
@@ -7,7 +8,7 @@ const Exit = () => (
 		</div>
 		<div class="iframe">
 		{/* this url will need to get arguments to it */}
-		<iframe src="http://oceanic/cpcman/fetch/renderPage?site=5&zip=19701" frameBorder="0"></iframe>
+		<iframe src={`http://oceanic/cpcman/fetch/renderPage?site=5&zip=${storage.home_zip}`} frameBorder="0"></iframe>
 		</div>
 		<div class="ad">
 		  <div class="top-bar">

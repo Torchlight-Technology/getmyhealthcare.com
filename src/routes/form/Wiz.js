@@ -4,12 +4,13 @@ class Wiz extends Component {
 	state = {
 		pageIndex: 0
 	};
-
+	
 	render() {
 		const renderProps = {
 			navigateBack: this._navigateBack,
 			navigateNext: this._navigateNext,
 			pageIndex: this.state.pageIndex,
+			handleLocalStorage: this._handleLocalStorage,
 			renderPage: this._renderPage
 		};
 		return this.props.children(renderProps);
@@ -27,6 +28,12 @@ class Wiz extends Component {
 		}));
 	};
 
+	_handleLocalStorage = (e) => {
+			const tempStorage = JSON.parse(localStorage.getItem('getmyhealth'))
+      tempStorage[e.target.name] = e.target.value
+      localStorage.setItem('getmyhealth', JSON.stringify(tempStorage))
+	}
+
 	_renderPage = formProps => {
 		const { pageIndex } = this.state;
 
@@ -35,6 +42,7 @@ class Wiz extends Component {
 		return (
 			<Page
 				{...formProps}
+				handleLocalStorage={this._handleLocalStorage}
 				navigateBack={this._navigateBack}
 				navigateNext={this._navigateNext}
 				pageIndex={pageIndex}

@@ -10,13 +10,13 @@ const PageThree = props => (
 		  <p>We’ve pre-selected the silver plans since they’re the most popular plan level</p>
 		</div>
 		<label htmlFor="coverageType" name="coverageType">Coverage type</label>
-		<Field htmlFor="coverageType" placholder="Coverage type" component="select" name="coverageType">
+		<select htmlFor="coverageType" placholder="Coverage type" value={props.values.coverageType} name="coverageType" onChange={(e) => { props.handleLocalStorage(e); props.handleChange(e) } }>
 			<option value="">Select</option>
 		  <option value="Bronze" name="coverageType">Bronze</option>
 		  <option value="Silver" name="coverageType">Silver</option>
 		  <option value="Gold" name="coverageType">Gold</option>
 		  <option value="Platinum" name="coverageType">Platinum</option>
-		</Field>
+		</select>
 		<ErrorMessage
 		  name="coverageType"
 		  component="div"

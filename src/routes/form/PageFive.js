@@ -27,7 +27,7 @@ const PageFive = props => (
 		  <p>Complete this paege and we’ll match you with available plans and show you estimated pricing including subsidies</p>
 		</div>
 		<label htmlFor="name_first" name="name_first">First Name</label>
-		<Field name="name_first" placeholder="First Name" type="text" />
+		<Field name="name_first" placeholder="First Name" type="text" onInput={(e) => { props.handleLocalStorage(e) }}/>
 		<ErrorMessage
 		  name="name_first"
 		  component="div"
@@ -35,7 +35,7 @@ const PageFive = props => (
 		/>
 
 		<label htmlFor="name_last" name="name_last">Last Name</label>
-		<Field name="name_last" placeholder="Last Name" type="text" />
+		<Field name="name_last" placeholder="Last Name" type="text" onInput={(e) => { props.handleLocalStorage(e) }}/>
 		<ErrorMessage
 		  name="name_last"
 		  component="div"
@@ -43,7 +43,7 @@ const PageFive = props => (
 		/>
 
 		<label htmlFor="home_street" name="home_street">Street Address</label>
-		<Field name="home_street" placeholder="123 Main St" type="text" />
+		<Field name="home_street" placeholder="123 Main St" type="text" onInput={(e) => { props.handleLocalStorage(e) }}/>
 		<ErrorMessage
 		  name="home_street"
 		  component="div"
@@ -51,7 +51,7 @@ const PageFive = props => (
 		/>
 
 		<label htmlFor="email" name="email">Email</label>
-		<Field name="email" placeholder="email@address.com" type="email" />
+		<Field name="email" placeholder="email@address.com" type="email" onInput={(e) => { props.handleLocalStorage(e) }}/>
 		<ErrorMessage
 		  name="email"
 		  component="div"
@@ -66,7 +66,8 @@ const PageFive = props => (
                   {...field}
                   mask={phoneNumberMask}
                   placeholder="Enter your phone number"
-                  type="phone"
+									type="phone"
+									onInput={(e) => { props.handleLocalStorage(e) }}
                 />
               )}
             />

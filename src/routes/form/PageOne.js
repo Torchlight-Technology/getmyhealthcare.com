@@ -16,13 +16,13 @@ const PageOne = props => (
 		    <h3>Get Started!</h3>
 		    <div class="input-group">
 	            <label htmlFor="numberOnPolicy" name="numberOnPolicy" >Number on Policy</label>
-	            <Field htmlFor="numberOnPolicy" name="numberOnPolicy" component="select" placeholder="1">
+	            <select htmlFor="numberOnPolicy" value={props.values.numberOnPolicy} name="numberOnPolicy" placeholder="1" onChange={(e) => { props.handleChange(e); props.handleLocalStorage(e) } }>
 	              <option value="">Select</option>
 	              <option value="1">1</option>
 	              <option value="2">2</option>
 	              <option value="3">3</option>
 	              <option value="4+">4+</option>
-	            </Field>
+	            </select>
 	            <label htmlFor="home_zip" name="home_zip">Zip Code</label>
 	          <Field
 	                    name="home_zip"
@@ -31,7 +31,8 @@ const PageOne = props => (
 	                        {...field}
 	                        mask={zipMask}
 	                        placeholder="ZIP Code"
-	                        type="text"
+													type="text"
+													onInput={(e) => { props.handleLocalStorage(e)} }
 	                      />
 	                    )}
 	                  />
@@ -88,13 +89,13 @@ const PageOne = props => (
 		     <p>We sort through your options in our database, and point you in the right direction based on your needs, preferences, and budget.</p>
      	   <div class="input-group">
 	            <label htmlFor="numberOnPolicy" name="numberOnPolicy" >Number on Policy</label>
-	            <Field htmlFor="numberOnPolicy" name="numberOnPolicy" component="select" placeholder="1">
+	            <select htmlFor="numberOnPolicy" value={props.values.numberOnPolicy} name="numberOnPolicy" placeholder="1" onChange={(e) => { props.handleChange(e); props.handleLocalStorage(e) } }>
 								<option value="">Select</option>
 	              <option value="1">1</option>
 	              <option value="2">2</option>
 	              <option value="3">3</option>
 	              <option value="4+">4+</option>
-	            </Field>
+	            </select>
 	            <label htmlFor="home_zip" name="home_zip">Zip Code</label>
 	          <Field
 	                    name="home_zip"
@@ -103,7 +104,8 @@ const PageOne = props => (
 	                        {...field}
 	                        mask={zipMask}
 	                        placeholder="ZIP Code"
-	                        type="text"
+													type="text"
+													onInput={(e) => { props.handleLocalStorage(e)} }
 	                      />
 	                    )}
 	                  />
@@ -139,13 +141,13 @@ const PageOne = props => (
 
 		    	    <div class="input-group">
 	            <label htmlFor="numberOnPolicy" name="numberOnPolicy" >Number on Policy</label>
-	            <Field htmlFor="numberOnPolicy" name="numberOnPolicy" component="select" placeholder="1">
+	            <select htmlFor="numberOnPolicy" value={props.values.numberOnPolicy} name="numberOnPolicy" placeholder="1" onChange={(e) => { props.handleChange(e); props.handleLocalStorage(e) } }>
 	              <option value="">Select</option>
 	              <option value="1">1</option>
 	              <option value="2">2</option>
 	              <option value="3">3</option>
 	              <option value="4+">4+</option>
-	            </Field>
+	            </select>
 	            <label htmlFor="home_zip" name="home_zip">Zip Code</label>
 	          <Field
 	                    name="home_zip"
@@ -154,7 +156,8 @@ const PageOne = props => (
 	                        {...field}
 	                        mask={zipMask}
 	                        placeholder="ZIP Code"
-	                        type="text"
+													type="text"
+													onInput={(e) => { props.handleLocalStorage(e)} }
 	                      />
 	                    )}
 	                  />

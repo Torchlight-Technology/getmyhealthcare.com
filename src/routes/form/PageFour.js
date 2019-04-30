@@ -1,27 +1,88 @@
 import { h } from 'preact';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import RadioButton from '../../components/radio-button';
+import RadioButtonGroup from '../../components/radio-button-group';
+import Progress from 'preact-progress';
 
+const onChange = (ctx, val) => console.log(`${val}% complete`);
 
 const PageThree = props => (
 	<div className="page form">
-		<div class="form-title">
-		  <h2>What type of coverage are you looking for?</h2>
-		  <p>We’ve pre-selected the silver plans since they’re the most popular plan level</p>
-		</div>
-		<label htmlFor="coverageType" name="coverageType">Coverage type</label>
-		<Field htmlFor="coverageType" placholder="Coverage type" component="select" name="coverageType">
-			<option value="">Select</option>
-		  <option value="Bronze" name="coverageType">Bronze</option>
-		  <option value="Silver" name="coverageType">Silver</option>
-		  <option value="Gold" name="coverageType">Gold</option>
-		  <option value="Platinum" name="coverageType">Platinum</option>
-		</Field>
-		<ErrorMessage
-		  name="coverageType"
-		  component="div"
-		  className="field-error"
-		/>
+		<Progress 
+    	  id="loader" class="loader"
+    	  value={80} height="3px" color="#6cc644"
+    	  onChange={ onChange }
+
+    	/ >
+        <RadioButtonGroup
+           id="coverageType"
+           label="One of these please"
+           value={props.values.coverageType}
+           error={props.errors.coverageType}
+        >
+        <div class="radio-tile bronze">
+        	<div class="radio-container">
+	           <Field
+	             component={RadioButton}
+	             name="coverageType"
+	             id="Bronze"
+	             label="Bronze"
+	           />
+	        </div>	
+	    	<h4 class="plan-level">Bronze Plans</h4>
+	    	<p class="price">Starting at $XXX/mo</p>
+	    	<p class="details">Bronze plans cover more than 60% of medical costs</p>
+    	</div>
+
+    	<div class="radio-tile silver">
+    		<div class="radio-container">
+           <Field
+             component={RadioButton}
+             name="coverageType"
+             id="Silver"
+             label="Silver"
+           />
+           </div>	
+	    	<h4 class="plan-level">Silver Plans</h4>
+	    	<p class="price">Starting at $XXX/mo</p>
+	    	<p class="details">Silver plans cover more than 60% of medical costs</p>
+    	</div>
+
+    	<div class="radio-tile gold">
+    		<div class="radio-container">
+           <Field
+             component={RadioButton}
+             name="coverageType"
+             id="Gold"
+             label="Gold"
+           />
+            </div>	
+	    	<h4 class="plan-level">Gold Plans</h4>
+	    	<p class="price">Starting at $XXX/mo</p>
+	    	<p class="details">Gold plans cover more than 60% of medical costs</p>
+    	</div>
+
+    	<div class="radio-tile platinum">
+    		<div class="radio-container">
+           <Field
+             component={RadioButton}
+             name="coverageType"
+             id="Platinum"
+             label="Platinum"
+           />
+           </div>
+           <h4 class="plan-level">Platinum Plans</h4>
+	    	<p class="price">Starting at $XXX/mo</p>
+	    	<p class="details">Platinum plans cover more than 60% of medical costs</p>
+    	</div>
+    	<ErrorMessage
+    	  name="coverageType"
+    	  component="div"
+    	  class="field-error"
+    	/>
+         </RadioButtonGroup>
+		
 		<button
 			type="button"
 			onClick={props.navigateNext}

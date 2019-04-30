@@ -2,6 +2,11 @@ import { h } from 'preact';
 
 const Exit = () => (
 	<div class="exit">
+		<Progress 
+		  id="loader" class="loader"
+		  value={100} height="3px" color="#6cc644"
+		  onChange={onChange} onComplete={onComplete}
+		/ >
 		<div class="exit-title">
 		  <h2>Congratulations!<br />Here are your results</h2>
 		</div>

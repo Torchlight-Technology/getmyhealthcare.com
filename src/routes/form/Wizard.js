@@ -9,16 +9,15 @@ import PageFour from './PageFour';
 import PageFive from './PageFive';
 import Wiz from './Wiz';
 import MaskedInput from "react-text-mask";
+import Progress from 'preact-progress';
 
 const SignUpSchema = Yup.object().shape({
   numberOnPolicy: Yup.mixed()
     .oneOf(['1', '2', '3', '4+'])
     .required('Please select'),
-  // Apply mask
   home_zip: Yup.string()
     .length(5)
     .required('Enter ZIP'),
-  // Apply mask
   dateOfBirth: Yup.string()
     .required('Required'),
   gender: Yup.mixed()
@@ -27,7 +26,15 @@ const SignUpSchema = Yup.object().shape({
   tobacco: Yup.mixed()
     .oneOf(['1', '0'])
     .required('Your tobacco usage is required.'),
-  income: Yup.number()
+  income: Yup.mixed()
+    .oneOf(['less-than-25000',
+            '25000-34999',
+            '35000-49999',
+            '50000-74999',
+            '75000-99999',
+            '100000-149999',
+            '150000-199999',
+            'more-than-200000',])
     .required('Your income must be included'),
   coverageType: Yup.mixed()
     .oneOf(['Bronze', 'Silver', 'Gold', 'Platinum'])
@@ -42,24 +49,23 @@ const SignUpSchema = Yup.object().shape({
   email: Yup.string()
     .email('Invalid email address')
     .required('Required'),
-  // Apply mask
   phone_home: Yup.string()
     .required('Phone number is required')
 });
 
 const initialValues = {
     numberOnPolicy: '1',
-    home_zip: '90210',
-    dateOfBirth: '12/12/1980',
-    gender: 'M',
+    home_zip: '',
+    dateOfBirth: '',
+    gender: '',
     tobacco: '0',
-    income: '33000',
+    income: '',
     coverageType: 'Silver',
-    name_first: 'John',
-    name_last: 'Doe',
-    home_street: 'Test Street 123',
-    email: 'test@test.com',
-    phone_home: '(555) 757-2923'
+    name_first: '',
+    name_last: '',
+    home_street: '',
+    email: '',
+    phone_home: ''
 };
 
 class Wizard extends Component {

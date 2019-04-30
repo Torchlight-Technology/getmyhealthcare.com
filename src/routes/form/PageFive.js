@@ -2,6 +2,9 @@ import { h } from 'preact';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import MaskedInput from 'react-text-mask';
+import Progress from 'preact-progress';
+
+const onChange = (ctx, val) => console.log(`${val}% complete`);
 
 const phoneNumberMask = [
   "(",
@@ -22,7 +25,12 @@ const phoneNumberMask = [
 
 const PageFive = props => (
 	<div className="page form">
-		<div class="form-title">
+		<Progress 
+    	  id="loader" class="loader"
+    	  value={90} height="3px" color="#6cc644"
+    	  onChange={ onChange }
+    	/ >
+    	<div class="form-title">
 		  <h2>Just need to confirm contact details for your quote estimates</h2>
 		  <p>Complete this paege and we’ll match you with available plans and show you estimated pricing including subsidies</p>
 		</div>

@@ -1,7 +1,7 @@
 import { h } from 'preact';
 
 const Terms = () => (
-	<div>
+	<div class="content-page">
 	    <h1>Terms of Use</h1>
 	    <h3>Last Updated:  August 14, 2017</h3>
 	    <h4>About This Agreement</h4>

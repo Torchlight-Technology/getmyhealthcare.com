@@ -5,7 +5,7 @@ header.header {
 	align-items: center;
 	display: grid;
 	grid-template-rows: 1fr;
-	grid-template-columns: 1fr 90px;
+	grid-template-columns: 180px 1fr;
 	padding: .5rem;
 
 	img {
@@ -14,14 +14,21 @@ header.header {
 	}
 
 	nav {
-		display: none;
+		width: 100%;
 	}
 
 	ul {
+		width: 100%;
 		list-style: none;
 		margin: 0;
 		padding: 0;
-		text-indent: 0
+		text-indent: 0;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+
+	li {
+		text-align: center;
 	}
 
 	button {

@@ -1,7 +1,7 @@
 import { h } from 'preact';
 
 const About = () => (
-	<div>
+	<div class="content-page">
 	    <h1>About Us</h1>
 	    <img src="img/office.jpg" alt="" />
 	    <p>GetMyHealthcare is a free consumer service, with the goal to simplify the process of finding the best rates on insurance. We are committed to connecting our consumers with the best insurance available. When you contact us, either by phone or completing our online form, our proprietary system will provide you with an agent match in your state.</p>

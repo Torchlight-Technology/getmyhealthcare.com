@@ -2,13 +2,21 @@ import { h } from 'preact';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import MaskedInput from 'react-text-mask';
+import Progress from 'preact-progress';
 //import zipSubmit from '../../components/zip-submit';
 
-const zipMask = [ /[1-9]/, /\d/, /\d/, /\d/, /\d/ ];
+const zipMask = [ /[0-9]/, /\d/, /\d/, /\d/, /\d/,];
+
+const onChange = (ctx, val) => console.log(`${val}% complete`);
 
 // TODO Make ZipSubmit component (onClick send to top of page)
 const PageOne = props => (
     <div className="page">
+    	<Progress 
+    	  id="loader" class="loader"
+    	  value={20} height="3px" color="#6cc644"
+    	  onChange={ onChange }
+    	/ >
 		<main>
 		  <div class="mast">
 		    <h2>Find the right health insurance for you in Philadelphia, PA.</h2>
@@ -32,6 +40,7 @@ const PageOne = props => (
 	                        mask={zipMask}
 	                        placeholder="ZIP Code"
 	                        type="text"
+	                        maskChar={null}
 	                      />
 	                    )}
 	                  />
@@ -52,34 +61,34 @@ const PageOne = props => (
 	              component="div"
 	              className="field-error"
 	            />
-		    </div>
+		    </div>   
 		  </div>
 		  <div class="plans">
 		    <nav>
 		      <ul>
 		        <li>
-		          <img src="/assets/pill-icon.svg" alt="Obamacare Plans" />
-		          <p>Obamacare Plans</p>
+		          <img src="/assets/pill-icon.svg" alt="Obamacare Plans"/>
+		          <p>Obamacare Plans</p> 
 		        </li>
 		        <li>
-		          <img src="/assets/life-case.svg" alt="Medicare Plans" />
+		          <img src="/assets/life-case.svg" alt="Medicare Plans"/>
 		          <p>Short-term Plans</p>
 		        </li>
 		        <li>
-		          <img src="/assets/heart-beat.svg" alt="Medicare Plans" />
+		          <img src="/assets/heart-beat.svg" alt="Medicare Plans"/>
 		          <p>Medicare Plans</p>
 		        </li>
 		        <li>
-		          <img src="/assets/Laptop Icon.svg" alt="Health Plans" />
+		          <img src="/assets/Laptop Icon.svg" alt="Health Plans"/>
 		          <p>Health Plans</p>
 		        </li>
 		      </ul>
-		    </nav>
+		    </nav> 
 		  </div>
 		  <div class="about">
 		   <h3>Everything you need for your health insurance choices in one place!</h3>
 		   <div class="about-image"></div>
-		   <div class="how-it-works">
+		   <div id="how-it-works" class="how-it-works">
 		     <h4>Guided Online Experience</h4>
 		     <p>We know not many people are healthcare experts, so we provide explanations, product guides, and advice along the way.</p>
 		     <h4>Compare XXXXXX+ Insurance Plans and Save</h4>
@@ -89,7 +98,7 @@ const PageOne = props => (
      	   <div class="input-group">
 	            <label htmlFor="numberOnPolicy" name="numberOnPolicy" >Number on Policy</label>
 	            <Field htmlFor="numberOnPolicy" name="numberOnPolicy" component="select" placeholder="1">
-								<option value="">Select</option>
+	              <option value="">Select</option>
 	              <option value="1">1</option>
 	              <option value="2">2</option>
 	              <option value="3">3</option>
@@ -104,6 +113,7 @@ const PageOne = props => (
 	                        mask={zipMask}
 	                        placeholder="ZIP Code"
 	                        type="text"
+	                        maskChar={null}
 	                      />
 	                    )}
 	                  />
@@ -124,19 +134,19 @@ const PageOne = props => (
 	              component="div"
 	              className="field-error"
 	            />
-		    </div>
+		    </div>   
 			   </div>
 			  </div>
-			  <div class="stats">
+			  <div id="stats" class="stats">
 			    <p>XXXXXXX+ People we’ve helped shop for insurance</p>
 			    <p>XXXXX Insurance Plans Available</p>
 			    <p>3 minutes to get a quote</p>
 			  </div>
-			  <div class="testimonials">
+			  <div id="testimonials" class="testimonials">
 			    <h3>We’ve helped XXXXX of Americans shop for Helathcare</h3>
 			    <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed justo neque, feugiat sit amet lacus in, dapibus convallis ligula. Vivamus ornare sed ligula sed porta.”<br/><br/>- Some Person</p>
 			    <p>“In hac habitasse platea dictumst. Mauris laoreet massa et nibh dapibus bibendum. Nunc mauris nulla, tincidunt in tristique.”<br/><br/>- Some Person</p>
-
+		    	   
 		    	    <div class="input-group">
 	            <label htmlFor="numberOnPolicy" name="numberOnPolicy" >Number on Policy</label>
 	            <Field htmlFor="numberOnPolicy" name="numberOnPolicy" component="select" placeholder="1">
@@ -155,6 +165,7 @@ const PageOne = props => (
 	                        mask={zipMask}
 	                        placeholder="ZIP Code"
 	                        type="text"
+	                        maskChar={null}
 	                      />
 	                    )}
 	                  />
@@ -175,8 +186,8 @@ const PageOne = props => (
 	              component="div"
 	              className="field-error"
 	            />
-		    </div>
-			  </div>
+		    </div>   
+			  </div> 
 			</main>
 	</div>
 );

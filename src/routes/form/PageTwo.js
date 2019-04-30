@@ -6,7 +6,7 @@ import { Router, route } from 'preact-router';
 import Progress from 'preact-progress';
 
 const dobMask = [
-  /[0-9]/,
+  /\d/,
   /\d/,
   "/",
   /\d/,

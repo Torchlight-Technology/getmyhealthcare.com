@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import MaskedInput from 'react-text-mask';
 
 const dobMask = [
-  /[1-9]/,
+  /\d/,
   /\d/,
   "/",
   /\d/,

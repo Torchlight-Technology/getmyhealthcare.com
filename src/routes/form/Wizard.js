@@ -62,6 +62,7 @@ const SignUpSchema = Yup.object().shape({
 //     phone_home: '(555) 757-2923'
 // };
 const userAgent = navigator.userAgent;
+
 class Wizard extends Component {
 
     state = {
@@ -78,12 +79,14 @@ class Wizard extends Component {
           name_last: '',
           home_street: '',
           email: '',
-          phone_home: ''
+          phone_home: '',
+          // home_city: '',
+          // home_state: '',
+          user_agent: userAgent
         }
     };
 
     componentWillMount () {
-      console.log('User agent' , userAgent)
       if(localStorage.getItem('getmyhealth')){
         const initialValues = JSON.parse(localStorage.getItem('getmyhealth'))
         this.setState({
@@ -95,8 +98,6 @@ class Wizard extends Component {
     }
 
     handleSubmit = (values) => {
-      console.log('start submit');
-
       // getting aff values
       values.client_name= this.props.affid || 'HealthDefault';
       values.sub_id1= this.props.sub_id1 || 's1';
@@ -104,10 +105,10 @@ class Wizard extends Component {
       values.sub_id3= this.props.sub_id3 || 's3';
 
       // hardcoding some values
-      values.user_agent= 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3776.0 Safari/537.36';
+      // values.user_agent= 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3776.0 Safari/537.36';
       values.ip_address = '127.0.0.1';
-      values.home_city = 'Beverly Hills';
-      values.home_state = 'CA';
+      // values.home_city = 'Beverly Hills';
+      // values.home_state = 'CA';
       values.datetime_collected = new Date().toISOString();
 
       // get date of birth in correct format
@@ -134,7 +135,7 @@ class Wizard extends Component {
 
     render() {
       return (
-        <Wiz pages={[PageOne, PageTwo, PageThree, PageFour, PageFive]}>
+        <Wiz pages={[PageOne, PageTwo, PageThree, PageFour, PageFive] } testVal={this.state}>
 				{wizProps => (
 					<div>
 						<Formik
@@ -171,6 +172,7 @@ class Wizard extends Component {
     };
 
     _navigateNext = () => {
+      console.log('test')
         this.setState(prevState => ({
             pageIndex: prevState.pageIndex + 1
         }));
@@ -196,12 +198,12 @@ class Wizard extends Component {
 
         return (
             <Page
-				{...props}
-				navigateBack={this._navigateBack}
-        navigateNext={this._navigateNext}
-        // handleLocalStorage={this._handleLocalStorage}
-				pageIndex={pageIndex}
-			/>
+            {...props}
+            navigateBack={this._navigateBack}
+            navigateNext={this._navigateNext}
+            // handleLocalStorage={this._handleLocalStorage}
+            pageIndex={pageIndex}
+          />
         );
     }
 }

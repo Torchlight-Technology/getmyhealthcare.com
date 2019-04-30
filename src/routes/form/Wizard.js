@@ -53,26 +53,52 @@ const SignUpSchema = Yup.object().shape({
     .required('Phone number is required')
 });
 
-const initialValues = {
-    numberOnPolicy: '1',
-    home_zip: '',
-    dateOfBirth: '',
-    gender: '',
-    tobacco: '0',
-    income: '',
-    coverageType: 'Silver',
-    name_first: '',
-    name_last: '',
-    home_street: '',
-    email: '',
-    phone_home: ''
-};
-
+// const initialValues = {
+//     numberOnPolicy: '1',
+//     home_zip: '90210',
+//     dateOfBirth: '12/12/1980',
+//     gender: 'M',
+//     tobacco: '0',
+//     income: '33000',
+//     coverageType: 'Silver',
+//     name_first: 'John',
+//     name_last: 'Doe',
+//     home_street: 'Test Street 123',
+//     email: 'test@test.com',
+//     phone_home: '(555) 757-2923'
+// };
+const userAgent = navigator.userAgent;
 class Wizard extends Component {
 
     state = {
-        pageIndex: 0
+        pageIndex: 0,
+        initialValues: {
+          numberOnPolicy: '',
+          home_zip: '',
+          dateOfBirth: '',
+          gender: '',
+          tobacco: '',
+          income: '',
+          coverageType: '',
+          name_first: '',
+          name_last: '',
+          home_street: '',
+          email: '',
+          phone_home: ''
+        }
     };
+
+    componentWillMount () {
+      console.log('User agent' , userAgent)
+      if(localStorage.getItem('getmyhealth')){
+        const initialValues = JSON.parse(localStorage.getItem('getmyhealth'))
+        this.setState({
+          initialValues: initialValues
+        })
+      } else {
+        localStorage.setItem('getmyhealth', JSON.stringify(this.state.initialValues))
+      }
+    }
 
     handleSubmit = (values) => {
       console.log('start submit');
@@ -113,12 +139,13 @@ class Wizard extends Component {
     }
 
     render() {
-        return (
-            <Wiz pages={[PageOne, PageTwo, PageThree, PageFour, PageFive]}>
+      return (
+        <Wiz pages={[PageOne, PageTwo, PageThree, PageFour, PageFive]}>
 				{wizProps => (
 						<Formik
-							initialValues={initialValues}
-							validationSchema={SignUpSchema}
+							initialValues={this.state.initialValues}
+              validationSchema={SignUpSchema}
+              handleChange
 							onSubmit={(values, { setSubmitting }) => {
 								// setTimeout(() => {
 									this.handleSubmit(values);
@@ -138,7 +165,7 @@ class Wizard extends Component {
 						</Formik>
 				)}
 			</Wiz>
-        );
+      );
     }
 
     _navigateBack = () => {
@@ -152,6 +179,12 @@ class Wizard extends Component {
             pageIndex: prevState.pageIndex + 1
         }));
     };
+
+    // _handleLocalStorage = (e) => {
+    //   const tempStorage = JSON.parse(localStorage.getItem('getmyhealth'))
+    //   console.log(e)
+    //   console.log(tempStorage);
+    // }
 
     _renderPage(props) {
         const { pageIndex } = this.state;
@@ -169,7 +202,8 @@ class Wizard extends Component {
             <Page
 				{...props}
 				navigateBack={this._navigateBack}
-				navigateNext={this._navigateNext}
+        navigateNext={this._navigateNext}
+        // handleLocalStorage={this._handleLocalStorage}
 				pageIndex={pageIndex}
 			/>
         );

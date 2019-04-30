@@ -12,7 +12,7 @@ const PageThree = props => (
 			  id="loader" class="loader"
 			  value={40} height="3px" color="#6cc644"
 			  onChange={onChange}
-			/ >
+			/>
 			<div class="sidebar">
 				<img src="assets/agent-photo.png" />
 				<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p>

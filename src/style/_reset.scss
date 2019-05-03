@@ -10,7 +10,7 @@ body {
 	align-items: center;
 }
 
-#app {
+#app, .app {
 	@include max-width;
 	width: 100%;
 	display: flex;

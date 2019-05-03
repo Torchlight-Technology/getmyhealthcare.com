@@ -3,7 +3,7 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import MaskedInput from 'react-text-mask';
 import Progress from 'preact-progress';
-//import zipSubmit from '../../components/zip-submit';
+//import ZipSubmit from '../../components/zip-submit';
 
 const zipMask = [ /[0-9]/, /\d/, /\d/, /\d/, /\d/,];
 
@@ -12,38 +12,33 @@ const onChange = (ctx, val) => console.log(`${val}% complete`);
 // TODO Make ZipSubmit component (onClick send to top of page)
 const PageOne = props => (
     <div className="page">
-    	<Progress 
-    	  id="loader" class="loader"
-    	  value={20} height="3px" color="#6cc644"
-    	  onChange={ onChange }
-    	/ >
 		<main>
 		  <div class="mast">
 		    <h2>Find the right health insurance for you in Philadelphia, PA.</h2>
 		    <div class="mast-image"></div>
 		    <h3>Get Started!</h3>
 		    <div class="input-group">
-	            <label htmlFor="numberOnPolicy" name="numberOnPolicy" >Number on Policy</label>
-	            <Field htmlFor="numberOnPolicy" name="numberOnPolicy" component="select" placeholder="1">
-	              <option value="">Select</option>
-	              <option value="1">1</option>
-	              <option value="2">2</option>
-	              <option value="3">3</option>
-	              <option value="4+">4+</option>
-	            </Field>
-	            <label htmlFor="home_zip" name="home_zip">Zip Code</label>
+            <label htmlFor="numberOnPolicy" name="numberOnPolicy" >Number on Policy</label>
+            <Field htmlFor="numberOnPolicy" name="numberOnPolicy" component="select" placeholder="1">
+              <option value="">Select</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4+">4+</option>
+            </Field>
+	          <label htmlFor="home_zip" name="home_zip">Zip Code</label>
 	          <Field
-	                    name="home_zip"
-	                    render={({ field }) => (
-	                      <MaskedInput
-	                        {...field}
-	                        mask={zipMask}
-	                        placeholder="ZIP Code"
-	                        type="text"
-	                        maskChar={null}
-	                      />
-	                    )}
-	                  />
+                name="home_zip"
+                render={({ field }) => (
+                  <MaskedInput
+                    {...field}
+                    mask={zipMask}
+                    placeholder="ZIP Code"
+                    type="text"
+                    maskChar={null}
+                  />
+                )}
+              />
 	            <button
 	              type="button"
 	              onClick={props.navigateNext}

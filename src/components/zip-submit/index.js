@@ -1,47 +1,54 @@
-import { h, Component } from 'preact';
-import { Formik, Field, ErrorMessage, Form } from 'formik';
+import { h, Component, render } from 'preact';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import MaskedInput from "react-text-mask";
+import MaskedInput from 'react-text-mask';
+import Progress from 'preact-progress';
+import Wiz from '../../routes/form/Wiz';
+import Wizard from '../../routes/form/Wizard';
 
-class zipSubmit extends Component {
-  <div class="input-group">
-          <label htmlFor="numberOnPolicy" name="numberOnPolicy" >Number on Policy</label>
-          <Field htmlFor="numberOnPolicy" name="numberOnPolicy" component="select" placeholder="1">
-            <option value="1" selected>1</option>
-            <option value="2" >2</option>
-            <option value="3" >3</option>
-            <option value="4+" >4+</option>
-          </Field>
-          <ErrorMessage
-            name="numberOnPolicy"
-            component="div"
-            className="field-error"
-          />
-          <label htmlFor="zip" name="zip">Zip Code</label>
+class ZipSubmit extends Component {
+    render(props, state) { 
+      return (
+        <div class="input-group">
+        <label htmlFor="numberOnPolicy" name="numberOnPolicy">Number on Policy</label>
+        <Field htmlFor="numberOnPolicy" name="numberOnPolicy" component="select" placeholder="1">
+          <option value="">Select</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4+">4+</option>
+        </Field>
+        <label htmlFor="home_zip" name="home_zip">Zip Code</label>
         <Field
-                  name="zip"
-                  render={({ field }) => (
-                    <MaskedInput
-                      {...field}
-                      mask={zipMask}
-                      placeholder="ZIP Code"
-                      type="text"
-                    />
-                  )}
-                />
-          <ErrorMessage
-            name="zip"
-            component="div"
-            className="field-error"
-          />
-          <button
-            type="button"
-            onClick={props.navigateNext}
-            disabled={!(props.values.numberOnPolicy && props.values.zip)}
-          >
-            Next
-          </button>
-  </div>  
+          name="home_zip"
+          render={({ field }) => (
+            <MaskedInput
+              {...field}
+              mask={zipMask}
+              placeholder="ZIP Code"
+              type="text"
+            />
+          )}
+        />
+        <button
+          type="button"
+          onClick={this.props.navigateNext}
+          disabled={!(this.props.values.numberOnPolicy && this.props.values.home_zip)}
+        >
+          Next
+        </button>
+        <ErrorMessage
+          name="numberOnPolicy"
+          component="div"
+          className="field-error"
+        />
+        <ErrorMessage
+          name="home_zip"
+          component="div"
+          className="field-error"
+        />
+      </div>); 
+  }
 }
 
-export default zipSubmit;
+export default ZipSubmit;

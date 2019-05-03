@@ -116,7 +116,6 @@ class Wizard extends Component {
         return (
             <Wiz pages={[PageOne, PageTwo, PageThree, PageFour, PageFive]}>
 				{wizProps => (
-					<div>
 						<Formik
 							initialValues={initialValues}
 							validationSchema={SignUpSchema}
@@ -132,12 +131,11 @@ class Wizard extends Component {
 								return (
 									<form onSubmit={handleSubmit}>
 										{wizProps.renderPage(props)}
-										<DisplayFormikState {...props} />
+										
 									</form>
 								);
 							}}
 						</Formik>
-					</div>
 				)}
 			</Wiz>
         );

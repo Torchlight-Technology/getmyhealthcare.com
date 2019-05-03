@@ -2,66 +2,12 @@ import { h } from 'preact';
 
 const Exit = () => (
 	<div class="exit">
-		<Progress 
-		  id="loader" class="loader"
-		  value={100} height="3px" color="#6cc644"
-		  onChange={onChange} onComplete={onComplete}
-		/ >
 		<div class="exit-title">
-		  <h2>Congratulations!<br />Here are your results</h2>
+		  <h3>Congratulations!</h3>
+		  <h2>Here are your results</h2>
 		</div>
 		<div class="iframe">
-		{/* this url will need to get arguments to it */}
-		<iframe src="http://oceanic/cpcman/fetch/renderPage?site=5&zip=19701" frameBorder="0"></iframe>
-		</div>
-		<div class="ad">
-		  <div class="top-bar">
-		    <p>Featured</p>
-		    <p>PPO</p>
-		  </div>
-		  <img src="static/aetna-logo.png" alt="Aetna Logo" />
-		  <p class="description">Bronze 60 HDHO PPO</p>
-		  <h5 class="bronze">Bronze</h5>
-		  <h4>$282<small>/mo</small></h4>
-		  <p class="discounts">Was $383 before subsidies</p>
-		  <div class="cost-row">
-		    <p>Deductible</p>
-		    <p>$6,000</p>
-		  </div>
-		  <div class="cost-row">
-		    <p>Max Out-of-Pocket</p>
-		    <p>$6,000</p>
-		  </div>
-		  <button class="select-button">Select</button>
-		  <div class="button-row">
-		    <button>Details</button>
-		    <button>Compare</button>
-		  </div>
-		</div>
-
-		<div class="ad">
-		  <div class="top-bar">
-		    <p>Featured</p>
-		    <p>PPO</p>
-		  </div>
-		  <img src="static/cigna-logo.png" alt="Aetna Logo" />
-		  <p class="description">Bronze 60 HDHO PPO</p>
-		  <h5 class="bronze">Bronze</h5>
-		  <h4>$282<small>/mo</small></h4>
-		  <p class="discounts">Was $383 before subsidies</p>
-		  <div class="cost-row">
-		    <p>Deductible</p>
-		    <p>$6,000</p>
-		  </div>
-		  <div class="cost-row">
-		    <p>Max Out-of-Pocket</p>
-		    <p>$6,000</p>
-		  </div>
-		  <button class="select-button">Select</button>
-		  <div class="button-row">
-		    <button>Details</button>
-		    <button>Compare</button>
-		  </div>
+			<iframe src="http://staging.cpcman.torchte.ch/fetch/renderPage?site=5&zip=92562&affid=1127&placement_id2=-unazqFOgzKf3HdVQUJtDxKkn9zo9A&displayId=16801&publisherId=40823&vmProdId=501&zipcode=92562&param1=227882&param2=268397&param3=3530&placement_id=SEewkn2o09k-rPuZ3GbjpZ8EU7fing&sub_id1=802214&sub_id2=dfe5abe9-4056-4cd2-b098-4a598a8fbf52&sub_id3=sub_id3&ip=73.160.81.219&user_agent=Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%3B+rv%3A67.0%29+Gecko%2F20100101+Firefox%2F67.0&dob=1954-10-06&gender=F&first_name=SHERRY&last_name=SALLS&address=23693+CANYON+OAK+DR&lead_id=CB437C36-1E56-7A59-9AB9-D105DE5C9725" frameBorder="0"></iframe>
 		</div>
 	</div>
 );

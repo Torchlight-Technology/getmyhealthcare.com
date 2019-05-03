@@ -3,9 +3,8 @@ div.input-group {
 	border-radius: 6px;
 	padding: .5rem .75rem;
 	display: grid;
-	grid-template-rows: 30px 1fr 1fr 1fr;
+	grid-template-rows: 30px 1fr 1fr;
 	grid-template-columns: 1fr 1fr;
-	max-width: 450px;
 
 	label {
 		grid-row: 1 / 2;
@@ -44,6 +43,7 @@ div.input-group {
 	}
 
 	@media (min-width: 500px) {
+		max-width: 450px;
 		grid-template-rows: 30px 1fr;
 		grid-template-columns: 1fr 1fr 1.5fr;
 

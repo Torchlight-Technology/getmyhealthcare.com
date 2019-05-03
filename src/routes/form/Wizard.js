@@ -86,6 +86,7 @@ class Wizard extends Component {
           home_street: '',
           email: '',
           phone_home: '',
+          coverageType: '',
           // home_city: '',
           // home_state: '',
           user_agent: userAgent

@@ -14,7 +14,10 @@
     "test": "jest"
   },
   "eslintConfig": {
-    "extends": ["standard", "standard-preact"]
+    "extends": [
+      "standard",
+      "standard-preact"
+    ]
   },
   "eslintIgnore": [
     "build/*"

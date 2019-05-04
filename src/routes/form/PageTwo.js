@@ -6,7 +6,7 @@ import { Router, route } from 'preact-router';
 import Progress from 'preact-progress';
 
 const dobMask = [
-  /[0-9]/,
+  /\d/,
   /\d/,
   "/",
   /\d/,
@@ -46,7 +46,8 @@ const PageTwo = props => (
 		              {...field}
 		              mask={dobMask}
 		              placeholder="MM/DD/YYYY"
-		              type="dateofBirth"
+									type="dateofBirth"
+									onInput={(e) => { props.handleLocalStorage(e) }}
 		            />
 		          )}
 		        />
@@ -56,7 +57,7 @@ const PageTwo = props => (
 				  className="field-error"
 				/>
 				<label htmlFor="gender" name="gender">Gender</label>
-				<Field htmlFor="gender" placholder="Gender" component="select" name="gender">
+				<Field htmlFor="gender" placholder="Gender" component="select" name="gender" onChange={(e) => { props.handleLocalStorage(e); props.handleChange(e) } }>
 				  <option value="">Select</option>
 				  <option value="M" name="gender">Male</option>
 				  <option value="F" name="gender">Female</option>
@@ -67,7 +68,7 @@ const PageTwo = props => (
 				  className="field-error"
 				/>
 				<label htmlFor="tobacco" name="tobacco">Tobacco user?</label>
-				<Field htmlFor="tobacco" placholder="Tobacco user?" component="select" name="tobacco">
+				<Field htmlFor="tobacco" placholder="Tobacco user?" component="select" name="tobacco" onChange={(e) => { props.handleLocalStorage(e); props.handleChange(e) } } >
 					<option value="">Select</option>
 				  <option value="1" name="tobacco">Yes</option>
 				  <option value="0" name="tobacco">No</option>

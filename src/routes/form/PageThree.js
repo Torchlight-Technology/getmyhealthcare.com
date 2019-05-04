@@ -12,7 +12,7 @@ const PageThree = props => (
 			  id="loader" class="loader"
 			  value={40} height="3px" color="#6cc644"
 			  onChange={onChange}
-			/ >
+			/>
 			<div class="sidebar">
 				<img src="assets/agent-photo.png" />
 				<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p>
@@ -23,7 +23,7 @@ const PageThree = props => (
 				  <p>You may qualify for savings on your monthly based on your estimated household income.</p>
 				</div>
 				<label htmlFor="income" name="income">Annual Income</label>
-				<Field htmlFor="income" placholder="Annual Income" component="select" name="income">
+				<Field htmlFor="income" placholder="Annual Income" component="select" name="income" onChange={(e) => { props.handleLocalStorage(e); props.handleChange(e) } }>
 				  <option value="">Select</option>
 				  <option value="less-than-25000" name="income">Less than $25,000</option>
 				  <option value="25000-34999" name="income">$25,000 to $34,999</option>

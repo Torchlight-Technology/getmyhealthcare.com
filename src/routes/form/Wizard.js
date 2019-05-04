@@ -53,30 +53,58 @@ const SignUpSchema = Yup.object().shape({
     .required('Phone number is required')
 });
 
-const initialValues = {
-    numberOnPolicy: '1',
-    home_zip: '',
-    dateOfBirth: '',
-    gender: '',
-    tobacco: '0',
-    income: '',
-    coverageType: 'Silver',
-    name_first: '',
-    name_last: '',
-    home_street: '',
-    email: '',
-    phone_home: ''
-};
+// const initialValues = {
+//     numberOnPolicy: '1',
+//     home_zip: '90210',
+//     dateOfBirth: '12/12/1980',
+//     gender: 'M',
+//     tobacco: '0',
+//     income: '33000',
+//     coverageType: 'Silver',
+//     name_first: 'John',
+//     name_last: 'Doe',
+//     home_street: 'Test Street 123',
+//     email: 'test@test.com',
+//     phone_home: '(555) 757-2923'
+// };
+const userAgent = navigator.userAgent;
 
 class Wizard extends Component {
 
     state = {
-        pageIndex: 0
+        pageIndex: 0,
+        initialValues: {
+          numberOnPolicy: '',
+          home_zip: '',
+          dateOfBirth: '',
+          gender: '',
+          tobacco: '',
+          income: '',
+          coverageType: '',
+          name_first: '',
+          name_last: '',
+          home_street: '',
+          email: '',
+          phone_home: '',
+          coverageType: '',
+          // home_city: '',
+          // home_state: '',
+          user_agent: userAgent
+        }
     };
 
-    handleSubmit = (values) => {
-      console.log('start submit');
+    componentWillMount () {
+      if(localStorage.getItem('getmyhealth')){
+        const initialValues = JSON.parse(localStorage.getItem('getmyhealth'))
+        this.setState({
+          initialValues: initialValues
+        })
+      } else {
+        localStorage.setItem('getmyhealth', JSON.stringify(this.state.initialValues))
+      }
+    }
 
+    handleSubmit = (values) => {
       // getting aff values
       values.client_name= this.props.affid || 'HealthDefault';
       values.sub_id1= this.props.sub_id1 || 's1';
@@ -84,10 +112,10 @@ class Wizard extends Component {
       values.sub_id3= this.props.sub_id3 || 's3';
 
       // hardcoding some values
-      values.user_agent= 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3776.0 Safari/537.36';
+      // values.user_agent= 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3776.0 Safari/537.36';
       values.ip_address = '127.0.0.1';
-      values.home_city = 'Beverly Hills';
-      values.home_state = 'CA';
+      // values.home_city = 'Beverly Hills';
+      // values.home_state = 'CA';
       values.datetime_collected = new Date().toISOString();
 
       // get date of birth in correct format
@@ -113,12 +141,13 @@ class Wizard extends Component {
     }
 
     render() {
-        return (
-            <Wiz pages={[PageOne, PageTwo, PageThree, PageFour, PageFive]}>
+      return (
+        <Wiz pages={[PageOne, PageTwo, PageThree, PageFour, PageFive] } testVal={this.state}>
 				{wizProps => (
 						<Formik
-							initialValues={initialValues}
-							validationSchema={SignUpSchema}
+							initialValues={this.state.initialValues}
+              validationSchema={SignUpSchema}
+              handleChange
 							onSubmit={(values, { setSubmitting }) => {
 								// setTimeout(() => {
 									this.handleSubmit(values);
@@ -138,7 +167,7 @@ class Wizard extends Component {
 						</Formik>
 				)}
 			</Wiz>
-        );
+      );
     }
 
     _navigateBack = () => {
@@ -148,10 +177,17 @@ class Wizard extends Component {
     };
 
     _navigateNext = () => {
+      console.log('test')
         this.setState(prevState => ({
             pageIndex: prevState.pageIndex + 1
         }));
     };
+
+    // _handleLocalStorage = (e) => {
+    //   const tempStorage = JSON.parse(localStorage.getItem('getmyhealth'))
+    //   console.log(e)
+    //   console.log(tempStorage);
+    // }
 
     _renderPage(props) {
         const { pageIndex } = this.state;
@@ -167,11 +203,12 @@ class Wizard extends Component {
 
         return (
             <Page
-				{...props}
-				navigateBack={this._navigateBack}
-				navigateNext={this._navigateNext}
-				pageIndex={pageIndex}
-			/>
+            {...props}
+            navigateBack={this._navigateBack}
+            navigateNext={this._navigateNext}
+            // handleLocalStorage={this._handleLocalStorage}
+            pageIndex={pageIndex}
+          />
         );
     }
 }

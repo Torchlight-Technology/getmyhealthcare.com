@@ -36,7 +36,8 @@ const PageThree = props => (
   	             component={RadioButton}
   	             name="coverageType"
   	             id="Bronze"
-  	             label="Bronze"
+                 label="Bronze"
+                 onChange={(e) => { props.handleLocalStorage(e); props.handleChange(e) } }
   	           />
   	        </div>	
   	    	<h4 class="plan-level">Bronze Plans</h4>
@@ -51,6 +52,7 @@ const PageThree = props => (
                name="coverageType"
                id="Silver"
                label="Silver"
+               onChange={(e) => { props.handleLocalStorage(e); props.handleChange(e) } }
              />
              </div>	
   	    	<h4 class="plan-level">Silver Plans</h4>
@@ -65,6 +67,7 @@ const PageThree = props => (
                name="coverageType"
                id="Gold"
                label="Gold"
+               onChange={(e) => { props.handleLocalStorage(e); props.handleChange(e) } }
              />
               </div>	
   	    	<h4 class="plan-level">Gold Plans</h4>
@@ -79,6 +82,7 @@ const PageThree = props => (
                name="coverageType"
                id="Platinum"
                label="Platinum"
+               onChange={(e) => { props.handleLocalStorage(e); props.handleChange(e) } }
              />
              </div>
              <h4 class="plan-level">Platinum Plans</h4>

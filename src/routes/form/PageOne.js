@@ -29,7 +29,7 @@ class PageOne extends Component  {
 
 	handleNext = async() => {
 		// get localStorage assign to temp const
-		const tempStorage = JSON.parse(localStorage.getItem('getmyhealth'))
+		const tempStorage = JSON.parse(sessionStorage.getItem('getmyhealth'))
 
 		// get state and city from API
 		const stateAndCity =  await this.getStateAndCity(tempStorage['home_zip'])
@@ -37,7 +37,7 @@ class PageOne extends Component  {
 		tempStorage['home_state'] = stateAndCity.home_state;
 
 		// Set local storage with new values
-		localStorage.setItem('getmyhealth', JSON.stringify(tempStorage))
+		sessionStorage.setItem('getmyhealth', JSON.stringify(tempStorage))
 		
 		// Set hidden values form API submit
 		this.props.setFieldValue('home_city',  stateAndCity.home_city)

@@ -94,13 +94,13 @@ class Wizard extends Component {
     };
 
     componentWillMount () {
-      if(localStorage.getItem('getmyhealth')){
-        const initialValues = JSON.parse(localStorage.getItem('getmyhealth'))
+      if(sessionStorage.getItem('getmyhealth')){
+        const initialValues = JSON.parse(sessionStorage.getItem('getmyhealth'))
         this.setState({
           initialValues: initialValues
         })
       } else {
-        localStorage.setItem('getmyhealth', JSON.stringify(this.state.initialValues))
+        sessionStorage.setItem('getmyhealth', JSON.stringify(this.state.initialValues))
       }
     }
 
@@ -184,7 +184,7 @@ class Wizard extends Component {
     };
 
     // _handleLocalStorage = (e) => {
-    //   const tempStorage = JSON.parse(localStorage.getItem('getmyhealth'))
+    //   const tempStorage = JSON.parse(sessionStorage.getItem('getmyhealth'))
     //   console.log(e)
     //   console.log(tempStorage);
     // }

@@ -8,7 +8,7 @@ const onChange = (ctx, val) => console.log(`${val}% complete`);
 
 const phoneNumberMask = [
   "(",
-  /[1-9]/,
+  /\d/,
   /\d/,
   /\d/,
   ")",

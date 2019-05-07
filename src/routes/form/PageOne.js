@@ -5,7 +5,7 @@ import MaskedInput from 'react-text-mask';
 import Progress from 'preact-progress';
 //import ZipSubmit from '../../components/zip-submit';
 
-const zipMask = [ /[0-9]/, /\d/, /\d/, /\d/, /\d/,];
+const zipMask = [/[0-9]/, /\d/, /\d/, /\d/, /\d/];
 
 const onChange = (ctx, val) => console.log(`${val}% complete`);
 
@@ -47,6 +47,8 @@ class PageOne extends Component  {
 		this.props.navigateNext()
 
 	}
+
+	checkForErrors = (errors) => !errors.hasOwnProperty('home_zip')
 	
 	render(){
 		
@@ -67,23 +69,26 @@ class PageOne extends Component  {
 									<option value="4+">4+</option>
 								</select>
 								<label htmlFor="home_zip" name="home_zip">Zip Code</label>
-							<Field
-												name="home_zip"
-												render={({ field }) => (
-													<MaskedInput
-														{...field}
-														mask={zipMask}
-														placeholder="ZIP Code"
-														type="text"
-														maskChar={null}
-														onInput={(e) => { this.props.handleLocalStorage(e)} }
-													/>
-												)}
-											/>
+							<Field	
+									name="home_zip"
+									render={({ field }) => (
+										<MaskedInput
+											{...field}
+											mask={[/[0-9]/, /\d/, /\d/, /\d/, /\d/]}
+											placeholder="ZIP Code"
+											type="text"
+											guide={true}
+											onChange={(e)=>{
+												this.props.handleChange(e);
+												this.props.handleLocalStorage(e);
+											}}
+										/>
+									)}
+								/>
 								<button
 									type="button"
 									onClick={ this.handleNext }
-									disabled={!(this.props.values.numberOnPolicy && this.props.values.home_zip)}
+									disabled={!(this.checkForErrors(this.props.errors) && this.props.values.numberOnPolicy && this.props.values.home_zip)}
 								>
 									Next
 								</button>
@@ -146,18 +151,21 @@ class PageOne extends Component  {
 												render={({ field }) => (
 													<MaskedInput
 														{...field}
-														mask={zipMask}
+														mask={[/[0-9]/, /\d/, /\d/, /\d/, /\d/]}
 														placeholder="ZIP Code"
 														type="text"
-														maskChar={null}
-														onInput={(e) => { this.props.handleLocalStorage(e)} }
+														guide={true}
+														onChange={(e)=>{
+															this.props.handleChange(e);
+															this.props.handleLocalStorage(e);
+														}}
 													/>
 												)}
 											/>
 								<button
 									type="button"
 									onClick={this.handleNext}
-									disabled={!(this.props.values.numberOnPolicy && this.props.values.home_zip)}
+									disabled={!(this.checkForErrors(this.props.errors) && this.props.values.numberOnPolicy && this.props.values.home_zip)}
 								>
 									Next
 								</button>
@@ -199,18 +207,21 @@ class PageOne extends Component  {
 												render={({ field }) => (
 													<MaskedInput
 														{...field}
-														mask={zipMask}
+														mask={[/[0-9]/, /\d/, /\d/, /\d/, /\d/]}
 														placeholder="ZIP Code"
 														type="text"
-														maskChar={null}
-														onInput={(e) => { this.props.handleLocalStorage(e)} }
+														guide={true}
+														onChange={(e)=>{
+															this.props.handleChange(e);
+															this.props.handleLocalStorage(e);
+														}}
 													/>
 												)}
 											/>
 								<button
 									type="button"
 									onClick={this.handleNext}
-									disabled={!(this.props.values.numberOnPolicy && this.props.values.home_zip)}
+									disabled={!(this.checkForErrors(this.props.errors) && this.props.values.numberOnPolicy && this.props.values.home_zip)}
 								>
 									Next
 								</button>

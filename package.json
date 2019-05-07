@@ -50,6 +50,7 @@
     "preact-router": "^2.5.7",
     "react-text-mask": "^5.4.3",
     "string-mask": "^0.3.0",
+    "text-mask-addons": "^3.8.0",
     "yup": "^0.27.0"
   },
   "jest": {

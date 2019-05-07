@@ -16,9 +16,10 @@ const SignUpSchema = Yup.object().shape({
     .oneOf(['1', '2', '3', '4+'])
     .required('Please select'),
   home_zip: Yup.string()
-    .length(5)
-    .required('Enter ZIP'),
+    .required('Enter ZIP')
+    .test('len', 'Zip must be exactly 5 characters', val => val && val.replace(/[^0-9]/g, "").length === 5 ),
   dateOfBirth: Yup.string()
+    .test('date-len', 'Date must be exactly 8 characters', val => val && val.replace(/[^0-9]/g, "").length === 8)
     .required('Required'),
   gender: Yup.mixed()
     .oneOf(['M', 'F'])
@@ -50,6 +51,7 @@ const SignUpSchema = Yup.object().shape({
     .email('Invalid email address')
     .required('Required'),
   phone_home: Yup.string()
+    .test('phone-len', 'Phone number must be exactly 8 characters long', val => val && val.replace(/[^0-9]/g, "").length === 10)
     .required('Phone number is required')
 });
 

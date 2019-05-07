@@ -17,7 +17,16 @@ const SignUpSchema = Yup.object().shape({
     .required('Please select'),
   home_zip: Yup.string()
     .required('Enter ZIP')
-    .test('len', 'Zip must be exactly 5 characters', val => val && val.replace(/[^0-9]/g, "").length === 5 ),
+    .test('len', 'Zip must be exactly 5 characters', val => val && val.replace(/[^0-9]/g, "").length === 5 )
+    .test('testing-zip', 'Zip does not exist',
+      async val => {
+        let tempZip = val.replace(/[^0-9]/g, "");
+        if(tempZip && tempZip.length === 5) {
+          let response = await fetch(`https://api.zippopotam.us/us/${tempZip}`)
+          return !response.ok ? false : true;
+        }
+      }
+    ),
   dateOfBirth: Yup.string()
     .test('date-len', 'Date must be exactly 8 characters', val => val && val.replace(/[^0-9]/g, "").length === 8)
     .required('Required'),

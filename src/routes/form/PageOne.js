@@ -38,7 +38,7 @@ class PageOne extends Component  {
 
 		// Set local storage with new values
 		sessionStorage.setItem('getmyhealth', JSON.stringify(tempStorage))
-		
+
 		// Set hidden values form API submit
 		this.props.setFieldValue('home_city',  stateAndCity.home_city)
 		this.props.setFieldValue('home_state',  stateAndCity.home_state)
@@ -49,9 +49,9 @@ class PageOne extends Component  {
 	}
 
 	checkForErrors = (errors) => !errors.hasOwnProperty('home_zip')
-	
+
 	render(){
-		
+
 		return (
 			<div className="page">
 			<main>
@@ -69,7 +69,7 @@ class PageOne extends Component  {
 									<option value="4+">4+</option>
 								</select>
 								<label htmlFor="home_zip" name="home_zip">Zip Code</label>
-							<Field	
+							<Field
 									name="home_zip"
 									render={({ field }) => (
 										<MaskedInput
@@ -194,7 +194,7 @@ class PageOne extends Component  {
 
 								<div class="input-group">
 								<label htmlFor="numberOnPolicy" name="numberOnPolicy" >Number on Policy</label>
-								<select htmlFor="numberOnPolicy" value={this.props.values.numberOnPolicy} name="numberOnPolicy" placeholder="1" onChange={(e) => {this.props.handleChange } }>
+								<select htmlFor="numberOnPolicy" value={this.props.values.numberOnPolicy} name="numberOnPolicy" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>
 									<option value="">Select</option>
 									<option value="1">1</option>
 									<option value="2">2</option>

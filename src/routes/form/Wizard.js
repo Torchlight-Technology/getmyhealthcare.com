@@ -16,9 +16,19 @@ const SignUpSchema = Yup.object().shape({
     .oneOf(['1', '2', '3', '4+'])
     .required('Please select'),
   home_zip: Yup.string()
-    .length(5)
-    .required('Enter ZIP'),
+    .required('Enter ZIP')
+    .test('len', 'Zip must be exactly 5 characters', val => val && val.replace(/[^0-9]/g, "").length === 5 )
+    .test('testing-zip', 'Zip does not exist',
+      async val => {
+        let tempZip = val.replace(/[^0-9]/g, "");
+        if(tempZip && tempZip.length === 5) {
+          let response = await fetch(`https://api.zippopotam.us/us/${tempZip}`)
+          return !response.ok ? false : true;
+        }
+      }
+    ),
   dateOfBirth: Yup.string()
+    .test('date-len', 'Date must be exactly 8 characters', val => val && val.replace(/[^0-9]/g, "").length === 8)
     .required('Required'),
   gender: Yup.mixed()
     .oneOf(['M', 'F'])
@@ -26,15 +36,7 @@ const SignUpSchema = Yup.object().shape({
   tobacco: Yup.mixed()
     .oneOf(['1', '0'])
     .required('Your tobacco usage is required.'),
-  income: Yup.mixed()
-    .oneOf(['less-than-25000',
-            '25000-34999',
-            '35000-49999',
-            '50000-74999',
-            '75000-99999',
-            '100000-149999',
-            '150000-199999',
-            'more-than-200000',])
+  income: Yup.number()
     .required('Your income must be included'),
   coverageType: Yup.mixed()
     .oneOf(['Bronze', 'Silver', 'Gold', 'Platinum'])
@@ -50,6 +52,7 @@ const SignUpSchema = Yup.object().shape({
     .email('Invalid email address')
     .required('Required'),
   phone_home: Yup.string()
+    .test('phone-len', 'Phone number must be exactly 8 characters long', val => val && val.replace(/[^0-9]/g, "").length === 10)
     .required('Phone number is required')
 });
 
@@ -94,13 +97,13 @@ class Wizard extends Component {
     };
 
     componentWillMount () {
-      if(localStorage.getItem('getmyhealth')){
-        const initialValues = JSON.parse(localStorage.getItem('getmyhealth'))
+      if(sessionStorage.getItem('getmyhealth')){
+        const initialValues = JSON.parse(sessionStorage.getItem('getmyhealth'))
         this.setState({
           initialValues: initialValues
         })
       } else {
-        localStorage.setItem('getmyhealth', JSON.stringify(this.state.initialValues))
+        sessionStorage.setItem('getmyhealth', JSON.stringify(this.state.initialValues))
       }
     }
 
@@ -184,7 +187,7 @@ class Wizard extends Component {
     };
 
     // _handleLocalStorage = (e) => {
-    //   const tempStorage = JSON.parse(localStorage.getItem('getmyhealth'))
+    //   const tempStorage = JSON.parse(sessionStorage.getItem('getmyhealth'))
     //   console.log(e)
     //   console.log(tempStorage);
     // }

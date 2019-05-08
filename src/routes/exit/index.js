@@ -1,5 +1,5 @@
 import { h, Component } from 'preact';
-const storage = JSON.parse(localStorage.getItem('getmyhealth'))
+const storage = JSON.parse(sessionStorage.getItem('getmyhealth'))
 
 const Exit = () => (
 	<div class="exit">

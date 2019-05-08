@@ -34,9 +34,9 @@ class Wiz extends Component {
 	};
 
 	_handleLocalStorage = (e) => {
-			const tempStorage = JSON.parse(localStorage.getItem('getmyhealth'))
+			const tempStorage = JSON.parse(sessionStorage.getItem('getmyhealth'))
       tempStorage[e.target.name] = e.target.value
-      localStorage.setItem('getmyhealth', JSON.stringify(tempStorage))
+      sessionStorage.setItem('getmyhealth', JSON.stringify(tempStorage))
 	}
 
 	// getStateAndCity = async (zip) => {
@@ -56,11 +56,11 @@ class Wiz extends Component {
 
 // 	_navigateNextSetClientData= async (e) => {
 // 		console.log(e)
-// 		const tempStorage = JSON.parse(localStorage.getItem('getmyhealth'))
+// 		const tempStorage = JSON.parse(sessionStorage.getItem('getmyhealth'))
 // 		const stateAndCity =  await this.getStateAndCity(tempStorage['home_zip'])
 // 		tempStorage['home_city'] = stateAndCity.home_city;
 // 		tempStorage['home_state'] = stateAndCity.home_state;
-// 		localStorage.setItem('getmyhealth', JSON.stringify(tempStorage))
+// 		sessionStorage.setItem('getmyhealth', JSON.stringify(tempStorage))
 // 		console.log('testing')
 // 		this._navigateNext()
 // }

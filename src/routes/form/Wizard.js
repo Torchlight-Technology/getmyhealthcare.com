@@ -36,15 +36,7 @@ const SignUpSchema = Yup.object().shape({
   tobacco: Yup.mixed()
     .oneOf(['1', '0'])
     .required('Your tobacco usage is required.'),
-  income: Yup.mixed()
-    .oneOf(['less-than-25000',
-            '25000-34999',
-            '35000-49999',
-            '50000-74999',
-            '75000-99999',
-            '100000-149999',
-            '150000-199999',
-            'more-than-200000',])
+  income: Yup.number()
     .required('Your income must be included'),
   coverageType: Yup.mixed()
     .oneOf(['Bronze', 'Silver', 'Gold', 'Platinum'])

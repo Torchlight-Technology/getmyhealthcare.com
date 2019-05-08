@@ -24,15 +24,14 @@ const PageThree = props => (
 				</div>
 				<label htmlFor="income" name="income">Annual Income</label>
 				<Field htmlFor="income" placholder="Annual Income" component="select" name="income" onChange={(e) => { props.handleLocalStorage(e); props.handleChange(e) } }>
-				  <option value="">Select</option>
-				  <option value="less-than-25000" name="income">Less than $25,000</option>
-				  <option value="25000-34999" name="income">$25,000 to $34,999</option>
-				  <option value="35000-49999" name="income">$35,000 to $49,999</option>
-				  <option value="50000-74999" name="income">$50,000 to $74,999</option>
-				  <option value="75000-99999" name="income">$75,000 to $99,999</option>
-				  <option value="100000-149999" name="income">$100,000 to $149,999</option>
-				  <option value="150000-199999" name="income">$150,000 to $199,999</option>
-				  <option value="more-than-200000" name="income">$200,000 or mor</option>
+				  <option value="25000" name="income">Less than $25,000</option>
+					<option value="30000" name="income">$25,000 to $34,999</option>
+					<option value="42500" name="income">$35,000 to $49,999</option>
+					<option value="62500" name="income">$50,000 to $74,999</option>
+					<option value="87500" name="income">$75,000 to $99,999</option>
+					<option value="125000" name="income">$100,000 to $149,999</option>
+					<option value="175000" name="income">$150,000 to $199,999</option>
+					<option value="200000" name="income">$200,000 or more</option>
 				</Field>
 				<ErrorMessage
 				  name="income"

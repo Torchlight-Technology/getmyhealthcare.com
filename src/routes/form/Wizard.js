@@ -20,7 +20,7 @@ const universal_leadid = document.getElementById('leadid_token').value;
 let ip_address = ""
 
 class Wizard extends Component {
-  
+
   state = {
     pageIndex: 0,
     initialValues: {
@@ -44,6 +44,9 @@ class Wizard extends Component {
     }
   };
 
+  componentDidMount() {
+    this.claimTrustedForm();
+  }
   // Get Ip address from api
   getIpAddress = () => {
     let self = this;
@@ -96,16 +99,18 @@ class Wizard extends Component {
     // })
     // .then((res) => res.json())
     // .then((data) => console.log(data));
-    console.log("FORM DATA-------------> ", formData)
+    const headers = new Headers({
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept': 'application/json',
+      'Authorization': 'Basic QVBJOmFiMWRmM2M5ZjUyMjM4ZTNjYmNlYTRlYmVjM2RkNzQy'
+    });
+    console.log('Headers Auth: ', headers.get('Authorization'))
+    // console.log("FORM DATA-------------> ", formData)
     const testData = "numberOnPolicy=1&home_zip=12345&gender=M&tobacco=1&income=125000&coverageType=Silver&name_first=dsd&name_last=ddd&home_street=MojaUlica&email=zeko@konj.com&phone_home=111201111111&universal_leadid=241A04AB-07CB-9EAE-CA97-71466F0E1F59&trusted_form_url=https://cert.trustedform.com/48a9419ed5e03681137b72aaa23dbe005ac5f065&ip_address=178.148.90.113&home_city=Schenectady&home_state=NY&client_name=HealthDefault&sub_id1=s1&sub_id2=s2&sub_id3=s3&dob=2000-11-11"
     fetch(`https://cert.trustedform.com/48a9419ed5e03681137b72aaa23dbe005ac5f065`, {
       method: 'POST',
-      mode: "no-cors",
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-        'Authorization': 'Basic ' + base64.encode('API:ab1df3c9f52238e3cbcea4ebec3dd742')
-      },
+      mode: "cors",
+      headers,
       body: testData
     })
     .then(
@@ -129,7 +134,7 @@ class Wizard extends Component {
     .catch(function(err) {
       console.log('Fetch Error :-S', err);
     });
-  } 
+  }
 
   componentWillMount () {
     // Checking if we have session storage created
@@ -143,11 +148,11 @@ class Wizard extends Component {
       // if storage does not exists set component initial values to storage
       sessionStorage.setItem('getmyhealth', JSON.stringify(this.state.initialValues))
     }
-    // Get Ip address 
+    // Get Ip address
     this.getIpAddress();
   }
-  
-  
+
+
   handleSubmit = (values) => {
     // getting aff values
     values.client_name= this.props.affid || 'HealthDefault';
@@ -169,7 +174,7 @@ class Wizard extends Component {
     values.dob = year + '-' + month + '-' + day;
     delete values.dateOfBirth;
 
-    //Assign ip address to values 
+    //Assign ip address to values
     values.ip_address = ip_address;
 
     //Assign trusted from url. Value get from trusted from script on template.html
@@ -189,7 +194,7 @@ class Wizard extends Component {
     // })
     // .then((res) => res.json())
     // .then((data) => console.log(JSON.stringify(data)));
-    
+
     this.claimTrustedForm(trusted_form_url_value, data)
   }
 
@@ -214,7 +219,7 @@ class Wizard extends Component {
             return (
               <form onSubmit={handleSubmit}>
                 {wizProps.renderPage(props)}
-                
+
               </form>
             );
           }}

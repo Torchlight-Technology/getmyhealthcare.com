@@ -23,13 +23,14 @@
 	</head>
 	<body>
 		
-		<%= htmlWebpackPlugin.options.ssr({
-			url: '/'
-		}) %>
-		<script defer src="<%= htmlWebpackPlugin.files.chunks['bundle'].entry %>"></script>
-		<script>window.fetch||document.write('<script src="<%= htmlWebpackPlugin.files.chunks["polyfills"].entry %>"><\/script>')</script>
-		
-		<script id="LeadiDscript" type="text/javascript">
+			<%= htmlWebpackPlugin.options.ssr({
+				url: '/'
+			}) %>
+			<script defer src="<%= htmlWebpackPlugin.files.chunks['bundle'].entry %>"></script>
+			<script>window.fetch||document.write('<script src="<%= htmlWebpackPlugin.files.chunks["polyfills"].entry %>"><\/script>')</script>
+			
+			<!-- Generate a Leadid -->
+			<script id="LeadiDscript" type="text/javascript">
 			// <!--
 			(function() {
 			var s = document.createElement('script');
@@ -60,6 +61,8 @@
 			<noscript>
 				<img src="http://api.trustedform.com/ns.gif" />
 			</noscript>
+			
+			<!-- Hidden field for leadid -->
 			<input type="hidden" id="leadid_token" name="universal_leadid" />
 		</body>
 </html>

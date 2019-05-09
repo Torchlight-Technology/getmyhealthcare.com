@@ -84,17 +84,51 @@ class Wizard extends Component {
   }
 
   claimTrustedForm = (url, formData) => {
-    fetch(url, {
+    // fetch(url, {
+    //   method: 'POST',
+    //   mode: "no-cors",
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+    //     'Authorization': 'Basic ' + base64.encode('API:ab1df3c9f52238e3cbcea4ebec3dd742')
+    //   },
+    //   body: formData
+    // })
+    // .then((res) => res.json())
+    // .then((data) => console.log(data));
+    console.log("FORM DATA-------------> ", formData)
+    const testData = "numberOnPolicy=1&home_zip=12345&gender=M&tobacco=1&income=125000&coverageType=Silver&name_first=dsd&name_last=ddd&home_street=MojaUlica&email=zeko@konj.com&phone_home=111201111111&universal_leadid=241A04AB-07CB-9EAE-CA97-71466F0E1F59&trusted_form_url=https://cert.trustedform.com/48a9419ed5e03681137b72aaa23dbe005ac5f065&ip_address=178.148.90.113&home_city=Schenectady&home_state=NY&client_name=HealthDefault&sub_id1=s1&sub_id2=s2&sub_id3=s3&dob=2000-11-11"
+    fetch(`https://cert.trustedform.com/48a9419ed5e03681137b72aaa23dbe005ac5f065`, {
       method: 'POST',
+      mode: "no-cors",
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
         'Authorization': 'Basic ' + base64.encode('API:ab1df3c9f52238e3cbcea4ebec3dd742')
       },
-      body: formData
+      body: testData
     })
-    .then((res) => res.json())
-    .then((data) => console.log(data));
+    .then(
+      function(response) {
+        if (response.status !== 200) {
+          console.log('Looks like there was a problem. Status Code: ' +
+            response.status);
+          return;
+        }
+
+        // Examine the text in the response
+        response.json().then(function(data) {
+          console.log(data);
+          // self.setState({
+          //   initialValues: {...self.state.initialValues, ip_address: data.ip}
+          // }, ()=>{console.log(self.state)})
+          // ip_address=data.ip
+        });
+      }
+    )
+    .catch(function(err) {
+      console.log('Fetch Error :-S', err);
+    });
   } 
 
   componentWillMount () {

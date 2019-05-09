@@ -83,7 +83,7 @@ class Wizard extends Component {
     .then((data) => console.log(JSON.stringify(data)));
   }
 
-  claimTrustedForm = (url, formData, cb) => {
+  claimTrustedForm = (url, formData) => {
     fetch(url, {
       method: 'POST',
       headers: {
@@ -156,7 +156,7 @@ class Wizard extends Component {
     // .then((res) => res.json())
     // .then((data) => console.log(JSON.stringify(data)));
     
-    this.claimTrustedForm(trusted_form_url_value, data, this.submitForm)
+    this.claimTrustedForm(trusted_form_url_value, data)
   }
 
   render() {

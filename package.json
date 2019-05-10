@@ -12,7 +12,7 @@
     "dev": "preact watch --template src/template.html",
     "lint": "eslint src",
     "test": "jest",
-    "build:prod": "preact build --template src/template.html && npm run copyAssets"
+    "build:prod": "preact build --no-prerender --template src/template.html"
   },
   "eslintConfig": {
     "extends": [

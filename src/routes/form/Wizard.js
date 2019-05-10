@@ -47,7 +47,11 @@ class Wizard extends Component {
       sub_id3: "",
       datetime_collected: "",
       dob: "",
-      client_name: ""
+      client_name: "",
+      tcpa_disclosure: "1",
+      tcpa_consent_language: `By completing a contact form on this site, clicking "Show Me My Results", or calling the number listed above, you may be directed to a sales agent who can answer your questions and provide information about health insurance plans and other services. (Agents are not connected with or endorsed by the U.S. government.) By interacting with the site, you provide an electronic signature by which you agree to the following terms: "I consent to receive emails, notifications, and calls about health insurance plans or products from these companies and their agents to the telephone number(s) I have provided. 'Calls' may be auto-dialed, use artificial or pre-recorded voices, and/or be text messages, including recurring messages sent via a short code program. I understand that my consent to receive calls is not required in order to purchase any property, goods or services. My telephone company may impose additional charges for messages. I may revoke my consent to receiving messages at any time. By submitting my information, I confirm that I have read, understand, and agree to these Terms of Use and Privacy Policy."`,
+      landing_url: 'https://getmyhealthcare.com/',
+      privacy_policy_url: 'https://getmyhealthcare.com/privacy/'
     }
   };
 
@@ -74,18 +78,6 @@ class Wizard extends Component {
     });
   }
 
-  submitForm = (data) => {
-    fetch('https://staging.one.pingtreetech.com/api/health/post', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-      },
-      body: data
-    })
-    .then((res) => res.json())
-    .then((data) => console.log(JSON.stringify(data)));
-  }
-
   claimTrustedForm = (formData) => {
     console.log('FormData: ', formData);
 
@@ -108,24 +100,26 @@ class Wizard extends Component {
 
         // Examine the text in the response
         response.json().then(function(data) {
-
           console.log('Trusted form response: ', data);
-
-          fetch('https://staging.one.pingtreetech.com/api/health/post', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-            },
-            body: formData
-          })
-          .then((res) => res.json())
-          .then((data) => console.log(JSON.stringify(data)));
         });
       }
     )
     .catch(function(err) {
       console.log('Fetch Error: ', err);
     });
+  }
+
+  postToOnePingTree = (data) => {
+    // POST to one.pingtreetech
+    fetch('https://staging.one.pingtreetech.com/api/health/post', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      },
+      body: data
+    })
+    .then((res) => res.json())
+    .then((data) => console.log(JSON.stringify(data)));
   }
 
   componentWillMount () {
@@ -173,8 +167,9 @@ class Wizard extends Component {
     console.log('form data query: ', data);
 
     this.claimTrustedForm(data);
-    sessionStorage.setItem('cpcman', JSON.stringify(values));
+    this.postToOnePingTree(data);
 
+    sessionStorage.setItem('cpcman', JSON.stringify(values));
     // Redirect to exit page (thank-you)
     route('/thank-you');
   }

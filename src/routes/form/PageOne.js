@@ -48,9 +48,23 @@ class PageOne extends Component  {
 
 	}
 
-	checkForErrors = (errors) => !errors.hasOwnProperty('home_zip')
-
+	// check if home_zip exists in errors 
+	checkForErrors = (errors) => {
+		return !errors.hasOwnProperty('home_zip');
+	}
+	
 	render(){
+		// Tests if zip exists
+		const isValidZip = async (value) => {
+			if(value && value.replace(/[^0-9]/g, "").length === 5) {
+				const response = await fetch(`https://api.zippopotam.us/us/${value}`);
+				if (response.status !== 200) {
+					return 'Not good zip';
+				}
+			} else if (value && value.replace(/[^0-9]/g, "").length < 5){
+				return 'Must have 5 digits';
+			}
+		}
 
 		return (
 				<div className="page">
@@ -71,6 +85,7 @@ class PageOne extends Component  {
 								<label htmlFor="home_zip" name="home_zip">Zip Code</label>
 								<Field	
 										name="home_zip"
+										validate={isValidZip}
 										render={({ field }) => (
 											<MaskedInput
 												{...field}
@@ -148,6 +163,7 @@ class PageOne extends Component  {
 									<label htmlFor="home_zip" name="home_zip">Zip Code</label>
 									<Field
 										name="home_zip"
+										validate={isValidZip}
 										render={({ field }) => (
 											<MaskedInput
 												{...field}
@@ -204,6 +220,7 @@ class PageOne extends Component  {
 								<label htmlFor="home_zip" name="home_zip">Zip Code</label>
 								<Field
 									name="home_zip"
+									validate={isValidZip}
 									render={({ field }) => (
 										<MaskedInput
 											{...field}

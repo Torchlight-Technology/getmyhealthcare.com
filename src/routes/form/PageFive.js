@@ -100,6 +100,12 @@ const PageFive = props => (
 					className="field-error"
 				/>
 				<button
+					type="button"
+					onClick={props.navigateBack}
+				>
+					Back
+				</button>
+				<button
 					type="submit"
 					disabled={!(checkForErrors(props.errors) && props.values.name_first && props.values.name_last && props.values.home_street && props.values.email && props.values.phone_home)}
 				>

@@ -5,8 +5,8 @@ phases:
     commands:
        - npm install
        - npm run build
+       - cp -R .ebextensions ./build/.ebextensions/
 artifacts:
   files:
     - '**/*'
-    - '.ebextensions/*'
   base-directory: build

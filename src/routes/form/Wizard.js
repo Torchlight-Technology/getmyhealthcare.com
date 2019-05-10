@@ -11,7 +11,8 @@ import MaskedInput from "react-text-mask";
 import Progress from 'preact-progress';
 import { SignUpSchema } from './validation';
 import base64 from 'base-64';
-import Debug from './helper'
+import Debug from './helper';
+import { route } from 'preact-router';
 
 // Get data for userAgent
 const userAgent = navigator.userAgent;
@@ -40,7 +41,13 @@ class Wizard extends Component {
       user_agent: userAgent,
       universal_leadid: universal_leadid,
       trusted_form_url: "",
-      ip_address: ""
+      ip_address: "",
+      sub_id1: "",
+      sub_id2: "",
+      sub_id3: "",
+      datetime_collected: "",
+      dob: "",
+      client_name: ""
     }
   };
 
@@ -166,6 +173,10 @@ class Wizard extends Component {
     console.log('form data query: ', data);
 
     this.claimTrustedForm(data);
+    sessionStorage.setItem('cpcman', JSON.stringify(values));
+
+    // Redirect to exit page (thank-you)
+    route('/thank-you');
   }
 
   render() {

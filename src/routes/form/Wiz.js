@@ -24,7 +24,7 @@ class Wiz extends Component {
 	_navigateBack = () => {
 		this.setState(prevState => ({
 			pageIndex: prevState.pageIndex - 1 < 0 ? 0 : prevState.pageIndex - 1
-		}),()=> console.log(this.state.pageIndex));
+		}));
 	};
 
 	_navigateNext = () => {

@@ -3,6 +3,7 @@ node_modules
 /*.log
 *.lock
 trusted-form.php
+.env.development
 
 package-lock.json
 

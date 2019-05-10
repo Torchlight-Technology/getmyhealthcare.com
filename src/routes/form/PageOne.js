@@ -60,9 +60,8 @@ class PageOne extends Component  {
 					<div class="mast-image"></div>
 					<h3>Get Started!</h3>
 					<div class="input-group">
-								<label htmlFor="numberOnPolicy" name="numberOnPolicy" >Number on Policy</label>
+								<label htmlFor="numberOnPolicy" name="numberOnPolicy" >No. on Policy</label>
 								<select htmlFor="numberOnPolicy" value={this.props.values.numberOnPolicy} name="numberOnPolicy" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>
-									<option value="">Select</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -137,7 +136,7 @@ class PageOne extends Component  {
 					<h4>Personalized Recommendations</h4>
 					<p>We sort through your options in our database, and point you in the right direction based on your needs, preferences, and budget.</p>
 					<div class="input-group">
-								<label htmlFor="numberOnPolicy" name="numberOnPolicy" >Number on Policy</label>
+								<label htmlFor="numberOnPolicy" name="numberOnPolicy" >No. on Policy</label>
 								<select htmlFor="numberOnPolicy" value={this.props.values.numberOnPolicy} name="numberOnPolicy" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>
 									<option value="">Select</option>
 									<option value="1">1</option>
@@ -193,7 +192,7 @@ class PageOne extends Component  {
 						<p>“In hac habitasse platea dictumst. Mauris laoreet massa et nibh dapibus bibendum. Nunc mauris nulla, tincidunt in tristique.”<br/><br/>- Some Person</p>
 
 								<div class="input-group">
-								<label htmlFor="numberOnPolicy" name="numberOnPolicy" >Number on Policy</label>
+								<label htmlFor="numberOnPolicy" name="numberOnPolicy" >No. on Policy</label>
 								<select htmlFor="numberOnPolicy" value={this.props.values.numberOnPolicy} name="numberOnPolicy" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>
 									<option value="">Select</option>
 									<option value="1">1</option>

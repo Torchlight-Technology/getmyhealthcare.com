@@ -1,12 +1,17 @@
 div.input-group {
+	box-sizing: border-box;
 	background-color: $blue-paler;
 	border-radius: 6px;
-	padding: .5rem .75rem;
+	padding: .5rem .75rem 0;
 	display: grid;
-	grid-template-rows: 30px 1fr 1fr;
+	grid-template-rows: 1.5rem 1fr 1.2rem;
 	grid-template-columns: 1fr 1fr;
 
 	label {
+		align-self: center;
+		font-size: .8rem;
+		padding-left: .4rem;
+		line-height: 1;
 		grid-row: 1 / 2;
 		color: $blue;
 	}
@@ -44,8 +49,7 @@ div.input-group {
 
 	@media (min-width: 500px) {
 		max-width: 450px;
-		grid-template-rows: 30px 1fr;
-		grid-template-columns: 1fr 1fr 1.5fr;
+		grid-template-columns: 125px 160px 1fr;
 
 		input[type="number"] {
 			border-radius: 0;

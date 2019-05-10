@@ -77,7 +77,7 @@ class Wizard extends Component {
     state = {
         pageIndex: 0,
         initialValues: {
-          numberOnPolicy: '',
+          numberOnPolicy: '1',
           home_zip: '',
           dateOfBirth: '',
           gender: '',

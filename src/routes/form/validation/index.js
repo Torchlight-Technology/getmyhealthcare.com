@@ -17,7 +17,7 @@ export const SignUpSchema = Yup.object().shape({
   //     }
   //   ),
   dateOfBirth: Yup.string()
-    .test('date-len', 'Date must be exactly 8 characters', val => val && val.replace(/[^0-9]/g, "").length === 8)
+    .test('date-len', 'Date must be at 8 characters long', val => val && val.replace(/[^0-9]/g, "").length === 8)
     .required('Required'),
   gender: Yup.mixed()
     .oneOf(['M', 'F'])
@@ -36,11 +36,13 @@ export const SignUpSchema = Yup.object().shape({
     .required('Required'),
   // Apply mask
   home_street: Yup.string()
+    .min('Street address must be at least 6 characters',6)
     .required('Please enter street address'),
   email: Yup.string()
     .email('Invalid email address')
     .required('Required'),
   phone_home: Yup.string()
-    .test('phone-len', 'Phone number must be exactly 8 characters long', val => val && val.replace(/[^0-9]/g, "").length === 10)
+    .matches(/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/, 'Not valid phone number')
+    .test('phone_starts', 'Not valid phone number',val => val && val[1] !== '0' && val[1] !== '1' && val.substring(11, 14) !== '000' && val.substring(11, 14) !== '111')
     .required('Phone number is required')
 });

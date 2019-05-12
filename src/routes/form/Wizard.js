@@ -41,7 +41,7 @@ class Wizard extends Component {
       user_agent: userAgent,
       universal_leadid: universal_leadid,
       trusted_form_url: "",
-      ip_address: "",
+      ip_address: "127.0.0.1",
       sub_id1: "",
       sub_id2: "",
       sub_id3: "",
@@ -61,19 +61,17 @@ class Wizard extends Component {
     .then(
       function(response) {
         if (response.status !== 200) {
-          console.log('Looks like there was a problem. Status Code: ' +
-            response.status);
+          console.log('Looks like there was a problem. Status Code: ' + response.status);
           return;
         }
-
         // Examine the text in the response
         response.json().then(function(data) {
-          console.log(data.ip);
-          ip_address = data.ip
+          ip_address = data.ip;
         });
       }
     )
     .catch(function(err) {
+      ip_address = '127.0.0.1';
       console.log('Fetch Error: ', err);
     });
   }
@@ -182,7 +180,6 @@ class Wizard extends Component {
           initialValues={this.state.initialValues}
           validationSchema={SignUpSchema}
           handleChange
-          // enableReinitialize
           onSubmit={(values, { setSubmitting }) => {
             // setTimeout(() => {
               this.handleSubmit(values);

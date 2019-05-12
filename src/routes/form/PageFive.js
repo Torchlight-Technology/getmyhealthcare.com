@@ -95,7 +95,7 @@ const PageFive = props => (
 					)}
 				/>
 				<ErrorMessage
-					name="phone"
+					name="phone_home"
 					component="div"
 					className="field-error"
 				/>

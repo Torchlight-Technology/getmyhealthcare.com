@@ -43,6 +43,6 @@ export const SignUpSchema = Yup.object().shape({
     .required('Required'),
   phone_home: Yup.string()
     .matches(/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/, 'Not valid phone number')
-    .test('phone_starts', 'Not valid phone number',val => val && val[1] !== '0' && val[1] !== '1' && val.substring(11, 14) !== '000' && val.substring(11, 14) !== '111')
+    .test('phone_starts', 'Not valid phone number',val => val && val[1] !== '0' && val[1] !== '1' && val.substring(10, 14) !== '0000')
     .required('Phone number is required')
 });

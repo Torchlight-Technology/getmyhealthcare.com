@@ -11,7 +11,7 @@ const onChange = (ctx, val) => console.log(`${val}% complete`);
 
 // TODO Make ZipSubmit component (onClick send to top of page)
 class PageOne extends Component  {
-	
+
 	getStateAndCity = async (zip) => {
 		let response =  fetch(`https://api.zippopotam.us/us/${zip}`, {
 			method: 'GET'
@@ -48,11 +48,11 @@ class PageOne extends Component  {
 
 	}
 
-	// check if home_zip exists in errors 
+	// check if home_zip exists in errors
 	checkForErrors = (errors) => {
 		return !errors.hasOwnProperty('home_zip');
 	}
-	
+
 	render(){
 		// Tests if zip exists
 		const isValidZip = async (value) => {
@@ -74,8 +74,8 @@ class PageOne extends Component  {
 							<div class="mast-image"></div>
 							<h3>Get Started!</h3>
 							<div class="input-group">
-								<label htmlFor="numberOnPolicy" name="numberOnPolicy" >Number on Policy</label>
-								<select htmlFor="numberOnPolicy" value={this.props.values.numberOnPolicy} name="numberOnPolicy" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>
+								<label htmlFor="household_size" name="household_size" >Number on Policy</label>
+								<select htmlFor="household_size" value={this.props.values.household_size} name="household_size" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>
 									<option value="">Select</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
@@ -83,7 +83,7 @@ class PageOne extends Component  {
 									<option value="4+">4+</option>
 								</select>
 								<label htmlFor="home_zip" name="home_zip">Zip Code</label>
-								<Field	
+								<Field
 										name="home_zip"
 										validate={isValidZip}
 										render={({ field }) => (
@@ -103,12 +103,12 @@ class PageOne extends Component  {
 									<button
 										type="button"
 										onClick={ this.handleNext }
-										disabled={!(this.checkForErrors(this.props.errors) && this.props.values.numberOnPolicy && this.props.values.home_zip)}
+										disabled={!(this.checkForErrors(this.props.errors) && this.props.values.household_size && this.props.values.home_zip)}
 									>
 										Next
 									</button>
 									<ErrorMessage
-										name="numberOnPolicy"
+										name="household_size"
 										component="div"
 										className="field-error"
 									/>
@@ -152,8 +152,8 @@ class PageOne extends Component  {
 								<h4>Personalized Recommendations</h4>
 								<p>We sort through your options in our database, and point you in the right direction based on your needs, preferences, and budget.</p>
 								<div class="input-group">
-									<label htmlFor="numberOnPolicy" name="numberOnPolicy" >Number on Policy</label>
-									<select htmlFor="numberOnPolicy" value={this.props.values.numberOnPolicy} name="numberOnPolicy" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>
+									<label htmlFor="household_size" name="household_size" >Number on Policy</label>
+									<select htmlFor="household_size" value={this.props.values.household_size} name="household_size" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>
 										<option value="">Select</option>
 										<option value="1">1</option>
 										<option value="2">2</option>
@@ -181,12 +181,12 @@ class PageOne extends Component  {
 									<button
 										type="button"
 										onClick={this.handleNext}
-										disabled={!(this.checkForErrors(this.props.errors) && this.props.values.numberOnPolicy && this.props.values.home_zip)}
+										disabled={!(this.checkForErrors(this.props.errors) && this.props.values.household_size && this.props.values.home_zip)}
 									>
 										Next
 									</button>
 									<ErrorMessage
-										name="numberOnPolicy"
+										name="household_size"
 										component="div"
 										className="field-error"
 									/>
@@ -209,8 +209,8 @@ class PageOne extends Component  {
 							<p>“In hac habitasse platea dictumst. Mauris laoreet massa et nibh dapibus bibendum. Nunc mauris nulla, tincidunt in tristique.”<br/><br/>- Some Person</p>
 
 							<div class="input-group">
-								<label htmlFor="numberOnPolicy" name="numberOnPolicy" >Number on Policy</label>
-								<select htmlFor="numberOnPolicy" value={this.props.values.numberOnPolicy} name="numberOnPolicy" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>
+								<label htmlFor="household_size" name="household_size" >Number on Policy</label>
+								<select htmlFor="household_size" value={this.props.values.household_size} name="household_size" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>
 									<option value="">Select</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
@@ -238,12 +238,12 @@ class PageOne extends Component  {
 								<button
 									type="button"
 									onClick={ this.handleNext }
-									disabled={!(this.checkForErrors(this.props.errors) && this.props.values.numberOnPolicy && this.props.values.home_zip)}
+									disabled={!(this.checkForErrors(this.props.errors) && this.props.values.household_size && this.props.values.home_zip)}
 								>
 									Next
 								</button>
 								<ErrorMessage
-									name="numberOnPolicy"
+									name="household_size"
 									component="div"
 									className="field-error"
 								/>
@@ -287,8 +287,8 @@ class PageOne extends Component  {
 					<h4>Personalized Recommendations</h4>
 					<p>We sort through your options in our database, and point you in the right direction based on your needs, preferences, and budget.</p>
 					<div class="input-group">
-								<label htmlFor="numberOnPolicy" name="numberOnPolicy" >Number on Policy</label>
-								<select htmlFor="numberOnPolicy" value={this.props.values.numberOnPolicy} name="numberOnPolicy" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>
+								<label htmlFor="household_size" name="household_size" >Number on Policy</label>
+								<select htmlFor="household_size" value={this.props.values.household_size} name="household_size" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>
 									<option value="">Select</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
@@ -315,12 +315,12 @@ class PageOne extends Component  {
 								<button
 									type="button"
 									onClick={this.handleNext}
-									disabled={!(this.checkForErrors(this.props.errors) && this.props.values.numberOnPolicy && this.props.values.home_zip)}
+									disabled={!(this.checkForErrors(this.props.errors) && this.props.values.household_size && this.props.values.home_zip)}
 								>
 									Next
 								</button>
 								<ErrorMessage
-									name="numberOnPolicy"
+									name="household_size"
 									component="div"
 									className="field-error"
 								/>
@@ -343,8 +343,8 @@ class PageOne extends Component  {
 						<p>“In hac habitasse platea dictumst. Mauris laoreet massa et nibh dapibus bibendum. Nunc mauris nulla, tincidunt in tristique.”<br/><br/>- Some Person</p>
 
 								<div class="input-group">
-								<label htmlFor="numberOnPolicy" name="numberOnPolicy" >Number on Policy</label>
-								<select htmlFor="numberOnPolicy" value={this.props.values.numberOnPolicy} name="numberOnPolicy" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>
+								<label htmlFor="household_size" name="household_size" >Number on Policy</label>
+								<select htmlFor="household_size" value={this.props.values.household_size} name="household_size" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>
 									<option value="">Select</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
@@ -371,12 +371,12 @@ class PageOne extends Component  {
 								<button
 									type="button"
 									onClick={this.handleNext}
-									disabled={!(this.checkForErrors(this.props.errors) && this.props.values.numberOnPolicy && this.props.values.home_zip)}
+									disabled={!(this.checkForErrors(this.props.errors) && this.props.values.household_size && this.props.values.home_zip)}
 								>
 									Next
 								</button>
 								<ErrorMessage
-									name="numberOnPolicy"
+									name="household_size"
 									component="div"
 									className="field-error"
 								/>

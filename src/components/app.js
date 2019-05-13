@@ -12,6 +12,7 @@ import About from '../routes/about';
 import Privacy from '../routes/privacy';
 import Terms from '../routes/terms';
 import PageOne from '../routes/form/PageOne.js';
+import Error from '../routes/error';
 
 export default class App extends Component {
 
@@ -46,6 +47,7 @@ export default class App extends Component {
 			<div id="app">
 				<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5WZH76" height="0" width="0" style="display:none;visibility:hidden" />
 				<Helmet
+					title="Get My Health Care"
 					link={[
 				 			{ rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Inconsolata:400,700' },
 				 			{ rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans' }
@@ -58,7 +60,7 @@ export default class App extends Component {
 							'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 							})(window,document,'script','dataLayer','GTM-T5WZH76');`
 						}
-	                ]}
+					]}
 				/>
 				<Header />
 				<Router onChange={this.handleRoute} params={this.params}>
@@ -68,6 +70,7 @@ export default class App extends Component {
 					<About path="/about/" />
 					<Privacy path="/privacy/" />
 					<Terms path="/terms/" />
+					<Error type="404" default />
 				</Router>
 				<Footer />
 			</div>

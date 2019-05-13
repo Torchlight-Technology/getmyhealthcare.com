@@ -2,7 +2,8 @@ node_modules
 /build
 /*.log
 *.lock
-trusted-form.php
+s3
+.env.development
 
 package-lock.json
 

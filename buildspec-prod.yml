@@ -4,7 +4,7 @@ phases:
   build:
     commands:
        - npm install
-       - npm run build
+       - npm run build:prod
        - cp -R .ebextensions ./build/.ebextensions/
 artifacts:
   files:

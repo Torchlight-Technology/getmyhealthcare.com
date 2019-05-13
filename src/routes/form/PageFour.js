@@ -10,11 +10,11 @@ const onChange = (ctx, val) => console.log(`${val}% complete`);
 const PageThree = props => (
 	<div className="page form">
     <div class="form-window">
-    <Progress 
-      id="loader" class="loader"
-      value={60} height="3px" color="#6cc644"
-      onChange={onChange}
-    / >
+      <Progress 
+        id="loader" class="loader"
+        value={60} height="3px" color="#6cc644"
+        onChange={onChange}
+      />
       <div class="sidebar">
         <img src="assets/agent-photo.png" />
         <p>"Thank you! Let's look over your coverage options"</p>
@@ -91,14 +91,21 @@ const PageThree = props => (
       	  class="field-error"
       	/>
            </RadioButtonGroup>
+
   		
-  		<button
-  			type="button"
-  			onClick={props.navigateNext}
-  			disabled={!(props.values.coverageType)}
-  		>
-  			Next
-  		</button>
+        <button
+          type="button"
+          onClick={props.navigateNext}
+          disabled={!(props.values.coverageType)}
+        >
+          Next
+        </button>
+        <button
+					type="button"
+					onClick={props.navigateBack}
+				>
+					Back
+				</button>
       </div>
     </div>
 	</div>

@@ -2,5 +2,12 @@ node_modules
 /build
 /*.log
 *.lock
+s3
+.env.development
 
 package-lock.json
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

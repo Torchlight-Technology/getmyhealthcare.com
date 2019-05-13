@@ -5,9 +5,9 @@ class Wiz extends Component {
 		pageIndex: 0
 	};
 
-	componentDidMount () {
-		console.log(this.props.testVal)
-	}
+	// componentDidMount () {
+	// 	console.log(this.props.testVal)
+	// }
 
 	render() {
 		const renderProps = {
@@ -23,7 +23,7 @@ class Wiz extends Component {
 
 	_navigateBack = () => {
 		this.setState(prevState => ({
-			pageIndex: prevState.pageIndex - 1 < 0 ? prevState.pageIndex - 1 : 0
+			pageIndex: prevState.pageIndex - 1 < 0 ? 0 : prevState.pageIndex - 1
 		}));
 	};
 

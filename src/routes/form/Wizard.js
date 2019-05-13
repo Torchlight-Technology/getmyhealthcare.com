@@ -17,7 +17,7 @@ const SignUpSchema = Yup.object().shape({
     .required('Please select'),
   home_zip: Yup.string()
     .required('Enter ZIP')
-    .test('len', 'Zip must be exactly 5 characters', val => val && val.replace(/[^0-9]/g, "").length === 5 )
+    .test('len', 'ZIP is 5 Numbers', val => val && val.replace(/[^0-9]/g, "").length === 5 )
     .test('testing-zip', 'Zip does not exist',
       async val => {
         let tempZip = val.replace(/[^0-9]/g, "");
@@ -56,20 +56,6 @@ const SignUpSchema = Yup.object().shape({
     .required('Phone number is required')
 });
 
-// const initialValues = {
-//     numberOnPolicy: '1',
-//     home_zip: '90210',
-//     dateOfBirth: '12/12/1980',
-//     gender: 'M',
-//     tobacco: '0',
-//     income: '33000',
-//     coverageType: 'Silver',
-//     name_first: 'John',
-//     name_last: 'Doe',
-//     home_street: 'Test Street 123',
-//     email: 'test@test.com',
-//     phone_home: '(555) 757-2923'
-// };
 const userAgent = navigator.userAgent;
 
 class Wizard extends Component {
@@ -90,8 +76,6 @@ class Wizard extends Component {
           email: '',
           phone_home: '',
           coverageType: '',
-          // home_city: '',
-          // home_state: '',
           user_agent: userAgent
         }
     };
@@ -108,17 +92,12 @@ class Wizard extends Component {
     }
 
     handleSubmit = (values) => {
-      // getting aff values
       values.client_name= this.props.affid || 'HealthDefault';
       values.sub_id1= this.props.sub_id1 || 's1';
       values.sub_id2= this.props.sub_id2 || 's2';
       values.sub_id3= this.props.sub_id3 || 's3';
 
-      // hardcoding some values
-      // values.user_agent= 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3776.0 Safari/537.36';
       values.ip_address = '127.0.0.1';
-      // values.home_city = 'Beverly Hills';
-      // values.home_state = 'CA';
       values.datetime_collected = new Date().toISOString();
 
       // get date of birth in correct format
@@ -185,12 +164,6 @@ class Wizard extends Component {
             pageIndex: prevState.pageIndex + 1
         }));
     };
-
-    // _handleLocalStorage = (e) => {
-    //   const tempStorage = JSON.parse(sessionStorage.getItem('getmyhealth'))
-    //   console.log(e)
-    //   console.log(tempStorage);
-    // }
 
     _renderPage(props) {
         const { pageIndex } = this.state;

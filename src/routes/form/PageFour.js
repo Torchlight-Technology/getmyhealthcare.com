@@ -17,12 +17,12 @@ const PageThree = props => (
     / >
       <div class="sidebar">
         <img src="assets/agent-photo.png" />
-        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p>
+        <p>"Thank you! Let's look over your coverage options"</p>
       </div>
         <div class="input-wrap">
           <div class="form-title">
-            <h2>Check for discounts!</h2>
-            <p>You may qualify for savings on your monthly based on your estimated household income.</p>
+            <h2>Select your plan!</h2>
+            <p>What level of coverage do you need? Depending on how much you need, you can save more.</p>
           </div>
           <RadioButtonGroup
              id="coverageType"
@@ -41,7 +41,6 @@ const PageThree = props => (
   	           />
   	        </div>	
   	    	<h4 class="plan-level">Bronze Plans</h4>
-  	    	<p class="price">Starting at $XXX/mo</p>
   	    	<p class="details">Bronze plans cover more than 60% of medical costs</p>
       	</div>
 
@@ -56,7 +55,6 @@ const PageThree = props => (
              />
              </div>	
   	    	<h4 class="plan-level">Silver Plans</h4>
-  	    	<p class="price">Starting at $XXX/mo</p>
   	    	<p class="details">Silver plans cover more than 60% of medical costs</p>
       	</div>
 
@@ -71,7 +69,6 @@ const PageThree = props => (
              />
               </div>	
   	    	<h4 class="plan-level">Gold Plans</h4>
-  	    	<p class="price">Starting at $XXX/mo</p>
   	    	<p class="details">Gold plans cover more than 60% of medical costs</p>
       	</div>
 
@@ -86,7 +83,6 @@ const PageThree = props => (
              />
              </div>
              <h4 class="plan-level">Platinum Plans</h4>
-  	    	<p class="price">Starting at $XXX/mo</p>
   	    	<p class="details">Platinum plans cover more than 60% of medical costs</p>
       	</div>
       	<ErrorMessage

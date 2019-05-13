@@ -39,12 +39,12 @@ const PageFive = props => (
 			/>
 			<div class="sidebar">
 				<img src="assets/agent-photo.png" />
-				<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p>
+				<p>"Let us know your details so we can send you your personalized quotes."</p>
 			</div>
 	    <div class="input-wrap">
 				<div class="form-title">
 					<h2>Just need to confirm contact details for your quote estimates</h2>
-					<p>Complete this paege and we’ll match you with available plans and show you estimated pricing including subsidies</p>
+					<p>Complete this page and we’ll match you with available plans and show you estimated pricing including subsidies</p>
 				</div>
 				<label htmlFor="name_first" name="name_first">First Name</label>
 				<Field name="name_first" placeholder="First Name" type="text" onChange={(e)=>{ props.handleChange(e); props.handleLocalStorage(e); }}/>

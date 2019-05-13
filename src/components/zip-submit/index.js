@@ -7,11 +7,11 @@ import Wiz from '../../routes/form/Wiz';
 import Wizard from '../../routes/form/Wizard';
 
 class ZipSubmit extends Component {
-    render(props, state) { 
+    render(props, state) {
       return (
         <div class="input-group">
-        <label htmlFor="numberOnPolicy" name="numberOnPolicy">Number on Policy</label>
-        <Field htmlFor="numberOnPolicy" name="numberOnPolicy" component="select" placeholder="1">
+        <label htmlFor="household_size" name="household_size">Number on Policy</label>
+        <Field htmlFor="household_size" name="household_size" component="select" placeholder="1">
           <option value="">Select</option>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -33,12 +33,12 @@ class ZipSubmit extends Component {
         <button
           type="button"
           onClick={this.props.navigateNext}
-          disabled={!(this.props.values.numberOnPolicy && this.props.values.home_zip)}
+          disabled={!(this.props.values.household_size && this.props.values.home_zip)}
         >
           Next
         </button>
         <ErrorMessage
-          name="numberOnPolicy"
+          name="household_size"
           component="div"
           className="field-error"
         />
@@ -47,7 +47,7 @@ class ZipSubmit extends Component {
           component="div"
           className="field-error"
         />
-      </div>); 
+      </div>);
   }
 }
 

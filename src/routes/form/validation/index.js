@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 
 export const SignUpSchema = Yup.object().shape({
-  numberOnPolicy: Yup.mixed()
+  household_size: Yup.mixed()
     .oneOf(['1', '2', '3', '4+'])
     .required('Please select'),
   // home_zip: Yup.string()

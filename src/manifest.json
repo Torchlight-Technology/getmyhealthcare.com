@@ -1,6 +1,6 @@
 {
-  "name": "getmyhealthcare-preact",
-  "short_name": "getmyhealthcare-preact",
+  "name": "getmyhealthcare",
+  "short_name": "Get My Health Care",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",

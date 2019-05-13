@@ -88,6 +88,12 @@ const PageTwo = props => (
 				  className="field-error"
 				/>
 				<button type="button" onClick={props.navigateNext} disabled={!(checkForErrors(props.errors) && props.values.gender && props.values.tobacco)}>Next</button>
+				<button
+					type="button"
+					onClick={props.navigateBack}
+				>
+					Back
+				</button>
 			</div>
 		</div>
 	</div>

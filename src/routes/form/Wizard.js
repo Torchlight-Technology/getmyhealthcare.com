@@ -20,7 +20,7 @@ const userAgent = navigator.userAgent;
 const universal_leadid = document.getElementById('leadid_token').value;
 let ip_address = '';
 const API_URL = process.env.API_URL;
-console.log('API: ', API_URL);
+// console.log('API: ', API_URL);
 class Wizard extends Component {
 
   state = {

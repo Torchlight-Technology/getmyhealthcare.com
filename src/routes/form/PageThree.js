@@ -15,7 +15,7 @@ const PageThree = props => (
 			/>
 			<div class="sidebar">
 				<img src="assets/agent-photo.png" />
-				<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p>
+				<p>"Great! Just a few more questions to help you save."</p>
 			</div>
 	    	<div class="input-wrap">
 				<div class="form-title">

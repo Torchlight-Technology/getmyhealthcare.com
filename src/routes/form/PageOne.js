@@ -67,16 +67,15 @@ class PageOne extends Component  {
 		}
 
 		return (
-				<div className="page">
-					<main>
-						<div class="mast">
-							<h2>Find the right health insurance for you in Philadelphia, PA.</h2>
-							<div class="mast-image"></div>
-							<h3>Get Started!</h3>
-							<div class="input-group">
+			<div className="page">
+			<main>
+				<div class="mast">
+					<h2>Find the right health insurance for you!</h2>
+					<div class="mast-image"></div>
+					<h3>Get Started!</h3>
+					<div class="input-group">
 								<label htmlFor="household_size" name="household_size" >Number on Policy</label>
 								<select htmlFor="household_size" value={this.props.values.household_size} name="household_size" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>
-									<option value="">Select</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -250,7 +249,7 @@ class PageOne extends Component  {
 								<ErrorMessage
 									name="home_zip"
 									component="div"
-									className="field-error"
+									className="field-error zip-field-error"
 								/>
 					</div>
 				</div>
@@ -282,14 +281,13 @@ class PageOne extends Component  {
 				<div id="how-it-works" class="how-it-works">
 					<h4>Guided Online Experience</h4>
 					<p>We know not many people are healthcare experts, so we provide explanations, product guides, and advice along the way.</p>
-					<h4>Compare XXXXXX+ Insurance Plans and Save</h4>
+					<h4>Compare Tons of Insurance Plans and Save</h4>
 					<p>We work hard to deliver the best health plan shopping experience on the web. And it costs you nothing to use our search.</p>
 					<h4>Personalized Recommendations</h4>
 					<p>We sort through your options in our database, and point you in the right direction based on your needs, preferences, and budget.</p>
 					<div class="input-group">
 								<label htmlFor="household_size" name="household_size" >Number on Policy</label>
 								<select htmlFor="household_size" value={this.props.values.household_size} name="household_size" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>
-									<option value="">Select</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -327,25 +325,24 @@ class PageOne extends Component  {
 								<ErrorMessage
 									name="home_zip"
 									component="div"
-									className="field-error"
+									className="field-error zip-field-error"
 								/>
 					</div>
 					</div>
 					</div>
 					<div id="stats" class="stats">
-						<p>XXXXXXX+ People we’ve helped shop for insurance</p>
-						<p>XXXXX Insurance Plans Available</p>
+						<p>Over 150,000 people helped this year!</p>
+						<p>Get your personalized insureance plans</p>
 						<p>3 minutes to get a quote</p>
 					</div>
 					<div id="testimonials" class="testimonials">
-						<h3>We’ve helped XXXXX of Americans shop for Helathcare</h3>
-						<p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed justo neque, feugiat sit amet lacus in, dapibus convallis ligula. Vivamus ornare sed ligula sed porta.”<br/><br/>- Some Person</p>
-						<p>“In hac habitasse platea dictumst. Mauris laoreet massa et nibh dapibus bibendum. Nunc mauris nulla, tincidunt in tristique.”<br/><br/>- Some Person</p>
+						<h3>Your Top Tips for Insurance Shopping</h3>
+						<p>Before you purchase a health plan, make sure you also explore all the options available to you. For example, if you are not married, but have a domestic partner, find out if you can get covered under their health plan.</p>
+						<p>One thing people often overlook is reviewing how two different health plans can work together. For example, if you are married or have a domestic partner, understanding the coverage on both plans and comparing the advantages in each plan can help you reduce costs.</p>
 
 								<div class="input-group">
 								<label htmlFor="household_size" name="household_size" >Number on Policy</label>
 								<select htmlFor="household_size" value={this.props.values.household_size} name="household_size" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>
-									<option value="">Select</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -383,7 +380,7 @@ class PageOne extends Component  {
 								<ErrorMessage
 									name="home_zip"
 									component="div"
-									className="field-error"
+									className="field-error zip-field-error"
 								/>
 							</div>
 						</div>

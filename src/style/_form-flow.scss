@@ -56,25 +56,25 @@
 		}
 
 		&.bronze {
-			h4.plan-level, p.price {
+			h4.plan-level {
 				color: $orange-darker;
 			}
 		}
 
 		&.silver {
-			h4.plan-level, p.price {
+			h4.plan-level {
 				color: $gray-light;
 			}
 		}
 
 		&.gold {
-			h4.plan-level, p.price {
+			h4.plan-level {
 				color: $orange;
 			}
 		}
 
 		&.platinum {
-			h4.plan-level, p.price {
+			h4.plan-level {
 				color: $blue-darker;
 			}
 		}
@@ -95,14 +95,7 @@
 			font-size: 1.2rem;
 			margin: 0;
 			font-weight: bold;
-			grid-column: 2 / 3;
-			grid-row: 1 / 2;
-		}
-
-		p.price {
-			text-align: right;
-			font-size: .8rem;
-			grid-column: 3 / 4;
+			grid-column: 2 / 4;
 			grid-row: 1 / 2;
 		}
 
@@ -278,7 +271,7 @@
 			width: 100%;
 			padding: 0;
 			max-width: 800px;
-			min-height: 500px;
+			min-height: 200px;
 			margin-top: 2rem;
 			margin-bottom: 2rem;
 
@@ -290,7 +283,6 @@
 	}
 
 	.input-wrap {
-		padding: 0 3rem;
 		display: flex;
 		flex-direction: column;
 		align-items: center;

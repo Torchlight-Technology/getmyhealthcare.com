@@ -36,7 +36,7 @@ export const SignUpSchema = Yup.object().shape({
     .required('Required'),
   // Apply mask
   home_street: Yup.string()
-    .min('Street address must be at least 6 characters',6)
+    .min(6, 'Street address must be at least 6 characters')
     .required('Please enter street address'),
   email: Yup.string()
     .email('Invalid email address')

@@ -32,14 +32,15 @@ const PageFour = props => (
           </div>
         <label htmlFor="life_event" name="life_event">Have you had any recent life events?</label>
         <Field htmlFor="life_event" placholder="Life Event" component="select" name="life_event" onChange={(e) => { props.handleLocalStorage(e); props.handleChange(e) } }>
-          <option value="no" name="life_event">No qualifying life events</option>
-          <option value="lose60" name="life_event">Will lose coverage in 60 days</option>
-          <option value="lost" name="life_event">Lost health insurance coverage</option>
-          <option value="marital" name="life_event">Got married or divorced</option>
-          <option value="child" name="life_event">Had a child/adopted child</option>
-          <option value="death" name="life_event">Had a death in immediate family</option>
-          <option value="move" name="life_event">Moved to a new state</option>
-          <option value="job" name="life_event">Lost or started a new job</option>
+          <option value="">Select</option>
+          <option value="no">No qualifying life events</option>
+          <option value="lose60">Will lose coverage in 60 days</option>
+          <option value="lost">Lost health insurance coverage</option>
+          <option value="marital">Got married or divorced</option>
+          <option value="child">Had a child/adopted child</option>
+          <option value="death">Had a death in immediate family</option>
+          <option value="move">Moved to a new state</option>
+          <option value="job">Lost or started a new job</option>
         </Field>
         <ErrorMessage
           name="life_event"
@@ -49,25 +50,26 @@ const PageFour = props => (
 
         <label htmlFor="existing_conditions" name="existing_conditions">Do you have an existing condition?</label>
         <Field htmlFor="existing_conditions" placholder="Existing Condition" component="select" name="existing_conditions" onChange={(e) => { props.handleLocalStorage(e); props.handleChange(e) } }>
-           <option value="none" name="existing_conditions">None</option>
-           <option value="aids_hiv" name="existing_conditions">AIDS/HIV</option>
-           <option value="asthma" name="existing_conditions">Asthma</option>
-           <option value="cholesterol" name="existing_conditions">Cholesterol</option>
-           <option value="depression" name="existing_conditions">Depression</option>
-           <option value="diabetes" name="existing_conditions">Diabetes</option>
-           <option value="liver_disease" name="existing_conditions">Liver Disease</option>
-           <option value="alzheimers_disease" name="existing_conditions">Alzheimer's Disease</option>
-           <option value="lung_disease" name="existing_conditions">Lung Disease</option>
-           <option value="drug_abuse" name="existing_conditions">Drug Abuse</option>
-           <option value="mental_illness" name="existing_conditions">Mental Illness</option>
-           <option value="cancer" name="existing_conditions">Cancer</option>
-           <option value="heart_disease" name="existing_conditions">Heart Disease</option>
-           <option value="high_blood_pressure" name="existing_conditions">High Blood Pressure</option>
-           <option value="pulmonary_disease" name="existing_conditions">Pulmonary Disease</option>
-           <option value="stroke" name="existing_conditions">Stroke</option>
-           <option value="kidney_disease" name="existing_conditions">Kidney Disease</option>
-           <option value="ulcer" name="existing_conditions">Ulcer</option>
-           <option value="vascular_disease" name="existing_conditions">Vascular Disease</option>
+          <option value="">Select</option>
+          <option value="none">None</option>
+          <option value="aids_hiv">AIDS/HIV</option>
+          <option value="asthma">Asthma</option>
+          <option value="cholesterol">Cholesterol</option>
+          <option value="depression">Depression</option>
+          <option value="diabetes">Diabetes</option>
+          <option value="liver_disease">Liver Disease</option>
+          <option value="alzheimers_disease">Alzheimer's Disease</option>
+          <option value="lung_disease">Lung Disease</option>
+          <option value="drug_abuse">Drug Abuse</option>
+          <option value="mental_illness">Mental Illness</option>
+          <option value="cancer">Cancer</option>
+          <option value="heart_disease">Heart Disease</option>
+          <option value="high_blood_pressure">High Blood Pressure</option>
+          <option value="pulmonary_disease">Pulmonary Disease</option>
+          <option value="stroke">Stroke</option>
+          <option value="kidney_disease">Kidney Disease</option>
+          <option value="ulcer">Ulcer</option>
+          <option value="vascular_disease">Vascular Disease</option>
         </Field>
         <ErrorMessage
           name="existing_conditions"

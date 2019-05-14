@@ -75,7 +75,8 @@ class PageOne extends Component {
 					<h3>Get Started!</h3>
 					<div class="input-group">
 						<label htmlFor="household_size" name="household_size" >No. on Policy</label>
-						<select htmlFor="household_size" value={this.props.values.household_size} name="household_size" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>								
+						<select htmlFor="household_size" value={this.props.values.household_size} name="household_size" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>
+							<option value="">Select</option>
 							<option value="1">1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>
@@ -117,7 +118,7 @@ class PageOne extends Component {
 								className="field-error"
 							/>
 						</div>
-					</div>			
+					</div>
 				<div class="plans">
 					<nav>
 						<ul>
@@ -152,7 +153,7 @@ class PageOne extends Component {
 					<p>We sort through your options in our database, and point you in the right direction based on your needs, preferences, and budget.</p>
 					<div class="input-group">
 								<label htmlFor="household_size" name="household_size" >No. on Policy</label>
-								<select htmlFor="household_size" value={this.props.values.household_size} name="household_size" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>								
+								<select htmlFor="household_size" value={this.props.values.household_size} name="household_size" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -207,7 +208,7 @@ class PageOne extends Component {
 
 								<div class="input-group">
 								<label htmlFor="household_size" name="household_size" >No. on Policy</label>
-								<select htmlFor="household_size" value={this.props.values.household_size} name="household_size" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>								
+								<select htmlFor="household_size" value={this.props.values.household_size} name="household_size" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>

@@ -7,13 +7,13 @@ const NavBar = () => (
       <Link href="/"><li>Home</li></Link>
       <Link href="/#how-it-works"><li>How It Works</li></Link>
       <Link href="/about/"><li>About Us</li></Link>
-      <Link href="/#testimonials"><li>Testimonials</li></Link>
+      <Link href="/#tips"><li>Tips</li></Link>
     </ul>
     <ul class="mobile-nav">
       <Link href="/"><li>Home</li></Link>
       <Link href="/#how-it-works"><li>How It Works</li></Link>
       <Link href="/about/"><li>About Us</li></Link>
-      <Link href="/#testimonials"><li>Testimonials</li></Link>
+      <Link href="/#tips"><li>Tips</li></Link>
     </ul>
   </nav>          
 );

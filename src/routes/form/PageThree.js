@@ -46,6 +46,7 @@ const PageThree = props => (
 					Next
 				</button>
 				<button
+				 	class="back-button"
 					type="button"
 					onClick={props.navigateBack}
 				>

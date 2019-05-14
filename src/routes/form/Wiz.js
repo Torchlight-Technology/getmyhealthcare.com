@@ -5,10 +5,6 @@ class Wiz extends Component {
 		pageIndex: 0
 	};
 
-	// componentDidMount () {
-	// 	console.log(this.props.testVal)
-	// }
-
 	render() {
 		const renderProps = {
 			navigateBack: this._navigateBack,
@@ -39,32 +35,6 @@ class Wiz extends Component {
       sessionStorage.setItem('getmyhealth', JSON.stringify(tempStorage))
 	}
 
-	// getStateAndCity = async (zip) => {
-	// 	let response =  fetch(`https://api.zippopotam.us/us/${zip}`, {
-	// 		method: 'GET'
-	// 	})
-	// 	.then((res) => res.json())
-	// 	.then((data) => (data.places[0]));
-
-	// 	let data = await response;
-	// 	console.log(data)
-	// 	return {
-	// 		home_city: data['place name'],
-	// 		home_state: data['state']
-	// 	}
-	// }
-
-// 	_navigateNextSetClientData= async (e) => {
-// 		console.log(e)
-// 		const tempStorage = JSON.parse(sessionStorage.getItem('getmyhealth'))
-// 		const stateAndCity =  await this.getStateAndCity(tempStorage['home_zip'])
-// 		tempStorage['home_city'] = stateAndCity.home_city;
-// 		tempStorage['home_state'] = stateAndCity.home_state;
-// 		sessionStorage.setItem('getmyhealth', JSON.stringify(tempStorage))
-// 		console.log('testing')
-// 		this._navigateNext()
-// }
-
 	_renderPage = formProps => {
 		const { pageIndex } = this.state;
 
@@ -74,7 +44,6 @@ class Wiz extends Component {
 			<Page
 				{...formProps}
 				handleLocalStorage={this._handleLocalStorage}
-				// navigateNextSetClientData={this._navigateNextSetClientData}
 				navigateBack={this._navigateBack}
 				navigateNext={this._navigateNext}
 				pageIndex={pageIndex}

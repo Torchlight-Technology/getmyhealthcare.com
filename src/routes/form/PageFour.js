@@ -50,7 +50,6 @@ const PageFour = props => (
 
         <label htmlFor="existing_conditions" name="existing_conditions">Do you have an existing condition?</label>
         <Field htmlFor="existing_conditions" placholder="Existing Condition" component="select" name="existing_conditions" onChange={(e) => { props.handleLocalStorage(e); props.handleChange(e) } }>
-          <option value="">Select</option>
           <option value="none">None</option>
           <option value="aids_hiv">AIDS/HIV</option>
           <option value="asthma">Asthma</option>

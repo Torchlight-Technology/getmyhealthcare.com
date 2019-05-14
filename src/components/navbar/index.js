@@ -5,7 +5,6 @@ const NavBar = () => (
   <nav>
     <ul class="desktop-nav">
       <Link href="/"><li>Home</li></Link>
-      {/* <Link href="/#how-it-works"><li onClick={() => document.getElementById('how-it-works').scrollIntoView({ behavior: 'smooth' })}>How It Works</li></Link> */}
       <Link href="/#how-it-works"><li>How It Works</li></Link>
       <Link href="/about/"><li>About Us</li></Link>
       <Link href="/#tips"><li>Tips</li></Link>

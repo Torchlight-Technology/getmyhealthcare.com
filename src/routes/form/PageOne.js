@@ -154,6 +154,7 @@ class PageOne extends Component {
 					<div class="input-group">
 								<label htmlFor="household_size" name="household_size" >No. on Policy</label>
 								<select htmlFor="household_size" value={this.props.values.household_size} name="household_size" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>
+									<option value="">Select</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -209,6 +210,7 @@ class PageOne extends Component {
 								<div class="input-group">
 								<label htmlFor="household_size" name="household_size" >No. on Policy</label>
 								<select htmlFor="household_size" value={this.props.values.household_size} name="household_size" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>
+									<option value="">Select</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>

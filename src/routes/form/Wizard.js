@@ -30,7 +30,7 @@ class Wizard extends Component {
       tobacco: '',
       income: '',
       life_event: '',
-      existing_conditions: '',
+      existing_conditions: 'none',
       name_first: '',
       name_last: '',
       home_street: '',
@@ -170,7 +170,7 @@ class Wizard extends Component {
 
   render() {
     return (
-      <Wiz pages={[PageOne, PageTwo, PageThree, PageFour, PageFive] } testVal={this.state}>
+      <Wiz pages={[PageOne, PageTwo, PageThree, PageFour, PageFive]} props={this.props}>
       {wizProps => (
         <Formik
           initialValues={this.state.initialValues}

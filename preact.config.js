@@ -3,13 +3,11 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 export default function (config, env, helpers) {
 
-    console.log('isProd: ', env.isProd);
+    require('dotenv').config({
+        path: '.env.development'
+    })
 
-    if (!env.isProd) {
-        require('dotenv').config({
-            path: '.env.development'
-        })
-    }
+    console.log('API_URL: ', process.env.API_URL);
 
     config.plugins.push(
         new helpers.webpack.DefinePlugin({

@@ -13,10 +13,10 @@ const checkForErrors = (obj) => {
   return true;
 }
 
-const PageThree = props => (
+const PageFour = props => (
 	<div className="page form">
     <div class="form-window">
-      <Progress 
+      <Progress
         id="loader" class="loader"
         value={60} height="3px" color="#6cc644"
         onChange={onChange}
@@ -94,4 +94,4 @@ const PageThree = props => (
 	</div>
 );
 
-export default PageThree;
+export default PageFour;

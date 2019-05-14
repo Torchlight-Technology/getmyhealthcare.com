@@ -6,6 +6,15 @@ class Wiz extends Component {
 		home: true
 	};
 
+	componentDidMount() {
+		const uri = this.props.props.url.substring(2);
+		const scrollNavItems = ['how-it-works', 'tips'];
+
+		if (scrollNavItems.includes(uri)) {
+			setTimeout(() => document.getElementById(uri).scrollIntoView({ behavior: 'smooth' }), 250);
+		}
+	}
+
 	componentDidUpdate(prevProps, prevState) {
 		if (prevProps.props.url !== this.props.props.url || (!prevState.home && prevState.pageIndex === this.state.pageIndex)) {
 

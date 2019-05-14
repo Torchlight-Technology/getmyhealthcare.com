@@ -12,7 +12,7 @@ import Progress from 'preact-progress';
 import { SignUpSchema } from './validation';
 import base64 from 'base-64';
 import Debug from './helper';
-import { route } from 'preact-router'
+import { route } from 'preact-router';
 
 const userAgent = navigator.userAgent;
 

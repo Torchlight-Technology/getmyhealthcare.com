@@ -2,12 +2,40 @@ import React, { Component } from 'react';
 
 class Wiz extends Component {
 	state = {
-		pageIndex: 0
+		pageIndex: 0,
+		home: true
 	};
 
-	// componentDidMount () {
-	// 	console.log(this.props.testVal)
-	// }
+	componentDidMount() {
+		const uri = this.props.props.url.substring(2);
+		const scrollNavItems = ['how-it-works', 'tips'];
+
+		if (scrollNavItems.includes(uri)) {
+			setTimeout(() => document.getElementById(uri).scrollIntoView({ behavior: 'smooth' }), 250);
+		}
+	}
+
+	componentDidUpdate(prevProps, prevState) {
+		if (prevProps.props.url !== this.props.props.url || (!prevState.home && prevState.pageIndex === this.state.pageIndex)) {
+
+			const uri = this.props.props.url.substring(2);
+			const scrollNavItems = ['how-it-works', 'tips'];
+
+			if (!uri) {
+				this.setState({
+					pageIndex: 0,
+					home: true
+				})
+			}
+
+			if (scrollNavItems.includes(uri)) {
+				this.setState({
+					pageIndex: 0,
+					home: true
+				}, () => setTimeout(() => document.getElementById(uri).scrollIntoView({ behavior: 'smooth' }), 250))
+			}
+		}
+	}
 
 	render() {
 		const renderProps = {
@@ -23,47 +51,23 @@ class Wiz extends Component {
 
 	_navigateBack = () => {
 		this.setState(prevState => ({
-			pageIndex: prevState.pageIndex - 1 < 0 ? 0 : prevState.pageIndex - 1
+			pageIndex: prevState.pageIndex - 1 < 0 ? 0 : prevState.pageIndex - 1,
+			home: prevState.pageIndex - 1 === 0 ? true : false
 		}));
 	};
 
 	_navigateNext = () => {
 		this.setState(prevState => ({
-			pageIndex: prevState.pageIndex + 1
+			pageIndex: prevState.pageIndex + 1,
+			home: false
 		}));
 	};
 
 	_handleLocalStorage = (e) => {
-			const tempStorage = JSON.parse(sessionStorage.getItem('getmyhealth'))
-      tempStorage[e.target.name] = e.target.value
-      sessionStorage.setItem('getmyhealth', JSON.stringify(tempStorage))
+		const tempStorage = JSON.parse(sessionStorage.getItem('getmyhealth'))
+		tempStorage[e.target.name] = e.target.value
+		sessionStorage.setItem('getmyhealth', JSON.stringify(tempStorage))
 	}
-
-	// getStateAndCity = async (zip) => {
-	// 	let response =  fetch(`https://api.zippopotam.us/us/${zip}`, {
-	// 		method: 'GET'
-	// 	})
-	// 	.then((res) => res.json())
-	// 	.then((data) => (data.places[0]));
-
-	// 	let data = await response;
-	// 	console.log(data)
-	// 	return {
-	// 		home_city: data['place name'],
-	// 		home_state: data['state']
-	// 	}
-	// }
-
-// 	_navigateNextSetClientData= async (e) => {
-// 		console.log(e)
-// 		const tempStorage = JSON.parse(sessionStorage.getItem('getmyhealth'))
-// 		const stateAndCity =  await this.getStateAndCity(tempStorage['home_zip'])
-// 		tempStorage['home_city'] = stateAndCity.home_city;
-// 		tempStorage['home_state'] = stateAndCity.home_state;
-// 		sessionStorage.setItem('getmyhealth', JSON.stringify(tempStorage))
-// 		console.log('testing')
-// 		this._navigateNext()
-// }
 
 	_renderPage = formProps => {
 		const { pageIndex } = this.state;
@@ -74,7 +78,6 @@ class Wiz extends Component {
 			<Page
 				{...formProps}
 				handleLocalStorage={this._handleLocalStorage}
-				// navigateNextSetClientData={this._navigateNextSetClientData}
 				navigateBack={this._navigateBack}
 				navigateNext={this._navigateNext}
 				pageIndex={pageIndex}

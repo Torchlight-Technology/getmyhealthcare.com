@@ -1,4 +1,4 @@
-import { h } from 'preact';
+import { h, Link } from 'preact';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import MaskedInput from 'react-text-mask';
@@ -39,12 +39,12 @@ const PageFive = props => (
 			/>
 			<div class="sidebar">
 				<img src="assets/agent-photo.png" />
-				<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p>
+				<p>"Let us know your details so we can send you your personalized quotes."</p>
 			</div>
 	    <div class="input-wrap">
 				<div class="form-title">
 					<h2>Just need to confirm contact details for your quote estimates</h2>
-					<p>Complete this paege and we’ll match you with available plans and show you estimated pricing including subsidies</p>
+					<p>Complete this page and we’ll match you with available plans and show you estimated pricing including subsidies</p>
 				</div>
 				<label htmlFor="name_first" name="name_first">First Name</label>
 				<Field name="name_first" placeholder="First Name" type="text" onChange={(e)=>{ props.handleChange(e); props.handleLocalStorage(e); }}/>
@@ -100,16 +100,18 @@ const PageFive = props => (
 					className="field-error"
 				/>
 				<button
-					type="button"
-					onClick={props.navigateBack}
-				>
-					Back
-				</button>
-				<button
 					type="submit"
 					disabled={!(checkForErrors(props.errors) && props.values.name_first && props.values.name_last && props.values.home_street && props.values.email && props.values.phone_home)}
 				>
 				Submit
+				</button>
+				<p class="disclaimer">By completing a contact form on this site, clicking "Show Me My Results", or calling the number listed above, you may be directed to a sales agent who can answer your questions and provide information about health insurance plans and other services. (Agents are not connected with or endorsed by the U.S. government.) By interacting with the site, you provide an electronic signature by which you agree to the following terms: "I consent to receive emails, notifications, and calls about health insurance plans or products from these companies and their agents to the telephone number(s) I have provided. 'Calls' may be auto-dialed, use artificial or pre-recorded voices, and/or be text messages, including recurring messages sent via a short code program. I understand that my consent to receive calls is not required in order to purchase any property, goods or services. My telephone company may impose additional charges for messages. I may revoke my consent to receiving messages at any time. By submitting my information, I confirm that I have read, understand, and agree to these <Link href="/terms/">Terms of Use</Link> and <Link href="/privacy/">Privacy Policy</Link>."</p>
+				<button
+					class="back-button"
+					type="button"
+					onClick={props.navigateBack}
+				>
+					Back
 				</button>
 			</div>
 		</div>

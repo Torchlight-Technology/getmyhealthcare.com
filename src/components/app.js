@@ -11,7 +11,6 @@ import Exit from '../routes/exit';
 import About from '../routes/about';
 import Privacy from '../routes/privacy';
 import Terms from '../routes/terms';
-import PageOne from '../routes/form/PageOne.js';
 import Error from '../routes/error';
 
 export default class App extends Component {
@@ -40,7 +39,7 @@ export default class App extends Component {
 		super(props);
 		this.params = this.searchToObject(location.search);
 	}
-	
+
 	render() {
 		return (
 
@@ -65,7 +64,6 @@ export default class App extends Component {
 				<Header />
 				<Router onChange={this.handleRoute} params={this.params}>
 					<Form path="/" />
-					<PageOne path="/form/" />
 					<Exit path="/thank-you/" />
 					<About path="/about/" />
 					<Privacy path="/privacy/" />

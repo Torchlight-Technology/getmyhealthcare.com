@@ -23,7 +23,7 @@ const dobMask = [
 
 const onChange = (ctx, val) => console.log(`${val}% complete`);
 
-const checkForErrors = (errors) => !errors.hasOwnProperty('dateOfBirth')
+const checkForErrors = (errors) => !errors.hasOwnProperty('dateOfBirth');
 
 const PageTwo = props => (
 	<div className="page form">
@@ -89,6 +89,7 @@ const PageTwo = props => (
 				/>
 				<button type="button" onClick={props.navigateNext} disabled={!(checkForErrors(props.errors) && props.values.gender && props.values.tobacco)}>Next</button>
 				<button
+					class="back-button"
 					type="button"
 					onClick={props.navigateBack}
 				>

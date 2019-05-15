@@ -55,9 +55,9 @@ div.input-group {
 	}
 
 	@media (min-width: 500px) {
-		grid-template-rows: 1.5rem 1fr 1.2rem;
-		grid-template-columns: 1fr 1.5fr 1.5fr;
- 
+		max-width: 520px;
+		grid-template-rows: 30px 1fr;
+		grid-template-columns: 110px 1fr 1.5fr;
 		input[type="number"] {
 			border-radius: 0;
 			border-right: none;

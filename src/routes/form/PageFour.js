@@ -32,7 +32,6 @@ const PageFour = props => (
           </div>
         <label htmlFor="life_event" name="life_event">Have you had any recent life events?</label>
         <Field htmlFor="life_event" placholder="Life Event" component="select" name="life_event" onChange={(e) => { props.handleLocalStorage(e); props.handleChange(e) } }>
-          <option value="">Select</option>
           <option value="no">No qualifying life events</option>
           <option value="lose60">Will lose coverage in 60 days</option>
           <option value="lost">Lost health insurance coverage</option>

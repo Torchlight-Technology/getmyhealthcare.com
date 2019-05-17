@@ -67,7 +67,6 @@ class PageOne extends Component {
         }
 
         return (
-            <div className="page">
 			<main>
 				<div class="mast">
 					<h2>Find the right health insurance for you!</h2>
@@ -76,7 +75,6 @@ class PageOne extends Component {
 					<div class="input-group">
 						<label htmlFor="household_size" name="household_size" >No. on Policy</label>
 						<select htmlFor="household_size" value={this.props.values.household_size} name="household_size" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>
-							<option value="">Select</option>
 							<option value="1">1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>
@@ -120,26 +118,24 @@ class PageOne extends Component {
 						</div>
 					</div>
 				<div class="plans">
-					<nav>
-						<ul>
-							<li>
-								<img src="/assets/pill-icon.svg" alt="Obamacare Plans" />
-								<p>Obamacare Plans</p>
-							</li>
-							<li>
-								<img src="/assets/life-case.svg" alt="Medicare Plans" />
-								<p>Short-term Plans</p>
-							</li>
-							<li>
-								<img src="/assets/heart-beat.svg" alt="Medicare Plans" />
-								<p>Medicare Plans</p>
-							</li>
-							<li>
-								<img src="/assets/Laptop Icon.svg" alt="Health Plans" />
-								<p>Health Plans</p>
-							</li>
-						</ul>
-					</nav>
+					<ul>
+						<li>
+							<img src="/assets/pill-icon.svg" alt="Obamacare Plans" />
+							<p>Obamacare Plans</p>
+						</li>
+						<li>
+							<img src="/assets/life-case.svg" alt="Medicare Plans" />
+							<p>Short-term Plans</p>
+						</li>
+						<li>
+							<img src="/assets/heart-beat.svg" alt="Medicare Plans" />
+							<p>Medicare Plans</p>
+						</li>
+						<li>
+							<img src="/assets/Laptop Icon.svg" alt="Health Plans" />
+							<p>Health Plans</p>
+						</li>
+					</ul>
 				</div>
 				<div class="about">
 				<h3>Everything you need for your health insurance choices in one place!</h3>
@@ -154,7 +150,7 @@ class PageOne extends Component {
 					<div class="input-group">
 								<label htmlFor="household_size" name="household_size" >No. on Policy</label>
 								<select htmlFor="household_size" value={this.props.values.household_size} name="household_size" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>
-									<option value="">Select</option>
+	
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -210,7 +206,7 @@ class PageOne extends Component {
 								<div class="input-group">
 								<label htmlFor="household_size" name="household_size" >No. on Policy</label>
 								<select htmlFor="household_size" value={this.props.values.household_size} name="household_size" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>
-									<option value="">Select</option>
+	
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -253,7 +249,6 @@ class PageOne extends Component {
 							</div>
 						</div>
 					</main>
-				</div>
         );
     }
 }

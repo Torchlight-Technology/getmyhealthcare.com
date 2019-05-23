@@ -23,7 +23,7 @@ const PageThree = props => (
 				  <p>You may qualify for savings on your monthly based on your estimated household income.</p>
 				</div>
 				<label htmlFor="household_size" name="household_size" >No. on Policy</label>
-				<select htmlFor="household_size" value={props.values.household_size} name="household_size" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>
+				<select htmlFor="household_size" value={props.values.household_size} name="household_size" placeholder="1" onChange={(e) => { props.handleChange(e); props.handleLocalStorage(e) } }>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>

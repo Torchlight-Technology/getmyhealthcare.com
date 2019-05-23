@@ -23,14 +23,14 @@ class Wizard extends Component {
   state = {
     pageIndex: 0,
     initialValues: {
-      household_size: '1',
       home_zip: '',
       dateOfBirth: '',
       gender: '',
-      tobacco: '',
-      income: '',
+      household_size: '1',
+      income: '42500',
       life_event: 'no',
       existing_conditions: 'none',
+      tobacco: '0',
       name_first: '',
       name_last: '',
       home_street: '',

@@ -1,18 +1,15 @@
 import * as Yup from 'yup';
 
 export const SignUpSchema = Yup.object().shape({
-  household_size: Yup.mixed()
-    .oneOf(['1', '2', '3', '4+'])
-    .required('Please select'),
   dateOfBirth: Yup.string()
     .test('date-len', 'Date must be at 8 characters long', val => val && val.replace(/[^0-9]/g, "").length === 8)
     .required('Required'),
   gender: Yup.mixed()
-    .oneOf(['M', 'F'])
+    .oneOf(['M', 'F', 'Non-binary'])
     .required('Gender is required'),
-  tobacco: Yup.mixed()
-    .oneOf(['1', '0'])
-    .required('Your tobacco usage is required.'),
+  household_size: Yup.mixed()
+    .oneOf(['1', '2', '3', '4+'])
+    .required('Please select'),
   income: Yup.number()
     .required('Your income must be included'),
   life_event: Yup.mixed()
@@ -21,6 +18,9 @@ export const SignUpSchema = Yup.object().shape({
   existing_conditions: Yup.mixed()
     .oneOf(['none', 'aids_hiv', 'asthma', 'cholesterol', 'depression', 'diabetes', 'liver_disease', 'alzheimers_disease', 'lung_disease', 'drug_abuse', 'mental_illness', 'cancer', 'heart_disease', 'high_blood_pressure', 'pulmonary_disease', 'stroke', 'kidney_disease', 'ulcer', 'vascular_disease'])
     .required('Please select an existing condition.'),
+  tobacco: Yup.mixed()
+    .oneOf(['1', '0'])
+    .required('Your tobacco usage is required.'),
   name_first: Yup.string()
     .required('Required'),
   name_last: Yup.string()

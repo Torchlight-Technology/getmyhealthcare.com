@@ -21,7 +21,7 @@ const dobMask = [
   /\d/
 ];
 
-const onChange = (ctx, val) => console.log(`${val}% complete`);
+const onChange = (ctx, val) => console.log(``);
 
 const checkForErrors = (errors) => !errors.hasOwnProperty('dateOfBirth');
 
@@ -70,24 +70,14 @@ const PageTwo = props => (
 				  <option value="">Select</option>
 				  <option value="M" name="gender">Male</option>
 				  <option value="F" name="gender">Female</option>
+				   <option value="N" name="gender">Non-binary</option>
 				</Field>
 				<ErrorMessage
 				  name="gender"
 				  component="div"
 				  className="field-error"
 				/>
-				<label htmlFor="tobacco" name="tobacco">Tobacco user?</label>
-				<Field htmlFor="tobacco" placholder="Tobacco user?" component="select" name="tobacco" onChange={(e) => { props.handleLocalStorage(e); props.handleChange(e) } } >
-					<option value="">Select</option>
-				  <option value="1" name="tobacco">Yes</option>
-				  <option value="0" name="tobacco">No</option>
-				</Field>
-				<ErrorMessage
-				  name="tobacco"
-				  component="div"
-				  className="field-error"
-				/>
-				<button type="button" onClick={props.navigateNext} disabled={!(checkForErrors(props.errors) && props.values.gender && props.values.tobacco)}>Next</button>
+				<button type="button" onClick={props.navigateNext} disabled={!(checkForErrors(props.errors) && props.values.gender && props.values.dateOfBirth)}>Next</button>
 				<button
 					class="back-button"
 					type="button"

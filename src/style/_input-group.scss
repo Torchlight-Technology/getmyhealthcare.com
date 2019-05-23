@@ -1,6 +1,5 @@
 div.input-group {
 	box-sizing: border-box;
-	clear: both;
 	background-color: $blue-paler;
 	border-radius: 6px;
 	padding: .75rem;
@@ -59,7 +58,7 @@ div.input-group {
 	}
 
 	@media (min-width: 500px) {
-		grid-template-rows: 30px 1fr;
+		grid-template-rows: 30px 70%;
 		grid-template-columns: 110px 1fr 1.5fr;
 
 		input[name="home_zip"] {
@@ -86,5 +85,9 @@ div.input-group {
 
 	@media (min-width: 650px) {
 		max-width: 520px;
+
+		input[type="submit"]  {
+			margin-bottom: 2rem;
+		}
 	}
 }

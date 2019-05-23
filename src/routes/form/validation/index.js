@@ -5,7 +5,7 @@ export const SignUpSchema = Yup.object().shape({
     .test('date-len', 'Date must be at 8 characters long', val => val && val.replace(/[^0-9]/g, "").length === 8)
     .required('Required'),
   gender: Yup.mixed()
-    .oneOf(['M', 'F', 'Non-binary'])
+    .oneOf(['M', 'F', 'N'])
     .required('Gender is required'),
   household_size: Yup.mixed()
     .oneOf(['1', '2', '3', '4+'])

@@ -1,5 +1,9 @@
 div.mast {
 	padding: .25rem .75rem 0;
+	display: flex;
+	align-items: stretch;
+	flex-direction: column;
+	box-sizing: border-box;
 
 	div.mast-image {
 		background-image: url('/assets/landing-bg.jpg');
@@ -25,23 +29,25 @@ div.mast {
 	}
 
 	@media (min-width: 650px) {
+		background-image: url('/assets/landing-bg@2x.jpg');
+		background-size: cover;
+		background-position: 50% 50%;
 		display: grid;
-		grid-template-rows: 1rem .8fr .8fr 2rem 110px 1rem;
-		grid-template-columns: 1rem 1.7fr 1fr 1rem;
+		padding: 2rem;
+		grid-template-rows: 1fr 1fr 1fr;
+		grid-template-columns: 60% 40%;
 		height: 500px;
 
 		div.mast-image {
-			background-image: url('/assets/landing-bg@2x.jpg');
-			grid-row: 1 / 7;
-			grid-column: 1 / 5;
-			background-size: cover;
-			background-position: 50% 50%;
+			background: transparent;
+			grid-row: 1 / 3;
+			grid-column: 1 / 2;
 			height: inherit;
 		}
 
 		h2 {
-			grid-row: 2 / 4 ;
-			grid-column: 2 / 3;
+			grid-row: 1 / 2 ;
+			grid-column: 1 / 2;
 			background: none;
 			z-index: 1;
 			font-size: 2em;
@@ -49,17 +55,19 @@ div.mast {
 		}
 
 		div.input-group {
-			grid-row: 5 / 6;
-			grid-column: 2 / 3;
+			max-height: 120px;
+			grid-row: 3 / 4;
+			grid-column: 1 / 3;
 			z-index: 1;
+			align-self: start;
 		}
 
 		h3 {
-			grid-row: 4 / 5;
-			grid-column: 2 / 3;
-			margin: 0;
-			padding: 0;
-			border: 0;
+			grid-row: 2 / 3;
+			grid-column: 1 / 2;
+			align-self: end;
+			border: none;
+			z-index: 100;
 			font-size: 1.5rem;
 			color: $white;
 			text-shadow: 1px 1px 6px $gray-darkest, 0 0 3px $gray-darkest;
@@ -69,10 +77,6 @@ div.mast {
 
 	@media (min-width: 850px) {
 		height: 600px;
-		grid-template-rows: 1rem .8fr .8fr 3rem 110px 3rem;
-		grid-template-columns: 2rem 1.7fr 1fr 1rem;
-		padding: 0;
-		margin: 0;
 
 		h2 {
 			font-size: 2.75rem;

@@ -32,7 +32,6 @@ const PageFour = props => (
           </div>
         <label htmlFor="life_event" name="life_event">Have you had any recent life events?</label>
         <Field htmlFor="life_event" placholder="Life Event" component="select" name="life_event" onChange={(e) => { props.handleLocalStorage(e); props.handleChange(e) } }>
-          <option value="">Select</option>
           <option value="no">No qualifying life events</option>
           <option value="lose60">Will lose coverage in 60 days</option>
           <option value="lost">Lost health insurance coverage</option>
@@ -47,8 +46,7 @@ const PageFour = props => (
           component="div"
           className="field-error"
         />
-
-        <label htmlFor="existing_conditions" name="existing_conditions">Do you have an existing condition?</label>
+        <label htmlFor="existing_conditions" name="existing_conditions">Do You Have a Pre-Existing Condition?</label>
         <Field htmlFor="existing_conditions" placholder="Existing Condition" component="select" name="existing_conditions" onChange={(e) => { props.handleLocalStorage(e); props.handleChange(e) } }>
           <option value="none">None</option>
           <option value="aids_hiv">AIDS/HIV</option>
@@ -75,12 +73,21 @@ const PageFour = props => (
           component="div"
           className="field-error"
         />
+        <label htmlFor="tobacco" name="tobacco">Tobacco user?</label>
+        <Field htmlFor="tobacco" component="select" name="tobacco" onChange={(e) => { props.handleLocalStorage(e); props.handleChange(e) } } >
+          <option value="0" name="tobacco">No</option>
+          <option value="1" name="tobacco">Yes</option>
+        </Field>
+        <ErrorMessage
+          name="tobacco"
+          component="div"
+          className="field-error"
+        />
         <button
           type="button"
           onClick={props.navigateNext}
-          disabled=
-          {!(props.values.life_event && props.values.existing_conditions)}
-        >
+          disabled={!(props.values.life_event && props.values.existing_conditions && props.values.tobacco)}>
+       
           Next
         </button>
         <button

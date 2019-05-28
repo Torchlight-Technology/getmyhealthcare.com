@@ -169,7 +169,7 @@ class PageOne extends Component {
 					</div>
 					<div id="stats" class="stats">
 						<p>Over 150,000 people helped this year!</p>
-						<p>Get your personalized insureance plans</p>
+						<p>Get your personalized insurance plans</p>
 						<p>3 minutes to get a quote</p>
 					</div>
 					<div id="tips" class="tips">

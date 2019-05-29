@@ -3,11 +3,10 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import MaskedInput from 'react-text-mask';
 import Progress from 'preact-progress';
-//import ZipSubmit from '../../components/zip-submit';
 
 const zipMask = [/[0-9]/, /\d/, /\d/, /\d/, /\d/];
 
-const onChange = (ctx, val) => console.log(`${val}% complete`);
+const onChange = (ctx, val) => console.log('');
 
 // TODO Make ZipSubmit component
 class PageOne extends Component {
@@ -67,22 +66,13 @@ class PageOne extends Component {
         }
 
         return (
-            <div className="page">
 			<main>
 				<div class="mast">
 					<h2>Find the right health insurance for you!</h2>
 					<div class="mast-image"></div>
 					<h3>Get Started!</h3>
 					<div class="input-group">
-						<label htmlFor="household_size" name="household_size" >No. on Policy</label>
-						<select htmlFor="household_size" value={this.props.values.household_size} name="household_size" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>
-							<option value="">Select</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4+">4+</option>
-						</select>
-						<label htmlFor="home_zip" name="home_zip">Zip Code</label>
+						<label htmlFor="home_zip" name="home_zip">Please Enter Your ZIP Code to Start</label>
 						<Field
 								name="home_zip"
 								validate={isValidZip}
@@ -93,7 +83,7 @@ class PageOne extends Component {
 										placeholder="ZIP Code"
 										type="text"
 										guide={true}
-										onChange={(e)=>{
+										onChange={ (e) => {
 											this.props.handleChange(e);
 											this.props.handleLocalStorage(e);
 										}}
@@ -103,15 +93,10 @@ class PageOne extends Component {
 							<button
 								type="button"
 								onClick={ this.handleNext }
-								disabled={!(this.checkForErrors(this.props.errors) && this.props.values.household_size && this.props.values.home_zip)}
+								disabled={!(this.checkForErrors(this.props.errors) && this.props.values.home_zip)}
 							>
 								Next
 							</button>
-							<ErrorMessage
-								name="household_size"
-								component="div"
-								className="field-error"
-							/>
 							<ErrorMessage
 								name="home_zip"
 								component="div"
@@ -120,26 +105,24 @@ class PageOne extends Component {
 						</div>
 					</div>
 				<div class="plans">
-					<nav>
-						<ul>
-							<li>
-								<img src="/assets/pill-icon.svg" alt="Obamacare Plans" />
-								<p>Obamacare Plans</p>
-							</li>
-							<li>
-								<img src="/assets/life-case.svg" alt="Medicare Plans" />
-								<p>Short-term Plans</p>
-							</li>
-							<li>
-								<img src="/assets/heart-beat.svg" alt="Medicare Plans" />
-								<p>Medicare Plans</p>
-							</li>
-							<li>
-								<img src="/assets/Laptop Icon.svg" alt="Health Plans" />
-								<p>Health Plans</p>
-							</li>
-						</ul>
-					</nav>
+					<ul>
+						<li>
+							<img src="/assets/pill-icon.svg" alt="Obamacare Plans" />
+							<p>Obamacare Plans</p>
+						</li>
+						<li>
+							<img src="/assets/life-case.svg" alt="Medicare Plans" />
+							<p>Short-term Plans</p>
+						</li>
+						<li>
+							<img src="/assets/heart-beat.svg" alt="Medicare Plans" />
+							<p>Medicare Plans</p>
+						</li>
+						<li>
+							<img src="/assets/Laptop Icon.svg" alt="Health Plans" />
+							<p>Health Plans</p>
+						</li>
+					</ul>
 				</div>
 				<div class="about">
 				<h3>Everything you need for your health insurance choices in one place!</h3>
@@ -152,54 +135,41 @@ class PageOne extends Component {
 					<h4>Personalized Recommendations</h4>
 					<p>We sort through your options in our database, and point you in the right direction based on your needs, preferences, and budget.</p>
 					<div class="input-group">
-								<label htmlFor="household_size" name="household_size" >No. on Policy</label>
-								<select htmlFor="household_size" value={this.props.values.household_size} name="household_size" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>
-									<option value="">Select</option>
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4+">4+</option>
-								</select>
-								<label htmlFor="home_zip" name="home_zip">Zip Code</label>
-							<Field
-												name="home_zip"
-												render={({ field }) => (
-													<MaskedInput
-														{...field}
-														mask={[/[0-9]/, /\d/, /\d/, /\d/, /\d/]}
-														placeholder="ZIP Code"
-														type="text"
-														guide={true}
-														onChange={(e)=>{
-															this.props.handleChange(e);
-															this.props.handleLocalStorage(e);
-														}}
-													/>
-												)}
-											/>
-								<button
-									type="button"
-									onClick={this.handleNext}
-									disabled={!(this.checkForErrors(this.props.errors) && this.props.values.household_size && this.props.values.home_zip)}
-								>
-									Next
-								</button>
-								<ErrorMessage
-									name="household_size"
-									component="div"
-									className="field-error"
+						<label htmlFor="home_zip" name="home_zip">Please Enter Your ZIP Code to Start</label>
+						<Field
+							name="home_zip"
+							render={({ field }) => (
+								<MaskedInput
+									{...field}
+									mask={[/[0-9]/, /\d/, /\d/, /\d/, /\d/]}
+									placeholder="ZIP Code"
+									type="text"
+									guide={true}
+									onChange={(e)=>{
+										this.props.handleChange(e);
+										this.props.handleLocalStorage(e);
+									}}
 								/>
-								<ErrorMessage
-									name="home_zip"
-									component="div"
-									className="field-error zip-field-error"
-								/>
+							)}
+						/>
+						<button
+							type="button"
+							onClick={this.handleNext}
+							disabled={!(this.checkForErrors(this.props.errors) && this.props.values.home_zip)}
+						>
+							Next
+						</button>
+						<ErrorMessage
+							name="home_zip"
+							component="div"
+							className="field-error zip-field-error"
+						/>
 					</div>
 					</div>
 					</div>
 					<div id="stats" class="stats">
 						<p>Over 150,000 people helped this year!</p>
-						<p>Get your personalized insureance plans</p>
+						<p>Get your personalized insurance plans</p>
 						<p>3 minutes to get a quote</p>
 					</div>
 					<div id="tips" class="tips">
@@ -208,15 +178,8 @@ class PageOne extends Component {
 						<p>One thing people often overlook is reviewing how two different health plans can work together. For example, if you are married or have a domestic partner, understanding the coverage on both plans and comparing the advantages in each plan can help you reduce costs.</p>
 
 								<div class="input-group">
-								<label htmlFor="household_size" name="household_size" >No. on Policy</label>
-								<select htmlFor="household_size" value={this.props.values.household_size} name="household_size" placeholder="1" onChange={(e) => { this.props.handleChange(e); this.props.handleLocalStorage(e) } }>
-									<option value="">Select</option>
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4+">4+</option>
-								</select>
-								<label htmlFor="home_zip" name="home_zip">Zip Code</label>
+							
+								<label htmlFor="home_zip" name="home_zip">Please Enter Your ZIP Code to Start</label>
 							<Field
 												name="home_zip"
 												render={({ field }) => (
@@ -236,15 +199,10 @@ class PageOne extends Component {
 								<button
 									type="button"
 									onClick={this.handleNext}
-									disabled={!(this.checkForErrors(this.props.errors) && this.props.values.household_size && this.props.values.home_zip)}
+									disabled={!(this.checkForErrors(this.props.errors) && this.props.values.home_zip)}
 								>
 									Next
 								</button>
-								<ErrorMessage
-									name="household_size"
-									component="div"
-									className="field-error"
-								/>
 								<ErrorMessage
 									name="home_zip"
 									component="div"
@@ -253,7 +211,6 @@ class PageOne extends Component {
 							</div>
 						</div>
 					</main>
-				</div>
         );
     }
 }

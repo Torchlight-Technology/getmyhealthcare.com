@@ -22,9 +22,15 @@ const PageThree = props => (
 				  <h2>Check for discounts!</h2>
 				  <p>You may qualify for savings on your monthly based on your estimated household income.</p>
 				</div>
+				<label htmlFor="household_size" name="household_size" >No. on Policy</label>
+				<select htmlFor="household_size" value={props.values.household_size} name="household_size" placeholder="1" onChange={(e) => { props.handleChange(e); props.handleLocalStorage(e) } }>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4+">4+</option>
+				</select>
 				<label htmlFor="income" name="income">Annual Income</label>
 				<Field htmlFor="income" placholder="Annual Income" component="select" name="income" onChange={(e) => { props.handleLocalStorage(e); props.handleChange(e) } }>
-				  <option value="">Select</option>
 				  <option value="25000">Less than $25,000</option>
 					<option value="30000">$25,000 to $34,999</option>
 					<option value="42500">$35,000 to $49,999</option>
@@ -42,7 +48,7 @@ const PageThree = props => (
 				<button
 					type="button"
 					onClick={props.navigateNext}
-					disabled={!(props.values.income)}
+					disabled={!(props.values.household_size && props.values.income)}
 				>
 					Next
 				</button>

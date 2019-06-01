@@ -41,6 +41,7 @@ class Wizard extends Component {
       universal_leadid: universal_leadid,
       trusted_form_url: "",
       ip_address: "127.0.0.1",
+      offer_id: "",
       sub_id1: "",
       sub_id2: "",
       sub_id3: "",
@@ -137,6 +138,7 @@ class Wizard extends Component {
   handleSubmit = (values) => {
     // getting aff values
     values.client_name = this.props.affid || 'HealthDefault';
+    values.offer_id = this.props.offer_id || '1';
     values.sub_id1 = this.props.sub_id1 || 's1';
     values.sub_id2 = this.props.sub_id2 || 's2';
     values.sub_id3 = this.props.sub_id3 || 's3';

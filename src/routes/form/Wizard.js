@@ -152,6 +152,9 @@ class Wizard extends Component {
     values.dob = year + '-' + month + '-' + day;
     delete values.dateOfBirth;
 
+    // format phone_home 
+    values.phone_home = values.phone_home.toString().replace(/\D/g,'');
+
     //Assign ip address to values
     values.ip_address = ip_address;
 

@@ -2,7 +2,9 @@ $_button-background-color: $orange;
 $_button-background-color-hover: shade($action-color, 20%);
 
 button, input[type="submit"] {
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-color: $_button-background-color;
   border: 0;
   border-radius: $base-border-radius;
@@ -17,7 +19,10 @@ button, input[type="submit"] {
   text-align: center;
   text-decoration: none;
   transition: background-color $base-duration $base-timing;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   vertical-align: middle;
   white-space: nowrap;
 

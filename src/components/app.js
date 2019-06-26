@@ -42,9 +42,7 @@ export default class App extends Component {
 
 	render() {
 		return (
-
 			<div id="app">
-				<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5WZH76" height="0" width="0" style="display:none;visibility:hidden" />
 				<Helmet
 					title="Get My Health Care"
 					link={[

@@ -39,7 +39,9 @@ textarea {
 input,
 select,
 textarea {
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-color: $_form-background-color;
   border: $base-border;
   border-radius: $base-border-radius;
@@ -67,6 +69,22 @@ textarea {
     &:hover {
       border: $base-border;
     }
+  }
+
+  &::-webkit-input-placeholder {
+    color: tint($base-font-color, 40%);
+  }
+
+  &::-moz-placeholder {
+    color: tint($base-font-color, 40%);
+  }
+
+  &:-ms-input-placeholder {
+    color: tint($base-font-color, 40%);
+  }
+
+  &::-ms-input-placeholder {
+    color: tint($base-font-color, 40%);
   }
 
   &::placeholder {
@@ -104,9 +122,9 @@ select {
   }
 }
 
-// Radio
+/* Radio*/
 input[type=radio] {
-	display:none;
+  display:none;
 }
 
 input[type=radio] + label {
@@ -120,7 +138,7 @@ input[type=radio] + label {
   min-width: 70px;
 
   &:first {
-  	margin-left: 0;
+    margin-left: 0;
   }
 }
 
@@ -131,7 +149,7 @@ input[type=radio]:checked + label {
 }
 
 .radio-row {
-	input[type=radio] + label:first-of-type {
-	  	margin-left: 0;
-	  }
+  input[type=radio] + label:first-of-type {
+      margin-left: 0;
+    }
 }

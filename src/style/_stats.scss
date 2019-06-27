@@ -1,3 +1,5 @@
+/* autoprefixer grid: autoplace */
+
 div.stats {
 	background: $blue-light;
 	padding: 1rem;
@@ -19,19 +21,39 @@ div.stats {
 			padding-bottom: 0;
 		}
 	}
+}
 
-	@media (min-width: 800px) {
+@media (min-width: 800px) {
+	div.stats {
+		display: -ms-grid;
 		display: grid;
+		-ms-grid-columns: 1fr 1fr 1fr;
 		grid-template-columns: 1fr 1fr 1fr;
+		-ms-grid-rows: 1fr;
 		grid-template-rows: 1fr;
 		align-items: center;
 		min-height: 150px;
+		height: 100%;
 
-		p {
+		p {	
+			grid-row: 1 / 2;
+			align-self: center;
 			margin: 0;
+			padding: 0;
 			max-width: 100%;
 			border-bottom: none;
-			padding: 0 1em;
 		}
+	}
+	div.stats > *:nth-child(1) {
+		-ms-grid-row: 1;
+		-ms-grid-column: 1
+	}
+	div.stats > *:nth-child(2) {
+		-ms-grid-row: 1;
+		-ms-grid-column: 2
+	}
+	div.stats > *:nth-child(3) {
+		-ms-grid-row: 1;
+		-ms-grid-column: 3
 	}
 }

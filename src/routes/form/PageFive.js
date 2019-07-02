@@ -87,6 +87,7 @@ const PageFive = props => (
 							mask={phoneNumberMask}
 							placeholder="Enter your phone number"
 							type="phone"
+							guide={false}
 							onChange={(e)=>{
 								props.handleChange(e);
 								props.handleLocalStorage(e);

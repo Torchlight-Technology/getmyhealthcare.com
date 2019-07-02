@@ -82,7 +82,7 @@ class PageOne extends Component {
 										mask={[/[0-9]/, /\d/, /\d/, /\d/, /\d/]}
 										placeholder="ZIP Code"
 										type="text"
-										guide={true}
+										guide={false}
 										onChange={ (e) => {
 											this.props.handleChange(e);
 											this.props.handleLocalStorage(e);
@@ -144,7 +144,7 @@ class PageOne extends Component {
 									mask={[/[0-9]/, /\d/, /\d/, /\d/, /\d/]}
 									placeholder="ZIP Code"
 									type="text"
-									guide={true}
+									guide={false}
 									onChange={(e)=>{
 										this.props.handleChange(e);
 										this.props.handleLocalStorage(e);
@@ -188,7 +188,7 @@ class PageOne extends Component {
 														mask={[/[0-9]/, /\d/, /\d/, /\d/, /\d/]}
 														placeholder="ZIP Code"
 														type="text"
-														guide={true}
+														guide={false}
 														onChange={(e)=>{
 															this.props.handleChange(e);
 															this.props.handleLocalStorage(e);

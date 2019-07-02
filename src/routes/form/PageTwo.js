@@ -53,6 +53,7 @@ const PageTwo = props => (
 							placeholder="MM/DD/YYYY"
 							type="dateofBirth"
 							pipe={autoCorrectedDatePipe}
+							guide={false}
 							onChange={(e)=>{
 								props.handleChange(e);
 								props.handleLocalStorage(e);

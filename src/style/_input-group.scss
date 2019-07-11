@@ -24,6 +24,7 @@ div.input-group {
 		-ms-grid-column-span: 2;
 		grid-column: 1 / 3;
 		color: $blue;
+		text-align: left;
 	}
 
 	input, select {
@@ -47,7 +48,7 @@ div.input-group {
 	.zip-field-error {
 		-ms-grid-column: 2;
 		-ms-grid-column-span: 1;
-		grid-column: 2 / 3;
+		grid-column: 1 / 3;
 	}
 
 	input[name="home_zip"] {
@@ -82,10 +83,18 @@ div.input-group {
 
 @media (min-width: 500px) {
 	div.input-group {
-		-ms-grid-rows: 30px 70%;
-		grid-template-rows: 30px 70%;
+		padding: 0 .75rem;
+		-ms-grid-rows: 40px 70px 25px;
+		grid-template-rows: 40px 70px 25px;
 		-ms-grid-columns: 110px 1fr 1.5fr;
 		grid-template-columns: 110px 1fr 1.5fr;
+		max-height: 100%;
+
+		label[name="home_zip"] {
+			align-self: center;
+			padding: 0;
+			margin: 0;
+		}
 
 		input[name="home_zip"] {
 			font-size: 2rem;
@@ -117,9 +126,5 @@ div.input-group {
 @media (min-width: 650px) {
 	div.input-group {
 		max-width: 520px;
-
-		input[type="submit"]  {
-			margin-bottom: 2rem;
-		}
 	}
 }

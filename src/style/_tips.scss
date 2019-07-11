@@ -20,8 +20,8 @@ div.tips {
 	div.tips {
 		display: -ms-grid;
 		display: grid;
-		-ms-grid-rows: 70px 1fr 1fr 110px;
-		grid-template-rows: 70px 1fr 1fr 110px;
+		-ms-grid-rows: 70px 1fr 1fr .7fr;
+		grid-template-rows: 70px 1fr 1fr .7fr;
 		-ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 

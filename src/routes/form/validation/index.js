@@ -1,6 +1,9 @@
 import * as Yup from 'yup';
 
 export const SignUpSchema = Yup.object().shape({
+  home_zip: Yup.string()
+    .required('Required')
+    .test('zip-len', 'Zip must be at 5', val => val && val.replace(/[^0-9]/g, "").length === 5),
   dateOfBirth: Yup.string()
     .test('date-len', 'Date must be at 8 characters long', val => val && val.replace(/[^0-9]/g, "").length === 8)
     .required('Required'),

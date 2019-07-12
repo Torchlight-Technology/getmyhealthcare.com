@@ -1,8 +1,7 @@
 import { h } from 'preact';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
 import Progress from 'preact-progress';
-
+import Buttons from './Buttons'
 const onChange = (ctx, val) => console.log(`${val}% complete`);
 
 const PageThree = props => (
@@ -45,20 +44,8 @@ const PageThree = props => (
 				  component="div"
 				  className="field-error"
 				/>
-				<button
-					type="button"
-					onClick={props.navigateNext}
-					disabled={!(props.values.household_size && props.values.income)}
-				>
-					Next
-				</button>
-				<button
-				 	class="back-button"
-					type="button"
-					onClick={props.navigateBack}
-				>
-					Back
-				</button>
+				<Buttons type="next" fields={['household_size', 'income']} {...props} />
+				<Buttons type="back" {...props} />
 			</div>
 		</div>
 	</div>

@@ -3,6 +3,7 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import MaskedInput from 'react-text-mask';
 import Progress from 'preact-progress';
+import Buttons from './Buttons'
 
 const onChange = (ctx, val) => console.log(`${val}% complete`);
 
@@ -100,20 +101,9 @@ const PageFive = props => (
 					component="div"
 					className="field-error"
 				/>
-				<button
-					type="submit"
-					disabled={!(checkForErrors(props.errors) && props.values.name_first && props.values.name_last && props.values.home_street && props.values.email && props.values.phone_home)}
-				>
-				Submit
-				</button>
+				<Buttons type="submit" {...props} />
 				<p class="disclaimer">By completing a contact form on this site, clicking "Submit", or calling the number listed on this site, you may be directed to a sales agent who can answer your questions and provide information about health insurance plans and other services. (Agents are not connected with or endorsed by the U.S. government.) By interacting with the site, you provide an electronic signature by which you agree to the following terms: "I consent to receive emails, notifications, and calls about health insurance plans or products from <a href="/about/">these companies</a> and their agents to the telephone number(s) I have provided. 'Calls' may be auto-dialed, use artificial or pre-recorded voices, and/or be text messages, including recurring messages sent via a short code program. I understand that my consent to receive calls is not required in order to purchase any property, goods or services. My telephone company may impose additional charges for messages. I may revoke my consent to receiving messages at any time. By submitting my information, I confirm that I have read, understand, and agree to these <a href="/terms/">Terms of Use</a> and <a href="/privacy/">Privacy Policy</a>."</p>
-				<button
-					class="back-button"
-					type="button"
-					onClick={props.navigateBack}
-				>
-					Back
-				</button>
+				<Buttons type="back" {...props} />
 			</div>
 		</div>
 	</div>

@@ -3,6 +3,7 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import MaskedInput from 'react-text-mask';
 import Progress from 'preact-progress';
+import Buttons from './Buttons'
 
 const zipMask = [/[0-9]/, /\d/, /\d/, /\d/, /\d/];
 
@@ -11,58 +12,15 @@ const onChange = (ctx, val) => console.log('');
 // TODO Make ZipSubmit component
 class PageOne extends Component {
 
-    getStateAndCity = async (zip) => {
-        let response = fetch(`https://api.zippopotam.us/us/${zip}`, {
-                method: 'GET'
-            })
-            .then((res) => res.json())
-            .then((data) => (data.places[0]));
-
-        let data = await response;
-
-        return {
-            home_city: data['place name'],
-            home_state: data['state abbreviation']
-        }
-    }
-
-    handleNext = async () => {
-        // get localStorage assign to temp const
-        const tempStorage = JSON.parse(sessionStorage.getItem('getmyhealth'))
-
-        // get state and city from API
-        const stateAndCity = await this.getStateAndCity(tempStorage['home_zip'])
-        tempStorage['home_city'] = stateAndCity.home_city;
-        tempStorage['home_state'] = stateAndCity.home_state;
-
-        // Set local storage with new values
-        sessionStorage.setItem('getmyhealth', JSON.stringify(tempStorage))
-
-        // Set hidden values form API submit
-        this.props.setFieldValue('home_city', stateAndCity.home_city)
-        this.props.setFieldValue('home_state', stateAndCity.home_state)
-
-        // Navigate to next page
-        this.props.navigateNext()
-
-    }
-
-    // check if home_zip exists in errors
-    checkForErrors = (errors) => {
-        return !errors.hasOwnProperty('home_zip');
-    }
-
     render() {
         // Tests if zip exists
         const isValidZip = async (value) => {
-            if (value && value.replace(/[^0-9]/g, "").length === 5) {
-                const response = await fetch(`https://api.zippopotam.us/us/${value}`);
-                if (response.status !== 200) {
-                    return 'Not good zip';
-                }
-            } else if (value && value.replace(/[^0-9]/g, "").length < 5) {
-                return 'Must have 5 digits';
-            }
+					if (value && value.replace(/[^0-9]/g, "").length === 5) {
+						const response = await fetch(`https://api.zippopotam.us/us/${value}`);
+						if (response.status !== 200) {
+							return 'Not good zip';
+						}
+					}
         }
 
         return (
@@ -90,13 +48,7 @@ class PageOne extends Component {
 									/>
 								)}
 							/>
-							<button
-								type="button"
-								onClick={ this.handleNext }
-								disabled={!(this.checkForErrors(this.props.errors) && this.props.values.home_zip)}
-							>
-								Next
-							</button>
+							<Buttons type="next" fields={['home_zip']} {...this.props} />
 							<ErrorMessage
 								name="home_zip"
 								component="div"
@@ -152,13 +104,7 @@ class PageOne extends Component {
 								/>
 							)}
 						/>
-						<button
-							type="button"
-							onClick={this.handleNext}
-							disabled={!(this.checkForErrors(this.props.errors) && this.props.values.home_zip)}
-						>
-							Next
-						</button>
+						<Buttons type="next" fields={['home_zip']} {...this.props} />
 						<ErrorMessage
 							name="home_zip"
 							component="div"
@@ -180,29 +126,23 @@ class PageOne extends Component {
 								<div class="input-group">
 							
 								<label htmlFor="home_zip" name="home_zip">Please Enter Your ZIP Code to Start</label>
-							<Field
-												name="home_zip"
-												render={({ field }) => (
-													<MaskedInput
-														{...field}
-														mask={[/[0-9]/, /\d/, /\d/, /\d/, /\d/]}
-														placeholder="ZIP Code"
-														type="text"
-														guide={false}
-														onChange={(e)=>{
-															this.props.handleChange(e);
-															this.props.handleLocalStorage(e);
-														}}
-													/>
-												)}
-											/>
-								<button
-									type="button"
-									onClick={this.handleNext}
-									disabled={!(this.checkForErrors(this.props.errors) && this.props.values.home_zip)}
-								>
-									Next
-								</button>
+								<Field
+									name="home_zip"
+									render={({ field }) => (
+										<MaskedInput
+											{...field}
+											mask={[/[0-9]/, /\d/, /\d/, /\d/, /\d/]}
+											placeholder="ZIP Code"
+											type="text"
+											guide={false}
+											onChange={(e)=>{
+												this.props.handleChange(e);
+												this.props.handleLocalStorage(e);
+											}}
+										/>
+									)}
+								/>
+								<Buttons type="next" fields={['home_zip']} {...this.props} />
 								<ErrorMessage
 									name="home_zip"
 									component="div"

@@ -5,6 +5,7 @@ import MaskedInput from 'react-text-mask';
 import { Router, route } from 'preact-router';
 import Progress from 'preact-progress';
 import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe';
+import Buttons from './Buttons'
 
 const autoCorrectedDatePipe = createAutoCorrectedDatePipe('mm/dd/yyyy', {"minYear": "1920", "maxYear": "2000"});
 
@@ -78,14 +79,8 @@ const PageTwo = props => (
 				  component="div"
 				  className="field-error"
 				/>
-				<button type="button" onClick={props.navigateNext} disabled={!(checkForErrors(props.errors) && props.values.gender && props.values.dateOfBirth)}>Next</button>
-				<button
-					class="back-button"
-					type="button"
-					onClick={props.navigateBack}
-				>
-					Back
-				</button>
+				<Buttons type="next" fields={['dateOfBirth', 'gender']} {...props} />
+				<Buttons type="back" {...props} />
 			</div>
 		</div>
 	</div>

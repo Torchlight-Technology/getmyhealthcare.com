@@ -72,7 +72,6 @@ const PageTwo = props => (
 				  <option value="">Select</option>
 				  <option value="M" name="gender">Male</option>
 				  <option value="F" name="gender">Female</option>
-				   <option value="N" name="gender">Non-binary</option>
 				</Field>
 				<ErrorMessage
 				  name="gender"

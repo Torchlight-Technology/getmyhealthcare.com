@@ -4,7 +4,7 @@ node_modules
 *.lock
 s3
 .env.development
-
+.DS_Store
 package-lock.json
 
 # Elastic Beanstalk Files

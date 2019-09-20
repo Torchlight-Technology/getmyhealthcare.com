@@ -2,6 +2,9 @@ html, body {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 	*, *:before, *:after {
 	  box-sizing: inherit;
 	}
@@ -11,6 +14,10 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+#app {
+	min-height: 100vh;
 }
 
 #app, .app, main {

@@ -35,6 +35,10 @@ header.header {
 
 	.button-container {
 		text-align: right;
+
+		button {
+			display: none;
+		}
 	}
 
 	.show + nav {

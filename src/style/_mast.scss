@@ -6,6 +6,7 @@ div.mast {
 	box-sizing: border-box;
 
 	div.mast-image {
+		display: none;
 		background-image: url('/assets/landing-bg.jpg');
 		background-size: cover;
 		background-position: 100% 100%;

@@ -26,7 +26,7 @@ class PageOne extends Component {
         return (
 			<main>
 				<div class="mast">
-					<h2>Find the right health insurance for you!</h2>
+					<h2>Low cost health insurance options available!</h2>
 					<div class="mast-image"></div>
 					<h3>Get Started!</h3>
 					<div class="input-group">

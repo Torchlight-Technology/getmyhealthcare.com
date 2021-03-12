@@ -151,7 +151,7 @@ class Wizard extends Component {
     values.dob = year + '-' + month + '-' + day;
     delete values.dateOfBirth;
 
-    // format phone_home 
+    // format phone_home
     values.phone_home = values.phone_home.toString().replace(/\D/g,'');
 
     //Assign ip address to values
@@ -161,14 +161,14 @@ class Wizard extends Component {
     let trusted_form_url_value =  document.getElementById('trusted_form_url_0').value;
     values.trusted_form_url = trusted_form_url_value;
 
-    
+
 
     fetch(`https://api.zippopotam.us/us/${values.home_zip}`, {
           method: 'GET'
       })
       .then((res) => res.json())
       .then((data) => (data.places[0]))
-      .then(data => { 
+      .then(data => {
         values.home_city = data['place name']
         values.home_state = data['state abbreviation']
       })
@@ -176,12 +176,12 @@ class Wizard extends Component {
         const data = Object.keys(values).map(k => `${encodeURIComponent(k)}=${encodeURIComponent(values[k])}`).join('&');
         console.log('form data object: ', values);
         console.log('form data query: ', data);
-        this.claimTrustedForm(data);
+        // this.claimTrustedForm(data);
         this.postToOnePingTree(data);
         sessionStorage.setItem('cpcman', JSON.stringify(values));
         route('/thank-you');
       } )
-    
+
   }
 
   render() {

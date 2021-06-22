@@ -48,7 +48,7 @@
     "dotenv": "8.0.0",
     "formik": "1.5.1",
     "linkstate": "1.1.1",
-    "postcss": "^7.0.16",
+    "postcss": "^7.0.36",
     "preact": "8.2.6",
     "preact-animate": "3.0.5",
     "preact-compat": "3.18.4",
@@ -60,7 +60,7 @@
     "react-text-mask": "5.4.3",
     "string-mask": "0.3.0",
     "text-mask-addons": "3.8.0",
-    "yup": "0.27.0"
+    "yup": "^0.32.9"
   },
   "jest": {
     "verbose": true,
